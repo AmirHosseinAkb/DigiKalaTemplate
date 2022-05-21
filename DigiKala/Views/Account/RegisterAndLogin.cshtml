@@ -1,0 +1,77 @@
+﻿@model RegisterAndLoginViewModel
+
+@{
+    Layout = null;
+    ViewData["Title"] = "RegisterAndLogin";
+}
+
+<html>
+<head>
+    <partial name="PartialViews/_Styles"></partial>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="page-mini-header py-4">
+            <div class="d-flex justify-content-center">
+                <div class="logo-container">
+                    <a href="index-1.html" class="logo"><img src="./assets/images/logo-dark.png" width="120" alt=""></a>
+                </div>
+            </div>
+        </header>
+        <main class="page-content page-auth">
+            <!-- auth-container -->
+            <div class="auth-container">
+                <div class="auth-title mb-3">ورود / ثبت نام</div>
+                <!-- auth-box -->
+                <div class="auth-box ui-box">
+                    <!-- auth-form -->
+                    <form action="#" class="auth-form">
+                        <!-- form-element -->
+                        <div class="form-element-row mb-5">
+                            <input asp-for="EmailOrPhoneNumber" type="text" class="form-control" placeholder="شماره همراه یا ایمیل">
+                        </div>
+                        <!--  form-element -->
+                        <!-- form-element -->
+                        <div class="form-element-row mb-3">
+                            <button class="btn btn-primary">ادامه</button>
+                        </div>
+                        <!--  form-element -->
+                        <!-- form-element -->
+                        <div class="form-element-row">
+                            <div>
+                                با ورود و یا ثبت نام در سایت شما <a href="#" class="link">
+                                    شرایط و
+                                    قوانین
+                                </a> استفاده
+                                از تمام سرویس های
+                                سایت و <a href="#" class="link">قوانین حریم خصوصی</a> آن را می‌پذیرید.
+                            </div>
+                        </div>
+                        <!--  form-element -->
+                    </form>
+                    <!--  auth-form -->
+                </div>
+                <!--  auth-box -->
+            </div>
+            <!-- auth-container -->
+        </main>
+        <footer class="page-mini-footer">
+
+            <div class="copy-right bg-light py-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 mb-md-0 mb-4">
+                            <div class="text-muted text-md-start text-center">کليه حقوق اين سايت متعلق به مای استور می‌باشد.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-muted text-md-end text-center">2022 © Copyright</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+

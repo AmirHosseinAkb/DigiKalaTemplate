@@ -1,0 +1,44 @@
+.page-footer {
+    background-color: #fff;
+    border-top: 1px solid #efefef;
+
+    .footer-logo-area {
+        @media (max-width: 576px) {
+            .logo-container {
+                min-width: 100%;
+                .logo{
+                    align-items: center;
+                }
+            }
+        }
+
+        .logo-container {
+            padding: 10px 0;
+        }
+    }
+
+    .trust-symbol {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        a {
+            display: inline-block;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 15px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+
+            img {
+                max-width: 80px;
+            }
+        }
+    }
+}
+
+.page-mini-footer {
+    background-color: #fff;
+    border-top: 1px solid #efefef;
+}

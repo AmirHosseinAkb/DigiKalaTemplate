@@ -1,0 +1,13 @@
+.form-control {
+    background-color: #fff;
+    border: 1px solid #eee;
+    box-shadow: unset !important;
+    min-height: 44px;
+    font-size: 14px;
+
+    &:hover,
+    &:focus {
+        background-color: #fff;
+        border: 1px solid #eee;
+    }
+}

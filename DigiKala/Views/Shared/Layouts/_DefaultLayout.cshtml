@@ -1,0 +1,30 @@
+﻿
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <partial name="PartialViews/_MetaTags"></partial>
+
+    <title>مای استور</title>
+
+    <partial name="PartialViews/_Styles"></partial>
+
+    @RenderSection("Styles",false)
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <partial name="PartialViews/_Header"></partial>
+
+        <!-- page-content -->
+        @RenderBody()
+        <!--  page-content -->
+        <partial name="PartialViews/_Footer"></partial>
+    </div>
+
+    <partial name="PartialViews/_Scripts"></partial>
+    @RenderSection("Scripts",false)
+</body>
+
+</html>

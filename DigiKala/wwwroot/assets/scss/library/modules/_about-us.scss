@@ -1,0 +1,275 @@
+.about-us{
+    background-color: #fff;
+    .about-us-head{
+        background: linear-gradient(225deg,#d22c4e,#ee384e 41.68%,#ef5662);
+        .about-us-head-content{
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 109px 24px;
+            background-image: url(../images/page-about/bg-head.png);
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            .about-us-head-title-logo{
+                font-size: 44px;
+                color: #fff;
+            }
+            .about-us-head-title{
+                font-size: 1.5rem;
+                line-height: 1.8;
+                font-weight: 800;
+                color: #fff;
+                margin-top: 8px;
+            }
+            .about-us-head-text{
+                font-size: 1.071rem;
+                line-height: 1.8;
+                color: #fff;
+                max-width: 500px;
+            }
+        }
+    }
+    .about-us-content {
+        .about-us-description-section{
+            padding: 60px 10px;
+            .about-us-description-title{
+                text-align: center;
+                font-size: 1.857rem;
+                line-height: 1.8;
+                color: #232933;
+            }
+            .about-us-description-text{
+                text-align: center;
+                font-size: 1rem;
+                line-height: 1.8;
+                color: #030a16;
+                margin: 5px auto 0;
+                max-width: 800px;
+            }
+            .about-us-desc-cards-container{
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                margin-top: 8px;
+                .about-us-desc-card{
+                    text-align: center;
+                    width: 240px;
+                    margin-top: 32px;
+                    :nth-child(2){
+                        border-left: 1px solid #e0e0e2;
+                        border-right: 1px solid #e0e0e2;
+                    }
+                    .about-us-desc-card-number{
+                        font-size: 2rem;
+                        line-height: 1.571;
+                        color: #19bfd3;
+                        font-weight: 800;
+                        margin-top: 5px;
+                    }
+                    .about-us-desc-card-text{
+                        font-size: 1.357rem;
+                        line-height: 1.8;
+                        color: #424750;
+                        font-weight: 700;
+                    }
+                    .about-us-desc-card-link{
+                        font-size: .857rem;
+                        line-height: 1.8;
+                        color: #e6123d;
+                        font-weight: 700;
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                        -webkit-box-align: center;
+                        -ms-flex-align: center;
+                        align-items: center;
+                        margin-top: 15px;
+                    }
+                    .about-us-desc-card-link i{
+                        margin-right: 5px;
+                        vertical-align: middle;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+    .page-content-about{
+        padding: 5px 100px;
+        .page-content-about-paragraph{
+            margin: 30px 0;
+            display: block;
+        }
+        .page-content-about-paragraph p{
+            font-size: 14px;
+            line-height: 2.5;
+            color: #535353;
+            direction: rtl;
+            text-align: right;
+        }
+        .page-content-about-full-image{
+            width: 100%;
+            text-align: center;
+            margin: 96px auto 25px;
+        }
+        .page-content-about-full-image img{
+            max-width: 100%;
+        }
+    }
+}
+
+.contact-us{
+    .page-content-contact-us{
+        padding: 5px 100px;
+        h1.page-content-contact-us-title{
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 1.63;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            color: #555;
+        }
+        .page-content-contact-us-col-big {
+            p{
+                font-size: 14px;
+                line-height: 2.5;
+                color: #535353;
+                direction: rtl;
+                text-align: right;
+                margin-bottom: 0;
+                a{
+                    color: #1ca2bd;
+                }
+            }
+            .contact-us-form{
+                .contact-us-form-body{
+                    .form-legal-item{
+                        width: 48%;
+                        margin: 25px 0;
+                        display: inline-block;
+                    }
+                    .legal-item-textarea{
+                        width: 100%;
+                    }
+                    .form-legal-item {
+                        .form-legal-label{
+                            font-size: 13px;
+                            position: relative;
+                            width: 100%;
+                            min-height: 1px;
+                            padding-left: 5px;
+                            padding-right: 15x;
+                            margin-bottom: 5px;
+                        }
+                        .ui-input-field{
+                            width: 100%;
+                            border-radius: 5px;
+                            background: #fff;
+                            border: 1px solid #d9d9d9;
+                            color: #717171;
+                            font-size: 13px;
+                            line-height: 1.571;
+                            padding: 7px 12px;
+                            letter-spacing: -.8px;
+                            outline: none;
+                        }
+                    }
+                }
+            }
+
+        }
+        .page-content-contact-us-title-smaller{
+            width: 100%;
+            float: right;
+            margin-top: 0;
+            color: #555;
+            font-size: 20px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            font-weight: 700;
+            .page-content-contact-us-full-paragraph{
+                font-size: 14px;
+                line-height: 2.5;
+                color: #535353;
+                direction: rtl;
+                text-align: right;
+            }
+        }
+        .message-light-error{
+            background-color: #fff9fa;
+            border: 1px solid #ffc1c5;
+            color: #ef5662;
+            padding: 22px;
+            position: relative;
+            border-radius: 15px;
+            line-height: 22px;
+            margin: 15px auto;
+            padding-right: 15px;
+            font-size: 14px;
+            width: 100%;
+            float: right;
+        }
+        .page-content-contact-us-full-paragraph{
+            font-size: 14px;
+            line-height: 2.5;
+            color: #535353;
+            direction: rtl;
+            text-align: right;
+            width: 100%;
+            float: right;
+        }
+    }
+    .info-page-separator{
+        margin: 40px auto 36px;
+        border-top: 1px solid #9b9b9b;
+    }
+    .message-light{
+        color: #424750;
+        padding: 22px;
+        position: relative;
+        border-radius: 15px;
+        line-height: 22px;
+        margin: 15px auto;
+        padding-right: 0;
+        font-size: 14px;
+        float: none;
+        ul{
+            padding: 10px 25px 0 0;
+            list-style: disc;
+        }
+    }
+    .message-light-success{
+        background-color: #eeffdf;
+        border: 1px solid #b7ecb8;
+        color: #518541;
+        padding: 22px;
+        position: relative;
+        border-radius: 15px;
+        line-height: 22px;
+        margin: 15px auto;
+        padding-right: 15px;
+        font-size: 14px;
+        span.info-page-bold{
+            font-size: 20px;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+        span.info-page-bold a{
+            color: #518541;
+            font-weight: 700;
+        }
+
+    }
+}

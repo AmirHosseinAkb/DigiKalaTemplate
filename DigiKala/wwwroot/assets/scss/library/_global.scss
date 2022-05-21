@@ -1,0 +1,49 @@
+body {
+    background-color: $color-body;
+}
+
+.page-wrapper {
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: $font-fa;
+    font-size: $font-base;
+
+    .page-content {
+        flex: 1 1 auto;
+        padding: 20px 0;
+
+        @media (max-width: 768px) {
+            padding: 15px 0;
+        }
+
+        &.page-auth {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.simplebar-track {
+    &.simplebar-vertical {
+        width: 7px;
+        left: 0;
+        right: auto;
+    }
+
+    .simplebar-scrollbar {
+        &::before {
+            background-color: #efefef;
+            opacity: 1 !important;
+        }
+    }
+}
+
+.container {
+    max-width: 1320px;
+}
