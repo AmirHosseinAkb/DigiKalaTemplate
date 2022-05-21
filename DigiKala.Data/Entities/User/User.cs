@@ -12,7 +12,7 @@ namespace DigiKala.Data.Entities.User
         [Key]
         public int UserId { get; set; }
 
-        [Display(Name = "ایمیل")]
+        [Display(Name ="ایمیل")]
         [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
         [EmailAddress(ErrorMessage ="فرمت ایمیل صحیح نمی باشد")]
         public string? Email { get; set; }

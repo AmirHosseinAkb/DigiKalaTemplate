@@ -19,4 +19,8 @@
     <Folder Include="Entities\BaseModels\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Resources\Resources.csproj" />
+  </ItemGroup>
+
 </Project>
