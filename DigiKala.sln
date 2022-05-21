@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiKala.Data", "DigiKala.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiKala.Core", "DigiKala.Core\DigiKala.Core.csproj", "{3528FC31-4237-4887-A8B5-F35BE0DEA6FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{32288D96-FEAE-4334-8DB4-86E7CED2B793}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3528FC31-4237-4887-A8B5-F35BE0DEA6FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3528FC31-4237-4887-A8B5-F35BE0DEA6FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3528FC31-4237-4887-A8B5-F35BE0DEA6FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32288D96-FEAE-4334-8DB4-86E7CED2B793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32288D96-FEAE-4334-8DB4-86E7CED2B793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32288D96-FEAE-4334-8DB4-86E7CED2B793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32288D96-FEAE-4334-8DB4-86E7CED2B793}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

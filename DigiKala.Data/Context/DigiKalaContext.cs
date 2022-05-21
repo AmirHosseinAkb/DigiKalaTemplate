@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using DigiKala.Data.Entities.User;
 
 namespace DigiKala.Data.Context
 {
@@ -13,10 +14,13 @@ namespace DigiKala.Data.Context
         {
 
         }
+        public DbSet<User> Users { get; set; }
 
-        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>()
+                .HasQueryFilter(u => !u.IsDeleted);
+                
             base.OnModelCreating(modelBuilder); 
         }
     }
