@@ -8,5 +8,6 @@ namespace DigiKala.Core.Services.Interfaces
 {
     public interface IUserService
     {
+        bool IsExistUserByEmail(string email);
     }
 }

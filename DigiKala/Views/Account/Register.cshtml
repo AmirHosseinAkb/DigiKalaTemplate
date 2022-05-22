@@ -1,8 +1,5 @@
-﻿@model RegisterAndLoginViewModel
-
-@{
+﻿@{
     Layout = null;
-    ViewData["Title"] = "ثبت نام و ورود";
 }
 
 <html>
@@ -14,40 +11,31 @@
         <header class="page-mini-header py-4">
             <div class="d-flex justify-content-center">
                 <div class="logo-container">
-                    <a href="index-1.html" class="logo"><img src="./assets/images/logo-dark.png" width="120" alt=""></a>
+                    <a href="index-1.html" class="logo"><img src="~/assets/images/logo-dark.png" width="120" alt=""></a>
                 </div>
             </div>
         </header>
         <main class="page-content page-auth">
             <!-- auth-container -->
             <div class="auth-container">
-                <div class="auth-title mb-3">ورود / ثبت نام</div>
+                <div class="auth-title mb-3">ایجاد رمز عبور</div>
                 <!-- auth-box -->
                 <div class="auth-box ui-box">
                     <!-- auth-form -->
                     <form method="post" class="auth-form">
                         <!-- form-element -->
                         <div class="form-element-row mb-5">
-                            <input asp-for="EmailOrPhoneNumber" type="text" class="form-control" placeholder="شماره همراه یا ایمیل">
+                            <input  type="text" class="form-control" placeholder="رمز عبور">
+                        </div>
+                         <div class="form-element-row mb-5">
+                            <input  type="text" class="form-control" placeholder="تکرار رمز عبور">
                         </div>
                         <!--  form-element -->
                         <!-- form-element -->
                         <div class="form-element-row mb-3">
-                            <button class="btn btn-primary">ادامه</button>
+                            <button class="btn btn-primary">ثبت نام</button>
                         </div>
-                        <!--  form-element -->
-                        <!-- form-element -->
-                        <div class="form-element-row">
-                            <div>
-                                با ورود و یا ثبت نام در سایت شما <a href="#" class="link">
-                                    شرایط و
-                                    قوانین
-                                </a> استفاده
-                                از تمام سرویس های
-                                سایت و <a href="#" class="link">قوانین حریم خصوصی</a> آن را می‌پذیرید.
-                            </div>
-                        </div>
-                        <!--  form-element -->
+
                     </form>
                     <!--  auth-form -->
                 </div>
@@ -71,8 +59,6 @@
             </div>
         </footer>
     </div>
-    <partial name="PartialViews/_Scripts" ></partial>
+    <partial name="PartialViews/_Scripts"></partial>
 </body>
 </html>
-
-

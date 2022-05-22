@@ -101,209 +101,220 @@
                     </div>
                 </div>
                 <div class="user-options">
-                    <div class="user-option user-option--account">
-                        <a href="profile.html" class="user-option-btn user-option-btn--account">
-                            <i class="ri-user-fill icon"></i>
-                            <i class="ri-arrow-down-s-fill icon fs-7 text-muted"></i>
-                        </a>
-                        <div class="user-option--dropdown">
-                            <div class="profile-user-info ui-box">
-                                <div class="profile-detail">
-                                    <div class="d-flex align-items-center">
-                                        <div class="profile-avatar me-3">
-                                            <img src="./assets/images/avatar/default.png" alt="avatar">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="user-option user-option--account">
+                            <a href="profile.html" class="user-option-btn user-option-btn--account">
+                                <i class="ri-user-fill icon"></i>
+                                <i class="ri-arrow-down-s-fill icon fs-7 text-muted"></i>
+                            </a>
+                            <div class="user-option--dropdown">
+                                <div class="profile-user-info ui-box">
+                                    <div class="profile-detail">
+                                        <div class="d-flex align-items-center">
+                                            <div class="profile-avatar me-3">
+                                                <img src="./assets/images/avatar/default.png" alt="avatar">
+                                            </div>
+                                            <div class="profile-info">
+                                                <a href="profile.html" class="text-decoration-none text-dark fw-bold mb-2">محسن اسماعیلی</a>
+                                                <div class="text-muted fs-7 fw-bold">۰۹xxxxxxxxx</div>
+                                            </div>
                                         </div>
-                                        <div class="profile-info">
-                                            <a href="profile.html" class="text-decoration-none text-dark fw-bold mb-2">محسن اسماعیلی</a>
-                                            <div class="text-muted fs-7 fw-bold">۰۹xxxxxxxxx</div>
-                                        </div>
-                                    </div>
-                                    <div class="user-options">
-                                        <ul>
-                                            <li>
-                                                <span class="label">کیف پول</span>
-                                                <span class="detail">
-                                                    <span class="d-block">
-                                                        ۰ <span class="currency fs-7 fw-bold">تومان</span>
-                                                    </span>
-                                                    <a href="#"
+                                        <div class="user-options">
+                                            <ul>
+                                                <li>
+                                                    <span class="label">کیف پول</span>
+                                                    <span class="detail">
+                                                        <span class="d-block">
+                                                            ۰ <span class="currency fs-7 fw-bold">تومان</span>
+                                                        </span>
+                                                        <a href="#"
                                                        class="link border-bottom-0 text-info fs-7 fw-bold">
-                                                        افزایش
-                                                        موجودی <i class="ri-arrow-left-s-line"></i>
-                                                    </a>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <span class="label">باشگاه مشتریان</span>
-                                                <span class="detail">
-                                                    <span class="d-block">
-                                                        ۰ <span class="score text-muted fs-7">امتیاز</span>
+                                                            افزایش
+                                                            موجودی <i class="ri-arrow-left-s-line"></i>
+                                                        </a>
                                                     </span>
-                                                </span>
-                                            </li>
-                                        </ul>
+                                                </li>
+                                                <li>
+                                                    <span class="label">باشگاه مشتریان</span>
+                                                    <span class="detail">
+                                                        <span class="d-block">
+                                                            ۰ <span class="score text-muted fs-7">امتیاز</span>
+                                                        </span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
+                                    <ul class="nav nav-items-with-icon flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="profile-my-orders.html">
+                                                <i class="nav-link-icon ri-file-list-3-line"></i>
+                                                سفارش
+                                                های من
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">
+                                                <i class="nav-link-icon ri-copper-coin-fill"></i>
+                                                باشگاه مشتریان
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="profile-favorites.html">
+                                                <i class="nav-link-icon ri-heart-3-fill"></i>
+                                                کالاهای مورد علاقه
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">
+                                                <i class="nav-link-icon ri-logout-box-r-line"></i>
+                                                خروج
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <ul class="nav nav-items-with-icon flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="profile-my-orders.html">
-                                            <i class="nav-link-icon ri-file-list-3-line"></i>
-                                            سفارش
-                                            های من
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">
-                                            <i class="nav-link-icon ri-copper-coin-fill"></i>
-                                            باشگاه مشتریان
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="profile-favorites.html">
-                                            <i class="nav-link-icon ri-heart-3-fill"></i>
-                                            کالاهای مورد علاقه
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">
-                                            <i class="nav-link-icon ri-logout-box-r-line"></i>
-                                            خروج
-                                        </a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
-                    </div>
+                    }
+                    else
+                    {
+                        <a id="btnLoginRegister" class="btn btn-danger" href="/RegisterAndLogin">ثبت نام/ ورود </a>
+                    }
 
-                    <div class="user-option user-option--cart">
-                        <a href="cart.html" class="user-option-btn user-option-btn--cart">
-                            <i class="ri-shopping-bag-2-fill icon"></i>
-                            <span class="user-item-text">
-                                <span class="title">مبلغ سفارش شما</span>
-                                <span class="value fa-num">57,372,000 <span class="currency">تومان</span></span>
-                            </span>
-                            <span class="counter">۴</span>
-                        </a>
-                        <div class="mini-cart">
-                            <div class="mini-cart-header">
-                                <span class="mini-cart-products-count fa-num">4 کالا</span>
-                                <a href="cart.html" class="btn btn-link px-0">
-                                    مشاهده سبد خرید <i class="ri-arrow-left-s-fill"></i>
-                                </a>
-                            </div>
-                            <div class="mini-cart-products do-simplebar">
-                                <div class="mini-cart-product">
-                                    <div class="mini-cart-product-thumbnail">
-                                        <a href="#"><img src="./assets/images/products/01.jpg" alt=""></a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <div class="user-option user-option--cart">
+                            <a href="cart.html" class="user-option-btn user-option-btn--cart">
+                                <i class="ri-shopping-bag-2-fill icon"></i>
+                                <span class="user-item-text">
+                                    <span class="title">مبلغ سفارش شما</span>
+                                    <span class="value fa-num">57,372,000 <span class="currency">تومان</span></span>
+                                </span>
+                                <span class="counter">۴</span>
+                            </a>
+                            <div class="mini-cart">
+                                <div class="mini-cart-header">
+                                    <span class="mini-cart-products-count fa-num">4 کالا</span>
+                                    <a href="cart.html" class="btn btn-link px-0">
+                                        مشاهده سبد خرید <i class="ri-arrow-left-s-fill"></i>
+                                    </a>
+                                </div>
+                                <div class="mini-cart-products do-simplebar">
+                                    <div class="mini-cart-product">
+                                        <div class="mini-cart-product-thumbnail">
+                                            <a href="#"><img src="./assets/images/products/01.jpg" alt=""></a>
+                                        </div>
+                                        <div class="mini-cart-product-detail">
+                                            <div class="mini-cart-product-brand"><a href="#">apple</a></div>
+                                            <div class="mini-cart-product-title">
+                                                <a href="product-v1.html">
+                                                    گوشی موبایل اپل مدل iPhone 13 A2634 دو سیم‌ کارت ظرفیت
+                                                    128
+                                                    گیگابایت و رم 4 گیگابایت
+                                                </a>
+                                            </div>
+                                            <div class="mini-cart-purchase-info">
+                                                <div class="mini-cart-product-meta">
+                                                    <span class="fa-num">1 عدد</span>
+                                                    <span class="color" style="background-color: #ff0000;"></span>
+                                                </div>
+                                                <div class="mini-cart-product-price fa-num">
+                                                    21,200,000<span class="currency">تومان</span>
+                                                </div>
+                                            </div>
+                                            <button class="mini-cart-product-remove"></button>
+                                        </div>
                                     </div>
-                                    <div class="mini-cart-product-detail">
-                                        <div class="mini-cart-product-brand"><a href="#">apple</a></div>
-                                        <div class="mini-cart-product-title">
-                                            <a href="product-v1.html">
-                                                گوشی موبایل اپل مدل iPhone 13 A2634 دو سیم‌ کارت ظرفیت
-                                                128
-                                                گیگابایت و رم 4 گیگابایت
-                                            </a>
+                                    <div class="mini-cart-product">
+                                        <div class="mini-cart-product-thumbnail">
+                                            <a href="#"><img src="./assets/images/products/02.jpg" alt=""></a>
                                         </div>
-                                        <div class="mini-cart-purchase-info">
-                                            <div class="mini-cart-product-meta">
-                                                <span class="fa-num">1 عدد</span>
-                                                <span class="color" style="background-color: #ff0000;"></span>
+                                        <div class="mini-cart-product-detail">
+                                            <div class="mini-cart-product-brand"><a href="#">xiaomi</a></div>
+                                            <div class="mini-cart-product-title">
+                                                <a href="product-v1.html">
+                                                    گوشی موبایل  سامسونگ مدل 11 lite 5G NE 2109119DG دو سیم‌
+                                                    کارت
+                                                    ظرفیت 256 گیگابایت و رم 8 گیگابایت
+                                                </a>
                                             </div>
-                                            <div class="mini-cart-product-price fa-num">
-                                                21,200,000<span class="currency">تومان</span>
+                                            <div class="mini-cart-purchase-info">
+                                                <div class="mini-cart-product-meta">
+                                                    <span class="fa-num">1 عدد</span>
+                                                    <span class="color" style="background-color: #ff0000;"></span>
+                                                </div>
+                                                <div class="mini-cart-product-price fa-num">
+                                                    15,200,000 <span class="currency">تومان</span>
+                                                </div>
                                             </div>
+                                            <button class="mini-cart-product-remove"></button>
                                         </div>
-                                        <button class="mini-cart-product-remove"></button>
+                                    </div>
+                                    <div class="mini-cart-product">
+                                        <div class="mini-cart-product-thumbnail">
+                                            <a href="#"><img src="./assets/images/products/05.jpg" alt=""></a>
+                                        </div>
+                                        <div class="mini-cart-product-detail">
+                                            <div class="mini-cart-product-brand"><a href="#">apple</a></div>
+                                            <div class="mini-cart-product-title">
+                                                <a href="product-v1.html">
+                                                    گوشی موبایل اپل مدل iPhone 12 Pro Max A2412 دو سیم‌ کارت
+                                                    ظرفیت
+                                                    256 گیگابایت
+                                                </a>
+                                            </div>
+                                            <div class="mini-cart-purchase-info">
+                                                <div class="mini-cart-product-meta">
+                                                    <span class="fa-num">1 عدد</span>
+                                                    <span class="color" style="background-color: #ff0000;"></span>
+                                                </div>
+                                                <div class="mini-cart-product-price fa-num">
+                                                    36,300,000 <span class="currency">تومان</span>
+                                                </div>
+                                            </div>
+                                            <button class="mini-cart-product-remove"></button>
+                                        </div>
+                                    </div>
+                                    <div class="mini-cart-product">
+                                        <div class="mini-cart-product-thumbnail">
+                                            <a href="#"><img src="./assets/images/products/07.jpg" alt=""></a>
+                                        </div>
+                                        <div class="mini-cart-product-detail">
+                                            <div class="mini-cart-product-brand"><a href="#">samsung</a></div>
+                                            <div class="mini-cart-product-title">
+                                                <a href="product-v1.html">
+                                                    گوشی موبایل سامسونگ مدل Galaxy S9 Plus دو سیم کارت ظرفیت
+                                                    64
+                                                    گیگابایت
+                                                </a>
+                                            </div>
+                                            <div class="mini-cart-purchase-info">
+                                                <div class="mini-cart-product-meta">
+                                                    <span class="fa-num">1 عدد</span>
+                                                    <span class="color" style="background-color: #ff0000;"></span>
+                                                </div>
+                                                <div class="mini-cart-product-price fa-num">
+                                                    18,888,000 <span class="currency">تومان</span>
+                                                </div>
+                                            </div>
+                                            <button class="mini-cart-product-remove"></button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="mini-cart-product">
-                                    <div class="mini-cart-product-thumbnail">
-                                        <a href="#"><img src="./assets/images/products/02.jpg" alt=""></a>
+                                <div class="mini-cart-footer">
+                                    <div class="mini-cart-total">
+                                        <span class="mini-cart-total-label">مبلغ قابل پرداخت:</span>
+                                        <span class="mini-cart-total-value fa-num">
+                                            57,372,000 <span class="currency">تومان</span>
+                                        </span>
                                     </div>
-                                    <div class="mini-cart-product-detail">
-                                        <div class="mini-cart-product-brand"><a href="#">xiaomi</a></div>
-                                        <div class="mini-cart-product-title">
-                                            <a href="product-v1.html">
-                                                گوشی موبایل  سامسونگ مدل 11 lite 5G NE 2109119DG دو سیم‌
-                                                کارت
-                                                ظرفیت 256 گیگابایت و رم 8 گیگابایت
-                                            </a>
-                                        </div>
-                                        <div class="mini-cart-purchase-info">
-                                            <div class="mini-cart-product-meta">
-                                                <span class="fa-num">1 عدد</span>
-                                                <span class="color" style="background-color: #ff0000;"></span>
-                                            </div>
-                                            <div class="mini-cart-product-price fa-num">
-                                                15,200,000 <span class="currency">تومان</span>
-                                            </div>
-                                        </div>
-                                        <button class="mini-cart-product-remove"></button>
-                                    </div>
+                                    <a href="shipping.html" class="btn btn-primary">ورود و ثبت سفارش</a>
                                 </div>
-                                <div class="mini-cart-product">
-                                    <div class="mini-cart-product-thumbnail">
-                                        <a href="#"><img src="./assets/images/products/05.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mini-cart-product-detail">
-                                        <div class="mini-cart-product-brand"><a href="#">apple</a></div>
-                                        <div class="mini-cart-product-title">
-                                            <a href="product-v1.html">
-                                                گوشی موبایل اپل مدل iPhone 12 Pro Max A2412 دو سیم‌ کارت
-                                                ظرفیت
-                                                256 گیگابایت
-                                            </a>
-                                        </div>
-                                        <div class="mini-cart-purchase-info">
-                                            <div class="mini-cart-product-meta">
-                                                <span class="fa-num">1 عدد</span>
-                                                <span class="color" style="background-color: #ff0000;"></span>
-                                            </div>
-                                            <div class="mini-cart-product-price fa-num">
-                                                36,300,000 <span class="currency">تومان</span>
-                                            </div>
-                                        </div>
-                                        <button class="mini-cart-product-remove"></button>
-                                    </div>
-                                </div>
-                                <div class="mini-cart-product">
-                                    <div class="mini-cart-product-thumbnail">
-                                        <a href="#"><img src="./assets/images/products/07.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mini-cart-product-detail">
-                                        <div class="mini-cart-product-brand"><a href="#">samsung</a></div>
-                                        <div class="mini-cart-product-title">
-                                            <a href="product-v1.html">
-                                                گوشی موبایل سامسونگ مدل Galaxy S9 Plus دو سیم کارت ظرفیت
-                                                64
-                                                گیگابایت
-                                            </a>
-                                        </div>
-                                        <div class="mini-cart-purchase-info">
-                                            <div class="mini-cart-product-meta">
-                                                <span class="fa-num">1 عدد</span>
-                                                <span class="color" style="background-color: #ff0000;"></span>
-                                            </div>
-                                            <div class="mini-cart-product-price fa-num">
-                                                18,888,000 <span class="currency">تومان</span>
-                                            </div>
-                                        </div>
-                                        <button class="mini-cart-product-remove"></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mini-cart-footer">
-                                <div class="mini-cart-total">
-                                    <span class="mini-cart-total-label">مبلغ قابل پرداخت:</span>
-                                    <span class="mini-cart-total-value fa-num">
-                                        57,372,000 <span class="currency">تومان</span>
-                                    </span>
-                                </div>
-                                <a href="shipping.html" class="btn btn-primary">ورود و ثبت سفارش</a>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>

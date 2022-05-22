@@ -1,3 +1,5 @@
+using DigiKala.Core.Services;
+using DigiKala.Core.Services.Interfaces;
 using DigiKala.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,10 +11,18 @@ var webApplcationOptions =
 
 var builder = WebApplication.CreateBuilder(webApplcationOptions);
 
+#region DbContext
+
 builder.Services.AddDbContext<DigiKalaContext>(context =>
 
     context.UseSqlServer(builder.Configuration.GetConnectionString("DigiKalaConnection"))
 );
+#endregion
+#region IOC
+
+builder.Services.AddScoped<IUserService, UserService>();
+
+#endregion
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
