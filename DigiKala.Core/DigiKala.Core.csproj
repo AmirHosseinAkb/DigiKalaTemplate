@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Senders\" />
-    <Folder Include="Security\" />
   </ItemGroup>
 
   <ItemGroup>

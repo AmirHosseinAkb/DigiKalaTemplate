@@ -4,11 +4,11 @@
     var cultureInfo=new System.Globalization.CultureInfo("fa-IR");
     System.Threading.Thread.CurrentThread.CurrentCulture=cultureInfo;
     System.Threading.Thread.CurrentThread.CurrentUICulture=cultureInfo;
-    var language =
-            System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
+    var currentCulture =
+    System.Threading.Thread.CurrentThread.CurrentCulture.Name;
 }
 <!DOCTYPE html>
-<html lang="@language">
+<html lang="@currentCulture">
 
 <head>
     <partial name="PartialViews/_MetaTags"></partial>
