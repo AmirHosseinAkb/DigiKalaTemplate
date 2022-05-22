@@ -1,4 +1,6 @@
-﻿@{
+﻿@model RegisterViewModel
+
+@{
     Layout = null;
 }
 
@@ -18,17 +20,20 @@
         <main class="page-content page-auth">
             <!-- auth-container -->
             <div class="auth-container">
-                <div class="auth-title mb-3">ایجاد رمز عبور</div>
+                <div class="auth-title mb-3">@</div>
+                
                 <!-- auth-box -->
                 <div class="auth-box ui-box">
                     <!-- auth-form -->
                     <form method="post" class="auth-form">
                         <!-- form-element -->
                         <div class="form-element-row mb-5">
-                            <input  type="text" class="form-control" placeholder="رمز عبور">
+                            <input asp-for="Password"  type="text" class="form-control" placeholder="رمز عبور">
+                            <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                          <div class="form-element-row mb-5">
-                            <input  type="text" class="form-control" placeholder="تکرار رمز عبور">
+                            <input asp-for="RePassword" type="text" class="form-control" placeholder="تکرار رمز عبور">
+                            <span asp-validation-for="RePassword" class="text-danger"></span>
                         </div>
                         <!--  form-element -->
                         <!-- form-element -->

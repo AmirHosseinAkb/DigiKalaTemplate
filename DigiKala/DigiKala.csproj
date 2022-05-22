@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DigiKala.Core\DigiKala.Core.csproj" />
     <ProjectReference Include="..\DigiKala.Data\DigiKala.Data.csproj" />
+    <ProjectReference Include="..\Resources\Resources.csproj" />
   </ItemGroup>
 
 </Project>
