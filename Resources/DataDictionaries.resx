@@ -120,6 +120,15 @@
   <data name="ActivationEmailText" xml:space="preserve">
     <value>Thank you for registering in My Store Click on Activate your account to activate your account</value>
   </data>
+  <data name="ActivationError" xml:space="preserve">
+    <value>Activation Error!</value>
+  </data>
+  <data name="ActivationErrorText" xml:space="preserve">
+    <value>Please reactivate your account through the site</value>
+  </data>
+  <data name="ActivationErrorTitle" xml:space="preserve">
+    <value>Activation operation failed!</value>
+  </data>
   <data name="ActiveAccount" xml:space="preserve">
     <value>Active Account</value>
   </data>

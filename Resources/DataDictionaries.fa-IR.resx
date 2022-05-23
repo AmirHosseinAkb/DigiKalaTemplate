@@ -120,6 +120,15 @@
   <data name="ActivationEmailText" xml:space="preserve">
     <value>از اینکه در مای استور ثبت نام کرده اید متشکریم برای فعالسازی حساب کاربری خود روی فعالسازی حساب کاربری کلیک نمایید</value>
   </data>
+  <data name="ActivationError" xml:space="preserve">
+    <value>خطای فعالسازی</value>
+  </data>
+  <data name="ActivationErrorText" xml:space="preserve">
+    <value>Please reactivate your account through the site</value>
+  </data>
+  <data name="ActivationErrorTitle" xml:space="preserve">
+    <value>عملیات فعالسازی با شکست مواجه شد!</value>
+  </data>
   <data name="ActiveAccount" xml:space="preserve">
     <value>فعالسازی حساب کاربری</value>
   </data>

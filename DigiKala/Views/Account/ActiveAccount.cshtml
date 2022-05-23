@@ -1,10 +1,10 @@
-﻿
-@{
+﻿@{
     Layout = null;
     ViewData["Title"] = PageTitles.SuccessRegister;
     var currentCulture =
     System.Threading.Thread.CurrentThread.CurrentCulture.Name;
 }
+
 
 <html lang="@currentCulture">
 <head>
@@ -12,25 +12,39 @@
 </head>
 <body>
     <div class="page-wrapper">
-      <partial name="PartialViews/_RegisterAndLoginHeader" ></partial>
-    <main class="page-content page-auth">
+        <partial name="PartialViews/_RegisterAndLoginHeader"></partial>
+        <main class="page-content page-auth">
+            @if (ViewBag.isActivated == true)
+            {
+                <div class="auth-container">
+                    <div class="auth-title mb-3">@DataDictionaries.Congratulations</div>
 
-            <div class="auth-container">
-                <div class="auth-title mb-3">@DataDictionaries.Congratulations</div>
-
-                <div class="auth-box ui-box">
-                    <div class="fs-6 fw-bold text-dark text-center mb-3">@DataDictionaries.ConfirmRegister</div>
-                    <div class="fs-7 fw-bold text-muted text-center mb-3">
-                        @DataDictionaries.ConfirmRegisterText 
+                    <div class="auth-box ui-box">
+                        <div class="fs-6 fw-bold text-dark text-center mb-3">@DataDictionaries.ConfirmRegister</div>
+                        <div class="fs-7 fw-bold text-muted text-center mb-3">
+                            @DataDictionaries.ConfirmRegisterText
+                        </div>
+                        <a href="/UserPanel" class="btn btn-block btn-primary mb-3"><i class="ri-user-6-fill me-2"></i>@DataDictionaries.ConfirmUserInformations</a>
                     </div>
-                    <a href="/UserPanel" class="btn btn-block btn-primary mb-3"><i class="ri-user-6-fill me-2"></i>@DataDictionaries.ConfirmUserInformations</a>
                 </div>
+            }
+            else
+            {
+                <div class="auth-container">
+                    <div class="auth-title mb-3">@DataDictionaries.ActivationError</div>
 
-            </div>
-
+                    <div class="auth-box ui-box">
+                        <div class="fs-6 fw-bold text-dark text-center mb-3">@DataDictionaries.ActivationErrorTitle</div>
+                        <div class="fs-7 fw-bold text-muted text-center mb-3">
+                            @DataDictionaries.ConfirmRegisterText
+                        </div>
+                        <a href="/UserPanel" class="btn btn-block btn-primary mb-3"><i class="ri-user-6-fill me-2"></i>@DataDictionaries.ActivationErrorText</a>
+                    </div>
+                </div>
+            }
         </main>
-        <partial name="PartialViews/_RegisterAndLoginFooter" ></partial>
+        <partial name="PartialViews/_RegisterAndLoginFooter"></partial>
     </div>
-    <partial name="PartialViews/_Scripts" ></partial>
+    <partial name="PartialViews/_Scripts"></partial>
 </body>
 </html>

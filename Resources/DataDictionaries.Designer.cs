@@ -70,6 +70,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Activation Error!.
+        /// </summary>
+        public static string ActivationError {
+            get {
+                return ResourceManager.GetString("ActivationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please reactivate your account through the site.
+        /// </summary>
+        public static string ActivationErrorText {
+            get {
+                return ResourceManager.GetString("ActivationErrorText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activation operation failed!.
+        /// </summary>
+        public static string ActivationErrorTitle {
+            get {
+                return ResourceManager.GetString("ActivationErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Active Account.
         /// </summary>
         public static string ActiveAccount {
