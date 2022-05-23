@@ -2,7 +2,6 @@
 
 @{
     Layout = null;
-    ViewData["Title"] = PageTitles.LoginAndRegister;
     CultureSetter.SetCulture("fa-IR");
     var currentCulture =
     System.Threading.Thread.CurrentThread.CurrentCulture.Name;
@@ -10,6 +9,7 @@
 
 <html lang="">
 <head>
+    <title>@PageTitles.LoginAndRegister</title>
     <partial name="PartialViews/_Styles"></partial>
 </head>
 <body>
@@ -26,6 +26,7 @@
                         <!-- form-element -->
                         <div class="form-element-row mb-5">
                             <input asp-for="EmailOrPhoneNumber" type="text" class="form-control" placeholder="@DataDictionaries.EmailOrPhone">
+                            <span asp-validation-for=EmailOrPhoneNumber class="text-danger"></span>
                         </div>
                         <!--  form-element -->
                         <!-- form-element -->

@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activation Error!.
+        ///   Looks up a localized string similar to !Activation Error.
         /// </summary>
         public static string ActivationError {
             get {
@@ -124,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your Account Has Been Created!.
+        ///   Looks up a localized string similar to Your Account Has Been Created.
         /// </summary>
         public static string ConfirmRegister {
             get {
@@ -151,7 +151,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Congratulations!.
+        ///   Looks up a localized string similar to Congratulations.
         /// </summary>
         public static string Congratulations {
             get {

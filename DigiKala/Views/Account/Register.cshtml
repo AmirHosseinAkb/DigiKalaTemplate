@@ -2,7 +2,6 @@
 
 @{
     Layout = null;
-    ViewData["Title"] =PageTitles.Register;
     CultureSetter.SetCulture("fa-IR");
     var currentCulture =
     System.Threading.Thread.CurrentThread.CurrentCulture.Name;
@@ -10,6 +9,7 @@
 
 <html lang="@currentCulture">
 <head>
+    <title>@PageTitles.Register</title>
     <partial name="PartialViews/_Styles"></partial>
 </head>
 <body>

@@ -1,7 +1,6 @@
 ﻿@model LoginViewModel
 @{
     Layout = null;
-    ViewData["Title"] = PageTitles.Login;
     CultureSetter.SetCulture("fa-IR");
     var currentCulture =
     System.Threading.Thread.CurrentThread.CurrentCulture.Name;
@@ -9,6 +8,7 @@
 
 <html lang="@currentCulture">
 <head>
+    <title>@PageTitles.Login</title>
     <partial name="PartialViews/_Styles"></partial>
 </head>
 <body>
@@ -25,6 +25,7 @@
 
                         <div class="form-element-row mb-5">
                             <input asp-for="Password" type="password" class="form-control" placeholder=@DataDictionaries.Password>
+                              <span asp-validation-for=Password class="text-danger"></span>
                         </div>
 
                         <div class="form-element-row mb-3">

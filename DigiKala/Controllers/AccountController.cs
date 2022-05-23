@@ -7,6 +7,7 @@ using DigiKala.Core.Convertors;
 using DigiKala.Core.Security;
 using DigiKala.Core.Generators;
 using DigiKala.Core.Senders;
+using System.Security.Claims;
 
 namespace DigiKala.Controllers
 {
@@ -37,33 +38,61 @@ namespace DigiKala.Controllers
             var emailAddress = new System.Net.Mail.MailAddress(registerAndLoginVM.EmailOrPhoneNumber);
             if (registerAndLoginVM.EmailOrPhoneNumber == emailAddress.Address)
             {
-                if (_userService.IsExistUserByEmail(registerAndLoginVM.EmailOrPhoneNumber))
+                var user = _userService.GetUserByEmail(registerAndLoginVM.EmailOrPhoneNumber);
+                TempData["EmailAddress"] = registerAndLoginVM.EmailOrPhoneNumber;
+                if (user!=null)
                 {
+                    if (!user.IsActive)
+                    {
+                        ModelState.AddModelError("EmailOrPhoneNumber", "حساب کاربری شما غیرفعال می باشد لطفا ایمیلتان را بررسی کنید یا از طریق شماره تلفن وارد شوید.");
+                        return View(registerAndLoginVM);
+                    }
                     return Redirect("/Login");
                 }
                 else
                 {
-                    TempData["EmailAddress"] = registerAndLoginVM.EmailOrPhoneNumber;
                     return Redirect("/Register");
                 }
             }
             else
             {
-
+                
             }
             return Redirect("");
         }
 
-        [Route("Login/{emailAddress}")]
+        [Route("Login")]
 
-        public IActionResult Login(string emailAddress)
+        public IActionResult Login()
         {
+            if (TempData["EmailAddress"] == null) 
+                return Redirect("/RegisterAndLogin");
+
             return View();
+        }
+        [Route("Login")]
+        [HttpPost]
+        public IActionResult Login(LoginViewModel loginVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(loginVM);
+            }
+            var email = TempData["EmailAddress"]?.ToString();
+            var user=_userService.GetUserByEmail(email);    
+            var claims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.Name,user.UserId.ToString())
+            };
+            return null;
         }
 
         [Route("Register")]
         public IActionResult Register()
         {
+            if (TempData["EmailAddress"] == null)
+                return Redirect("/RegisterAndLogin");
+
             return View();
         }
 

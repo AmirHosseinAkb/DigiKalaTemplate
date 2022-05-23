@@ -42,5 +42,15 @@ namespace DigiKala.Core.Services
             _context.SaveChanges();
             return true;
         }
+
+        public bool IsExistUserByPhoneNumber(string phoneNumber)
+        {
+            return _context.Users.Any(u => u.PhoneNumber == phoneNumber);
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            return _context.Users.SingleOrDefault(u => u.Email == EmailConvertor.FixEmail(email));
+        }
     }
 }

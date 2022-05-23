@@ -154,7 +154,7 @@
     <value>ادامه</value>
   </data>
   <data name="EmailOrPhone" xml:space="preserve">
-    <value>ایمیل شماره همراه</value>
+    <value>ایمیل یا شماره همراه</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>سلام</value>
