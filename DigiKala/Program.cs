@@ -1,6 +1,7 @@
 using DigiKala.Core.Services;
 using DigiKala.Core.Services.Interfaces;
 using DigiKala.Data.Context;
+using DigiKala.Core.Convertors;
 using Microsoft.EntityFrameworkCore;
 
 var webApplcationOptions =
@@ -21,6 +22,7 @@ builder.Services.AddDbContext<DigiKalaContext>(context =>
 #region IOC
 
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IViewRenderService, RenderViewToString>();
 
 #endregion
 // Add services to the container.

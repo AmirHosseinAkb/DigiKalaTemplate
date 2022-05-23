@@ -59,6 +59,10 @@ namespace DigiKala.Data.Entities.User
         [MaxLength(500, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
         public string MessageCode { get; set; }
 
+        [Required]
+        [MaxLength(500, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
+        public string ActivationCode { get; set; }
+
         public bool IsActive { get; set; }
 
         public bool IsDeleted { get; set; }

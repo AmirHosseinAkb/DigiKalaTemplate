@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DigiKala.Data.Entities.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,7 @@ namespace DigiKala.Core.Services.Interfaces
     public interface IUserService
     {
         bool IsExistUserByEmail(string email);
+        void AddUser(User user);
+        bool ActiveUserAccount(string activeCode);
     }
 }

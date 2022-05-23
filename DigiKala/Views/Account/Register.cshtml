@@ -2,7 +2,7 @@
 
 @{
     Layout = null;
-    ViewData["Title"] = "ثبت نام";
+    ViewData["Title"] =PageTitles.Register;
     CultureSetter.SetCulture("fa-IR");
     var currentCulture =
     System.Threading.Thread.CurrentThread.CurrentCulture.Name;
@@ -24,11 +24,11 @@
                     <form method="post" class="auth-form">
 
                         <div class="form-element-row mb-5">
-                            <input asp-for="Password" type="text" class="form-control" placeholder="@DataDictionaries.Password">
+                            <input asp-for="Password" type="password" class="form-control" placeholder="@DataDictionaries.Password">
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                         <div class="form-element-row mb-5">
-                            <input asp-for="RePassword" type="text" class="form-control" placeholder="@DataDictionaries.RepeatPassword">
+                            <input asp-for="RePassword" type="password" class="form-control" placeholder="@DataDictionaries.RepeatPassword">
                             <span asp-validation-for="RePassword" class="text-danger"></span>
                         </div>
 

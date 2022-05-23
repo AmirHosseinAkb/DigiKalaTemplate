@@ -2,7 +2,7 @@
 
 @{
     Layout = null;
-    ViewData["Title"] = "ثبت نام و ورود";
+    ViewData["Title"] = PageTitles.LoginAndRegister;
     CultureSetter.SetCulture("fa-IR");
     var currentCulture =
     System.Threading.Thread.CurrentThread.CurrentCulture.Name;
@@ -14,29 +14,23 @@
 </head>
 <body>
     <div class="page-wrapper">
-        <header class="page-mini-header py-4">
-            <div class="d-flex justify-content-center">
-                <div class="logo-container">
-                    <a href="index-1.html" class="logo"><img src="./assets/images/logo-dark.png" width="120" alt=""></a>
-                </div>
-            </div>
-        </header>
+         <partial name="PartialViews/_RegisterAndLoginHeader" ></partial>
         <main class="page-content page-auth">
             <!-- auth-container -->
             <div class="auth-container">
-                <div class="auth-title mb-3">ورود / ثبت نام</div>
+                <div class="auth-title mb-3">@DataDictionaries.RegisterAndLogin</div>
                 <!-- auth-box -->
                 <div class="auth-box ui-box">
                     <!-- auth-form -->
                     <form method="post" class="auth-form">
                         <!-- form-element -->
                         <div class="form-element-row mb-5">
-                            <input asp-for="EmailOrPhoneNumber" type="text" class="form-control" placeholder="شماره همراه یا ایمیل">
+                            <input asp-for="EmailOrPhoneNumber" type="text" class="form-control" placeholder="@DataDictionaries.EmailOrPhone">
                         </div>
                         <!--  form-element -->
                         <!-- form-element -->
                         <div class="form-element-row mb-3">
-                            <button class="btn btn-primary">ادامه</button>
+                            <button class="btn btn-primary">@DataDictionaries.Continue</button>
                         </div>
                         <!--  form-element -->
                         <!-- form-element -->
@@ -58,21 +52,7 @@
             </div>
             <!-- auth-container -->
         </main>
-        <footer class="page-mini-footer">
-
-            <div class="copy-right bg-light py-3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 mb-md-0 mb-4">
-                            <div class="text-muted text-md-start text-center">کليه حقوق اين سايت متعلق به مای استور می‌باشد.</div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-muted text-md-end text-center">2022 © Copyright</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <partial name="PartialViews/_RegisterAndLoginFooter" ></partial>
     </div>
     <partial name="PartialViews/_Scripts" ></partial>
 </body>

@@ -17,7 +17,7 @@ namespace DigiKala.Core.ViewModels.User
     {
         [Display(Name = "رمز عبور")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        [MinLength(8, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
+        [MinLength(8, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
         [MaxLength(50, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
@@ -28,14 +28,14 @@ namespace DigiKala.Core.ViewModels.User
         [Display(Name = "رمز عبور")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [MaxLength(20, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
-        [MinLength(8, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
+        [MinLength(8, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Display(Name = "تکرار رمز عبور")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [MaxLength(20, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
-        [MinLength(8, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
+        [MinLength(8, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
         [DataType(DataType.Password)]
         [Compare("Password",ErrorMessage ="تکرار رمز عبور با رمز عبور مطابقت ندارد")]
         public string RePassword { get; set; }

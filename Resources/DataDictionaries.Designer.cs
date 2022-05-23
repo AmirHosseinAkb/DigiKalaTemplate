@@ -61,11 +61,110 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thank you for registering in My Store Click on Activate your account to activate your account.
+        /// </summary>
+        public static string ActivationEmailText {
+            get {
+                return ResourceManager.GetString("ActivationEmailText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active Account.
+        /// </summary>
+        public static string ActiveAccount {
+            get {
+                return ResourceManager.GetString("ActiveAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To activate your account, enter your email and click on the activation link, then you can log in to your account and by completing your account information, you can access all the facilities and services and related services..
+        /// </summary>
+        public static string ActiveRegisterText {
+            get {
+                return ResourceManager.GetString("ActiveRegisterText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Rights Reserved.
         /// </summary>
         public static string AllRightsReserved {
             get {
                 return ResourceManager.GetString("AllRightsReserved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Account Has Been Created!.
+        /// </summary>
+        public static string ConfirmRegister {
+            get {
+                return ResourceManager.GetString("ConfirmRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your account has been successfully created. Now you can log in to your account and complete your account information to everyone Access the facilities and services and   related services.
+        /// </summary>
+        public static string ConfirmRegisterText {
+            get {
+                return ResourceManager.GetString("ConfirmRegisterText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Your Informations.
+        /// </summary>
+        public static string ConfirmUserInformations {
+            get {
+                return ResourceManager.GetString("ConfirmUserInformations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Congratulations!.
+        /// </summary>
+        public static string Congratulations {
+            get {
+                return ResourceManager.GetString("Congratulations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue.
+        /// </summary>
+        public static string Continue {
+            get {
+                return ResourceManager.GetString("Continue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email or Phone.
+        /// </summary>
+        public static string EmailOrPhone {
+            get {
+                return ResourceManager.GetString("EmailOrPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hello.
+        /// </summary>
+        public static string Hello {
+            get {
+                return ResourceManager.GetString("Hello", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
             }
         }
         
@@ -79,11 +178,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Register/Login.
+        /// </summary>
+        public static string RegisterAndLogin {
+            get {
+                return ResourceManager.GetString("RegisterAndLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Repeat Password.
         /// </summary>
         public static string RepeatPassword {
             get {
                 return ResourceManager.GetString("RepeatPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Return Home.
+        /// </summary>
+        public static string ReturnHome {
+            get {
+                return ResourceManager.GetString("ReturnHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MyStore.
+        /// </summary>
+        public static string ShopName {
+            get {
+                return ResourceManager.GetString("ShopName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }

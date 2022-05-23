@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginAndRegister" xml:space="preserve">
+    <value>Login And Register</value>
+  </data>
   <data name="PasswordGeneration" xml:space="preserve">
     <value>Password Generation</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="SuccessRegister" xml:space="preserve">
+    <value>Success Register</value>
   </data>
 </root>

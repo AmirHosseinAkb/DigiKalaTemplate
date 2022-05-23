@@ -1,7 +1,7 @@
 ﻿@model LoginViewModel
 @{
     Layout = null;
-    ViewData["Title"] = "ورود";
+    ViewData["Title"] = PageTitles.Login;
     CultureSetter.SetCulture("fa-IR");
     var currentCulture =
     System.Threading.Thread.CurrentThread.CurrentCulture.Name;
@@ -15,30 +15,26 @@
     <div class="page-wrapper">
       <partial name="PartialViews/_RegisterAndLoginHeader" ></partial>
         <main class="page-content page-auth">
-            <!-- auth-container -->
+
             <div class="auth-container">
-                <div class="auth-title mb-3">رمز عبور</div>
-                <!-- auth-box -->
+                <div class="auth-title mb-3">@DataDictionaries.Password</div>
+
                 <div class="auth-box ui-box">
-                    <!-- auth-form -->
+
                     <form method="post"  class="auth-form">
-                        <!-- form-element -->
+
                         <div class="form-element-row mb-5">
-                            <input asp-for="Password" type="text" class="form-control" placeholder="رمز عبور">
-                        </div>
-                        <!--  form-element -->
-                        <!-- form-element -->
-                        <div class="form-element-row mb-3">
-                            <button class="btn btn-primary">ورود</button>
+                            <input asp-for="Password" type="password" class="form-control" placeholder=@DataDictionaries.Password>
                         </div>
 
+                        <div class="form-element-row mb-3">
+                            <button class="btn btn-primary">@DataDictionaries.Login</button>
+                        </div>
                     </form>
-                    <!--  auth-form -->
                 </div>
-                <!--  auth-box -->
             </div>
-            <!-- auth-container -->
         </main>
+
         <partial name="PartialViews/_RegisterAndLoginFooter" ></partial>
     </div>
     <partial name="PartialViews/_Scripts" ></partial>

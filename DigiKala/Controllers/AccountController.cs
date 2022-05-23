@@ -1,16 +1,24 @@
 ﻿using DigiKala.Core.ViewModels.User;
 using Microsoft.AspNetCore.Mvc;
 using DigiKala.Core.Services.Interfaces;
+using DigiKala.Data.Entities;
+using DigiKala.Data.Entities.User;
+using DigiKala.Core.Convertors;
+using DigiKala.Core.Security;
+using DigiKala.Core.Generators;
+using DigiKala.Core.Senders;
 
 namespace DigiKala.Controllers
 {
     public class AccountController : Controller
     {
-        public AccountController(IUserService userService)
+        public AccountController(IUserService userService,IViewRenderService viewRenderService)
         {
             _userService = userService;
+            _viewRenderService = viewRenderService;
         }
         private IUserService _userService;
+        private IViewRenderService _viewRenderService;
 
         [Route("RegisterAndLogin")]
         public IActionResult RegisterAndLogin()
@@ -31,11 +39,12 @@ namespace DigiKala.Controllers
             {
                 if (_userService.IsExistUserByEmail(registerAndLoginVM.EmailOrPhoneNumber))
                 {
-                    return Redirect("/Login/"+emailAddress);
+                    return Redirect("/Login");
                 }
                 else
                 {
-                    return Redirect("/Register/"+emailAddress);
+                    TempData["EmailAddress"] = registerAndLoginVM.EmailOrPhoneNumber;
+                    return Redirect("/Register");
                 }
             }
             else
@@ -52,9 +61,44 @@ namespace DigiKala.Controllers
             return View();
         }
 
-        [Route("Register/{emailAddress}")]
-        public IActionResult Register(string emailAddress)
+        [Route("Register")]
+        public IActionResult Register()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("Register")]
+        public IActionResult Register(RegisterViewModel registerVM)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(registerVM);
+            }
+            var email = TempData["EmailAddress"]?.ToString();
+            var user = new User()
+            {
+                Email = EmailConvertor.FixEmail(email),
+                Password = PasswordHasher.HahsPasswordMD5(registerVM.Password),
+                AvatarName = "Default.png",
+                IsActive = false,
+                MessageCode = RandomNumberGenerator.RandomIntegerGenerator(100000,99999).ToString(),
+                ActivationCode=NameGenerator.GenerateUniqName(),
+                RegisterDate = DateTime.Now
+            };
+            //Add User
+            _userService.AddUser(user);
+
+            //Send Email
+            var body = _viewRenderService.RenderToStringAsync("/Account/ActivationEmail", user);
+            SendEmail.Send(user.Email, "فعالسازی حساب کاربری", body);
+
+            return Redirect("/Account/SuccessRegister");
+        }
+
+        public IActionResult ActiveAccount(string activeCode)
+        {
+            ViewBag.isActivated = _userService.ActiveUserAccount(activeCode);
             return View();
         }
     }

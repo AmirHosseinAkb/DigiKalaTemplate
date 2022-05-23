@@ -117,13 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActivationEmailText" xml:space="preserve">
+    <value>از اینکه در مای استور ثبت نام کرده اید متشکریم برای فعالسازی حساب کاربری خود روی فعالسازی حساب کاربری کلیک نمایید</value>
+  </data>
+  <data name="ActiveAccount" xml:space="preserve">
+    <value>فعالسازی حساب کاربری</value>
+  </data>
+  <data name="ActiveRegisterText" xml:space="preserve">
+    <value>برای فعال سازی حساب کاربری خود وارد ایمیل خود شده و روی لینک فعالسازی کلیک نمایید سپس میتوانید وارد حساب کاربری خود شده و با تکمیل اطلاعات حساب کاربری خود به کلیه امکانات و سرویس‌ها و سرویس‌های وابسته به آن دسترسی داشته باشید</value>
+  </data>
   <data name="AllRightsReserved" xml:space="preserve">
     <value>کلیه حقوق این سایت متعلق به مای استور می باشد</value>
+  </data>
+  <data name="ConfirmRegister" xml:space="preserve">
+    <value>حساب کاربری شما ساخته شد</value>
+  </data>
+  <data name="ConfirmRegisterText" xml:space="preserve">
+    <value>حساب کاربری شما با موفقیت ساخته شد حال میتوانید وارد حساب کاربری خود شده و با تکمیل اطلاعات حساب کاربری خود به کلیه امکانات و سرویس‌ها و سرویس‌های وابسته به آن دسترسی داشته باشید</value>
+  </data>
+  <data name="ConfirmUserInformations" xml:space="preserve">
+    <value>تکمیل اطلاعات کاربری</value>
+  </data>
+  <data name="Congratulations" xml:space="preserve">
+    <value>تبریک میگوییم!</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>ادامه</value>
+  </data>
+  <data name="EmailOrPhone" xml:space="preserve">
+    <value>ایمیل شماره همراه</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>سلام</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>ورود</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>رمز عبور</value>
   </data>
+  <data name="RegisterAndLogin" xml:space="preserve">
+    <value>ورود/ثبت نام</value>
+  </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>تکرار رمز عبور</value>
+  </data>
+  <data name="ReturnHome" xml:space="preserve">
+    <value>بازگشت به صفحه اصلی</value>
+  </data>
+  <data name="ShopName" xml:space="preserve">
+    <value>مای استور</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>خوش آمدید!</value>
   </data>
 </root>
