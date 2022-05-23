@@ -1,6 +1,7 @@
 ﻿@{
     Layout = null;
     ViewData["Title"] = PageTitles.SuccessRegister;
+    CultureSetter.SetCulture("fa-IR");
     var currentCulture =
     System.Threading.Thread.CurrentThread.CurrentCulture.Name;
 }
@@ -38,7 +39,7 @@
                         <div class="fs-7 fw-bold text-muted text-center mb-3">
                             @DataDictionaries.ConfirmRegisterText
                         </div>
-                        <a href="/UserPanel" class="btn btn-block btn-primary mb-3"><i class="ri-user-6-fill me-2"></i>@DataDictionaries.ActivationErrorText</a>
+                        <a href="/" class="btn btn-block btn-primary mb-3"><i class="ri-user-6-fill me-2"></i>@DataDictionaries.ReturnHome</a>
                     </div>
                 </div>
             }

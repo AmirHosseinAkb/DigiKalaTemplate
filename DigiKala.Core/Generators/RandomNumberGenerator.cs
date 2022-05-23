@@ -12,7 +12,7 @@ namespace DigiKala.Core.Generators
         {
             var random = new System.Random();
             if (minValue == 0)
-                minValue = 100000;
+                minValue = 10000;
             if (maxValue == 0)
                 maxValue = 99999;
             return random.Next(minValue,maxValue);

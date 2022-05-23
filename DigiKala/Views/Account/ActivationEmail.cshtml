@@ -1,6 +1,13 @@
 ﻿@model DigiKala.Data.Entities.User.User
 
-<html>
+@{
+    Layout = null;
+    ViewData["Title"] = PageTitles.SuccessRegister;
+    CultureSetter.SetCulture("fa-IR");
+    var currentCulture =
+    System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+}
+<html lang="@currentCulture">
 <head>
 
 </head>

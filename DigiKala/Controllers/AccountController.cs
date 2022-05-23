@@ -82,7 +82,7 @@ namespace DigiKala.Controllers
                 Password = PasswordHasher.HahsPasswordMD5(registerVM.Password),
                 AvatarName = "Default.png",
                 IsActive = false,
-                MessageCode = RandomNumberGenerator.RandomIntegerGenerator(100000,99999).ToString(),
+                MessageCode = RandomNumberGenerator.RandomIntegerGenerator(10000,99999).ToString(),
                 ActivationCode=NameGenerator.GenerateUniqName(),
                 RegisterDate = DateTime.Now
             };
@@ -90,12 +90,13 @@ namespace DigiKala.Controllers
             _userService.AddUser(user);
 
             //Send Email
-            var body = _viewRenderService.RenderToStringAsync("/Account/ActivationEmail", user);
+            var body = _viewRenderService.RenderToStringAsync("Account/ActivationEmail", user);
             SendEmail.Send(user.Email, "فعالسازی حساب کاربری", body);
 
-            return Redirect("/Account/SuccessRegister");
+            return View("SuccessRegister");
         }
 
+        [Route("ActiveAccount/{activeCode}")]
         public IActionResult ActiveAccount(string activeCode)
         {
             ViewBag.isActivated = _userService.ActiveUserAccount(activeCode);
