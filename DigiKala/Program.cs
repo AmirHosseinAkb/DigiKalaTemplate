@@ -3,6 +3,7 @@ using DigiKala.Core.Services.Interfaces;
 using DigiKala.Data.Context;
 using DigiKala.Core.Convertors;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var webApplcationOptions =
     new WebApplicationOptions()
@@ -19,11 +20,22 @@ builder.Services.AddDbContext<DigiKalaContext>(context =>
     context.UseSqlServer(builder.Configuration.GetConnectionString("DigiKalaConnection"))
 );
 #endregion
+
 #region IOC
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IViewRenderService, RenderViewToString>();
 
+#endregion
+
+#region Authentication
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+.AddCookie(options =>
+{
+    options.LoginPath = "/Login";
+    options.LogoutPath = "/Logout";
+    options.ExpireTimeSpan = TimeSpan.FromDays(30);
+});
 #endregion
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -47,6 +59,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

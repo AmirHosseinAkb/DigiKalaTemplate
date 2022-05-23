@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="page-wrapper">
-      <partial name="PartialViews/_RegisterAndLoginHeader" ></partial>
+        <partial name="PartialViews/_RegisterAndLoginHeader"></partial>
         <main class="page-content page-auth">
 
             <div class="auth-container">
@@ -21,13 +21,15 @@
 
                 <div class="auth-box ui-box">
 
-                    <form method="post"  class="auth-form">
+                    <form method="post" class="auth-form">
 
-                        <div class="form-element-row mb-5">
+                        <div class="form-element-row">
                             <input asp-for="Password" type="password" class="form-control" placeholder=@DataDictionaries.Password>
-                              <span asp-validation-for=Password class="text-danger"></span>
+                            <span asp-validation-for=Password class="text-danger"></span>
                         </div>
-
+                        <div style="margin:5px 0px">
+                            <a style="color:crimson ;text-align:right;text-decoration:none" href="/ForgetPassword">فراموشی رمز عبور</a>
+                        </div>
                         <div class="form-element-row mb-3">
                             <button class="btn btn-primary">@DataDictionaries.Login</button>
                         </div>
@@ -36,8 +38,8 @@
             </div>
         </main>
 
-        <partial name="PartialViews/_RegisterAndLoginFooter" ></partial>
+        <partial name="PartialViews/_RegisterAndLoginFooter"></partial>
     </div>
-    <partial name="PartialViews/_Scripts" ></partial>
+    <partial name="PartialViews/_Scripts"></partial>
 </body>
 </html>

@@ -1,19 +1,20 @@
-﻿using DigiKala.Core.ViewModels.User;
-using Microsoft.AspNetCore.Mvc;
-using DigiKala.Core.Services.Interfaces;
-using DigiKala.Data.Entities;
-using DigiKala.Data.Entities.User;
-using DigiKala.Core.Convertors;
-using DigiKala.Core.Security;
+﻿using DigiKala.Core.Convertors;
 using DigiKala.Core.Generators;
+using DigiKala.Core.Security;
 using DigiKala.Core.Senders;
+using DigiKala.Core.Services.Interfaces;
+using DigiKala.Core.ViewModels.User;
+using DigiKala.Data.Entities.User;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace DigiKala.Controllers
 {
     public class AccountController : Controller
     {
-        public AccountController(IUserService userService,IViewRenderService viewRenderService)
+        public AccountController(IUserService userService, IViewRenderService viewRenderService)
         {
             _userService = userService;
             _viewRenderService = viewRenderService;
@@ -39,8 +40,9 @@ namespace DigiKala.Controllers
             if (registerAndLoginVM.EmailOrPhoneNumber == emailAddress.Address)
             {
                 var user = _userService.GetUserByEmail(registerAndLoginVM.EmailOrPhoneNumber);
+                TempData["EmailAddressCheck"] = registerAndLoginVM.EmailOrPhoneNumber;
                 TempData["EmailAddress"] = registerAndLoginVM.EmailOrPhoneNumber;
-                if (user!=null)
+                if (user != null)
                 {
                     if (!user.IsActive)
                     {
@@ -56,7 +58,7 @@ namespace DigiKala.Controllers
             }
             else
             {
-                
+
             }
             return Redirect("");
         }
@@ -65,9 +67,8 @@ namespace DigiKala.Controllers
 
         public IActionResult Login()
         {
-            if (TempData["EmailAddress"] == null) 
+            if (TempData["EmailAddressCheck"] == null)
                 return Redirect("/RegisterAndLogin");
-
             return View();
         }
         [Route("Login")]
@@ -79,18 +80,30 @@ namespace DigiKala.Controllers
                 return View(loginVM);
             }
             var email = TempData["EmailAddress"]?.ToString();
-            var user=_userService.GetUserByEmail(email);    
+            var user = _userService.GetUserByEmail(email!);
             var claims = new List<Claim>()
             {
-                new Claim(ClaimTypes.Name,user.UserId.ToString())
+                new Claim(ClaimTypes.NameIdentifier,user.UserId.ToString()),
+                new Claim(ClaimTypes.Name,user.Email!),
+                new Claim("AvatarName",user.AvatarName)
             };
-            return null;
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var principal = new ClaimsPrincipal(identity);
+
+            var properties = new AuthenticationProperties()
+            {
+                IsPersistent = true
+            };
+            HttpContext.SignInAsync(principal, properties);
+            return Redirect("/");
         }
 
         [Route("Register")]
         public IActionResult Register()
         {
-            if (TempData["EmailAddress"] == null)
+            if (TempData["EmailAddressCheck"] == null)
                 return Redirect("/RegisterAndLogin");
 
             return View();
@@ -100,7 +113,7 @@ namespace DigiKala.Controllers
         [Route("Register")]
         public IActionResult Register(RegisterViewModel registerVM)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(registerVM);
             }
@@ -111,8 +124,8 @@ namespace DigiKala.Controllers
                 Password = PasswordHasher.HahsPasswordMD5(registerVM.Password),
                 AvatarName = "Default.png",
                 IsActive = false,
-                MessageCode = RandomNumberGenerator.RandomIntegerGenerator(10000,99999).ToString(),
-                ActivationCode=NameGenerator.GenerateUniqName(),
+                MessageCode = RandomNumberGenerator.RandomIntegerGenerator(10000, 99999).ToString(),
+                ActivationCode = NameGenerator.GenerateUniqName(),
                 RegisterDate = DateTime.Now
             };
             //Add User
@@ -130,6 +143,19 @@ namespace DigiKala.Controllers
         {
             ViewBag.isActivated = _userService.ActiveUserAccount(activeCode);
             return View();
+        }
+
+        [Route("ForgetPassword")]
+        public IActionResult ForgetPassword()
+        {
+            return null;
+        }
+
+        [Route("Logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return Redirect("/");
         }
     }
 }
