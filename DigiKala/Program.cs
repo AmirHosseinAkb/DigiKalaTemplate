@@ -3,6 +3,8 @@ using DigiKala.Core.Services.Interfaces;
 using DigiKala.Data.Context;
 using DigiKala.Core.Convertors;
 using Microsoft.EntityFrameworkCore;
+using DigiKala.Core.Middlewares;
+using DigiKala.Core.Extensions;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var webApplcationOptions =
@@ -59,6 +61,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseCultureCookie();
 
 app.UseAuthentication();
 
