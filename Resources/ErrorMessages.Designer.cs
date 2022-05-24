@@ -88,6 +88,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, there is no such page on the site or this page has been deleted..
+        /// </summary>
+        public static string Error404Text {
+            get {
+                return ResourceManager.GetString("Error404Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your account is inactive. Please check your email or sign in with your phone number.
         /// </summary>
         public static string NoActiveUserAccount {
@@ -102,6 +111,24 @@ namespace Resources {
         public static string NoUserWithEnteredEmail {
             get {
                 return ResourceManager.GetString("NoUserWithEnteredEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no user with the entered phone number.
+        /// </summary>
+        public static string NoUserWithEnteredPhoneNumber {
+            get {
+                return ResourceManager.GetString("NoUserWithEnteredPhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Not Found.
+        /// </summary>
+        public static string PageNotFound {
+            get {
+                return ResourceManager.GetString("PageNotFound", resourceCulture);
             }
         }
     }

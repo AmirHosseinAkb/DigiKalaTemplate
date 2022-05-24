@@ -52,5 +52,10 @@ namespace DigiKala.Core.Services
         {
             return _context.Users.SingleOrDefault(u => u.Email == EmailConvertor.FixEmail(email));
         }
+
+        public User GetUserByPhoneNumber(string phoneNumber)
+        {
+            return _context.Users.SingleOrDefault(u => u.PhoneNumber == phoneNumber);
+        }
     }
 }

@@ -138,8 +138,8 @@
   <data name="Congratulations" xml:space="preserve">
     <value>Congratulations</value>
   </data>
-  <data name="Continue" xml:space="preserve">
-    <value>Continue</value>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>CurrentPassword</value>
   </data>
   <data name="EmailOrPhone" xml:space="preserve">
     <value>Email or Phone</value>
@@ -156,11 +156,17 @@
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>NewPassword</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
   <data name="RegisterAndLogin" xml:space="preserve">
     <value>Register/Login</value>
+  </data>
+  <data name="RepeatNewPassword" xml:space="preserve">
+    <value>Repeat New Password</value>
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat Password</value>
@@ -170,9 +176,6 @@
   </data>
   <data name="ResetPasswordEmailText" xml:space="preserve">
     <value>For reset your password please click on the bottom button.</value>
-  </data>
-  <data name="ReturnHome" xml:space="preserve">
-    <value>Return Home</value>
   </data>
   <data name="ShopName" xml:space="preserve">
     <value>MyStore</value>

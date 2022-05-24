@@ -126,10 +126,19 @@
   <data name="EnterPhoneNumberCorrectly" xml:space="preserve">
     <value>لطفا شماره تلفن خود را بصورت صحیح وارد کنید</value>
   </data>
+  <data name="Error404Text" xml:space="preserve">
+    <value>با عرض پوزش از شما، چنین صفحه‌ای در سایت وجود ندارد یا این صفحه از سایت پاک شده است</value>
+  </data>
   <data name="NoActiveUserAccount" xml:space="preserve">
     <value>حساب کاربری شما فعال نمی باشد لطفا ایمیل خود را بررسی کنید یا ازطریق شماره موبایل وارد شوید</value>
   </data>
   <data name="NoUserWithEnteredEmail" xml:space="preserve">
     <value>کاربری با ایمیل وارد شده وجود ندارد</value>
+  </data>
+  <data name="NoUserWithEnteredPhoneNumber" xml:space="preserve">
+    <value>کاربری با شماره همراه وارد شده وحود ندارد</value>
+  </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>صفحه مورد نظر پیدا نشد</value>
   </data>
 </root>

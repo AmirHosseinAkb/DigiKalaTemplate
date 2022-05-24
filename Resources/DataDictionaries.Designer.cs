@@ -124,11 +124,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Continue.
+        ///   Looks up a localized string similar to CurrentPassword.
         /// </summary>
-        public static string Continue {
+        public static string CurrentPassword {
             get {
-                return ResourceManager.GetString("Continue", resourceCulture);
+                return ResourceManager.GetString("CurrentPassword", resourceCulture);
             }
         }
         
@@ -178,6 +178,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to NewPassword.
+        /// </summary>
+        public static string NewPassword {
+            get {
+                return ResourceManager.GetString("NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -192,6 +201,15 @@ namespace Resources {
         public static string RegisterAndLogin {
             get {
                 return ResourceManager.GetString("RegisterAndLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat New Password.
+        /// </summary>
+        public static string RepeatNewPassword {
+            get {
+                return ResourceManager.GetString("RepeatNewPassword", resourceCulture);
             }
         }
         
@@ -219,15 +237,6 @@ namespace Resources {
         public static string ResetPasswordEmailText {
             get {
                 return ResourceManager.GetString("ResetPasswordEmailText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Return Home.
-        /// </summary>
-        public static string ReturnHome {
-            get {
-                return ResourceManager.GetString("ReturnHome", resourceCulture);
             }
         }
         

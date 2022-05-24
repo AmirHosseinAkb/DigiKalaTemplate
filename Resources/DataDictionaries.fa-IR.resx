@@ -138,8 +138,8 @@
   <data name="Congratulations" xml:space="preserve">
     <value>تبریک میگوییم!</value>
   </data>
-  <data name="Continue" xml:space="preserve">
-    <value>ادامه</value>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>رمز عبور فعلی</value>
   </data>
   <data name="EmailOrPhone" xml:space="preserve">
     <value>ایمیل یا شماره همراه</value>
@@ -156,23 +156,26 @@
   <data name="Login" xml:space="preserve">
     <value>ورود</value>
   </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>رمز عبور جدید</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>رمز عبور</value>
   </data>
   <data name="RegisterAndLogin" xml:space="preserve">
     <value>ورود/ثبت نام</value>
   </data>
+  <data name="RepeatNewPassword" xml:space="preserve">
+    <value>تکرار رمز عبور جدید</value>
+  </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>تکرار رمز عبور</value>
   </data>
   <data name="ResetPassword" xml:space="preserve">
-    <value>تغییر رمز عبور</value>
+    <value>بازیابی رمز عبور</value>
   </data>
   <data name="ResetPasswordEmailText" xml:space="preserve">
     <value>برای تغییر رمز عبور خود لطفا روی دکمه زیر کلیک نمایید.</value>
-  </data>
-  <data name="ReturnHome" xml:space="preserve">
-    <value>بازگشت به صفحه اصلی</value>
   </data>
   <data name="ShopName" xml:space="preserve">
     <value>مای استور</value>

@@ -186,15 +186,34 @@ namespace DigiKala.Controllers
                     ModelState.AddModelError("EmailOrPhoneNumber", ErrorMessages.EnterPhoneNumberCorrectly);
                     return View(forgetPasswordVM);
                 }
-                if (_userService.IsExistUserByPhoneNumber(forgetPasswordVM.EmailOrPhoneNumber))
+                var user = _userService.GetUserByPhoneNumber(forgetPasswordVM.EmailOrPhoneNumber);
+                if (user!=null)
                 {
-
+                    var body = _viewRenderService.RenderToStringAsync("Account/ResetPasswordEmail", user);
+                    SendEmail.Send(user.Email, DataDictionaries.ResetPassword, body);
+                }
+                else
+                {
+                    ModelState.AddModelError("EmailOrPhoneNumber", ErrorMessages.NoUserWithEnteredEmail);
+                    return View(forgetPasswordVM);
                 }
             }
             ViewBag.EmailSent = true;
             return View();
         }
 
+        [Route("ResetPassword/{activationCode}")]
+        public IActionResult ResetPassword(string activationCode)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("ResetPassword")]
+        public IActionResult ResetPassword(ResetPasswordViewModel resetPasswordVM)
+        {
+            return View();
+        }
         [Route("Logout")]
         public IActionResult Logout()
         {

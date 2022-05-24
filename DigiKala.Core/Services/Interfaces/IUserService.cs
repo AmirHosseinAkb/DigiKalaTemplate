@@ -14,5 +14,6 @@ namespace DigiKala.Core.Services.Interfaces
         bool ActiveUserAccount(string activeCode);
         bool IsExistUserByPhoneNumber(string phoneNumber);
         User GetUserByEmail(string email);
+        User GetUserByPhoneNumber(string phoneNumber);  
     }
 }

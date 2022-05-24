@@ -132,6 +132,9 @@
   <data name="Register" xml:space="preserve">
     <value>ثبت نام</value>
   </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>بازیابی رمز عبور</value>
+  </data>
   <data name="SuccessRegister" xml:space="preserve">
     <value>موفقیت ثبت نام</value>
   </data>
