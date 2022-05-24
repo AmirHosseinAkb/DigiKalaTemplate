@@ -12,10 +12,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ButtonCaptions.resx</DependentUpon>
     </Compile>
+    <Compile Update="ConfirmationMessages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConfirmationMessages.resx</DependentUpon>
+    </Compile>
     <Compile Update="DataDictionaries.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DataDictionaries.resx</DependentUpon>
+    </Compile>
+    <Compile Update="ErrorMessages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorMessages.resx</DependentUpon>
     </Compile>
     <Compile Update="PageTitles.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -29,9 +39,17 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ButtonCaptions.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="ConfirmationMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConfirmationMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="DataDictionaries.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DataDictionaries.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ErrorMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="PageTitles.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

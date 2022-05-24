@@ -168,7 +168,8 @@ namespace DigiKala.Controllers
                 var user = _userService.GetUserByEmail(forgetPasswordVM.EmailOrPhoneNumber);
                 if (user != null)
                 {
-                    var body = _viewRenderService.RenderToStringAsync("",);
+                    var body = _viewRenderService.RenderToStringAsync("Account/ResetPasswordEmail",user);
+                    SendEmail.Send(user.Email, "تغییر رمز عبور|مای استور", body);
                 }
                 else
                 {
@@ -184,8 +185,13 @@ namespace DigiKala.Controllers
                     ModelState.AddModelError("EmailOrPhoneNumber", "لطفا شماره تلفن را به صورت صحیح وارد کنید");
                     return View(forgetPasswordVM);
                 }
+                if (_userService.IsExistUserByPhoneNumber(forgetPasswordVM.EmailOrPhoneNumber))
+                {
+
+                }
             }
-            return null;
+            ViewBag.EmailSent = true;
+            return View();
         }
 
         [Route("Logout")]
