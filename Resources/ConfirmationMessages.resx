@@ -123,6 +123,9 @@
   <data name="ConfirmRegisterText" xml:space="preserve">
     <value>Your account has been successfully created. Now you can log in to your account and complete your account information to everyone Access the facilities and services and   related services</value>
   </data>
+  <data name="ConfirmResetPassword" xml:space="preserve">
+    <value>Reset Password Confirmed</value>
+  </data>
   <data name="ResetPasswordEmailSent" xml:space="preserve">
     <value>Reset Password Email Sent Successfully</value>
   </data>

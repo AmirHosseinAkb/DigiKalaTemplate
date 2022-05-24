@@ -123,6 +123,9 @@
   <data name="ConfirmRegisterText" xml:space="preserve">
     <value>حساب کاربری شما با موفقیت ساخته شد حال میتوانید وارد حساب کاربری خود شده و با تکمیل اطلاعات حساب کاربری خود به کلیه امکانات و سرویس‌ها و سرویس‌های وابسته به آن دسترسی داشته باشید</value>
   </data>
+  <data name="ConfirmResetPassword" xml:space="preserve">
+    <value>رمز عبور با موفقیت بازیابی شد</value>
+  </data>
   <data name="ResetPasswordEmailSent" xml:space="preserve">
     <value>ایمیل تغییر رمز عبور با موفقیت ارسال شد</value>
   </data>

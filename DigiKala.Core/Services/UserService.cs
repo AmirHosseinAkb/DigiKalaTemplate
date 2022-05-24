@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DigiKala.Core.Convertors;
 using DigiKala.Core.Generators;
+using DigiKala.Core.Security;
 using DigiKala.Core.Services.Interfaces;
 using DigiKala.Data.Context;
 using DigiKala.Data.Entities.User;
@@ -56,6 +57,24 @@ namespace DigiKala.Core.Services
         public User GetUserByPhoneNumber(string phoneNumber)
         {
             return _context.Users.SingleOrDefault(u => u.PhoneNumber == phoneNumber);
+        }
+
+        public bool IsExistUserByActivationCode(string activationCode)
+        {
+            return _context.Users.Any(u => u.ActivationCode == activationCode);
+        }
+
+        public bool ResetUserPassword(string activationCode, string password)
+        {
+            var user = _context.Users.SingleOrDefault(u => u.ActivationCode == activationCode);
+            if (user != null)
+            {
+                user.Password = PasswordHasher.HashPasswordMD5(password);
+                user.ActivationCode = NameGenerator.GenerateUniqName();
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }

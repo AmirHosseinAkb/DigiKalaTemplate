@@ -241,6 +241,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your password has been successfully recovered and you can now log in using this password.
+        /// </summary>
+        public static string ResetUserPasswordText {
+            get {
+                return ResourceManager.GetString("ResetUserPasswordText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MyStore.
         /// </summary>
         public static string ShopName {

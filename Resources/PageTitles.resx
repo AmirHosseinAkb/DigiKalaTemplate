@@ -138,4 +138,7 @@
   <data name="SuccessRegister" xml:space="preserve">
     <value>Success Register</value>
   </data>
+  <data name="SuccessResetPassword" xml:space="preserve">
+    <value>Success Reset Password</value>
+  </data>
 </root>

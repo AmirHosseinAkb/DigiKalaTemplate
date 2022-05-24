@@ -50,7 +50,6 @@ namespace DigiKala.Core.ViewModels.User
 
     public class ResetPasswordViewModel
     {
-        public string ActivationCode { get; set; }
         [Display(Name = "رمز عبور جدید")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [MaxLength(20, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]

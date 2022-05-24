@@ -177,6 +177,9 @@
   <data name="ResetPasswordEmailText" xml:space="preserve">
     <value>For reset your password please click on the bottom button.</value>
   </data>
+  <data name="ResetUserPasswordText" xml:space="preserve">
+    <value>Your password has been successfully recovered and you can now log in using this password</value>
+  </data>
   <data name="ShopName" xml:space="preserve">
     <value>MyStore</value>
   </data>

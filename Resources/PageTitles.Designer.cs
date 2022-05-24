@@ -122,5 +122,14 @@ namespace Resources {
                 return ResourceManager.GetString("SuccessRegister", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success Reset Password.
+        /// </summary>
+        public static string SuccessResetPassword {
+            get {
+                return ResourceManager.GetString("SuccessResetPassword", resourceCulture);
+            }
+        }
     }
 }

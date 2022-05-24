@@ -126,7 +126,7 @@ namespace DigiKala.Controllers
             var user = new User()
             {
                 Email = EmailConvertor.FixEmail(email),
-                Password = PasswordHasher.HahsPasswordMD5(registerVM.Password),
+                Password = PasswordHasher.HashPasswordMD5(registerVM.Password),
                 AvatarName = "Default.png",
                 IsActive = false,
                 MessageCode = RandomNumberGenerator.RandomIntegerGenerator(10000, 99999).ToString(),
@@ -202,18 +202,31 @@ namespace DigiKala.Controllers
             return View();
         }
 
-        [Route("ResetPassword/{activationCode}")]
-        public IActionResult ResetPassword(string activationCode)
+        [Route("ResetPassword/{activationCode?}")]
+        public IActionResult ResetPassword(string? activationCode)
         {
+            if (!_userService.IsExistUserByActivationCode(activationCode))
+            {
+                return View("Errors/NotFoundError");
+            }
+            TempData["ActivationCode"] = activationCode;
             return View();
         }
 
         [HttpPost]
-        [Route("ResetPassword")]
+        [Route("ResetPassword/{activationCode?}")]
         public IActionResult ResetPassword(ResetPasswordViewModel resetPasswordVM)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(resetPasswordVM);
+            }
+            var activationCode = TempData["ActivationCode"]!.ToString();
+            ViewBag.PasswordReseted=_userService.ResetUserPassword(activationCode, resetPasswordVM.NewPassword);
+            return View("/Account/SuccessResetPassword");
         }
+
+
         [Route("Logout")]
         public IActionResult Logout()
         {

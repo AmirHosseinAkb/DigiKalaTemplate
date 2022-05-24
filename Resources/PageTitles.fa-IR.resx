@@ -138,4 +138,7 @@
   <data name="SuccessRegister" xml:space="preserve">
     <value>موفقیت ثبت نام</value>
   </data>
+  <data name="SuccessResetPassword" xml:space="preserve">
+    <value>موفقیت بازیابی رمز عبور</value>
+  </data>
 </root>

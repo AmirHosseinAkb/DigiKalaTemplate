@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset Password Confirmed.
+        /// </summary>
+        public static string ConfirmResetPassword {
+            get {
+                return ResourceManager.GetString("ConfirmResetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset Password Email Sent Successfully.
         /// </summary>
         public static string ResetPasswordEmailSent {

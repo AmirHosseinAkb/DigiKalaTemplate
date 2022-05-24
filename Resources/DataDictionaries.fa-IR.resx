@@ -177,6 +177,9 @@
   <data name="ResetPasswordEmailText" xml:space="preserve">
     <value>برای تغییر رمز عبور خود لطفا روی دکمه زیر کلیک نمایید.</value>
   </data>
+  <data name="ResetUserPasswordText" xml:space="preserve">
+    <value>رمز عبور شما با موفقیت بازیابی شد حال میتوانید با استفاده از این رمز عبور وارد سایت شوید</value>
+  </data>
   <data name="ShopName" xml:space="preserve">
     <value>مای استور</value>
   </data>

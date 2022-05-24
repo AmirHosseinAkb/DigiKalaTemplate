@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 var webApplcationOptions =
     new WebApplicationOptions()
     {
-        EnvironmentName = Microsoft.Extensions.Hosting.Environments.Development
+        EnvironmentName = Microsoft.Extensions.Hosting.Environments.Production
     };
 
 var builder = WebApplication.CreateBuilder(webApplcationOptions);
@@ -51,7 +51,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler("/Errors/Error404");
+    app.UseExceptionHandler("/Errors/NotFoundError");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
