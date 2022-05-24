@@ -156,6 +156,12 @@
   <data name="EmailOrPhone" xml:space="preserve">
     <value>Email or Phone</value>
   </data>
+  <data name="ForgetPassword" xml:space="preserve">
+    <value>ForgetPassword</value>
+  </data>
+  <data name="ForgotPasswordCaption" xml:space="preserve">
+    <value>Enter your email or mobile number to change your password</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>Hello</value>
   </data>
@@ -170,6 +176,12 @@
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat Password</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="ResetPasswordEmailText" xml:space="preserve">
+    <value>For reset your password please click on the bottom button.</value>
   </data>
   <data name="ReturnHome" xml:space="preserve">
     <value>Return Home</value>

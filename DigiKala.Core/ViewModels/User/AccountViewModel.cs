@@ -40,4 +40,11 @@ namespace DigiKala.Core.ViewModels.User
         [Compare("Password",ErrorMessage ="تکرار رمز عبور با رمز عبور مطابقت ندارد")]
         public string RePassword { get; set; }
     }
+
+    public class ForgetPasswordViewModel
+    {
+        [Display(Name = "ایمیل یا شماره همراه")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        public string EmailOrPhoneNumber { get; set; }
+    }
 }

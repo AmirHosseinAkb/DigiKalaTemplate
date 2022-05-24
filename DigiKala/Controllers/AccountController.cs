@@ -36,8 +36,7 @@ namespace DigiKala.Controllers
             {
                 return View(registerAndLoginVM);
             }
-            var emailAddress = new System.Net.Mail.MailAddress(registerAndLoginVM.EmailOrPhoneNumber);
-            if (registerAndLoginVM.EmailOrPhoneNumber == emailAddress.Address)
+            if (registerAndLoginVM.EmailOrPhoneNumber.IsEmail())
             {
                 var user = _userService.GetUserByEmail(registerAndLoginVM.EmailOrPhoneNumber);
                 TempData["EmailAddressCheck"] = registerAndLoginVM.EmailOrPhoneNumber;
@@ -58,6 +57,11 @@ namespace DigiKala.Controllers
             }
             else
             {
+                if (registerAndLoginVM.EmailOrPhoneNumber.Any(x => char.IsLetter(x)) || registerAndLoginVM.EmailOrPhoneNumber.Length != 10)
+                {
+                    ModelState.AddModelError("EmailOrPhone", "لطفا شماره تلفن را به صورت صحیح وارد کنید");
+                    return View(registerAndLoginVM);
+                }
 
             }
             return Redirect("");
@@ -148,6 +152,39 @@ namespace DigiKala.Controllers
         [Route("ForgetPassword")]
         public IActionResult ForgetPassword()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("ForgetPassword")]
+        public IActionResult ForgetPassword(ForgetPasswordViewModel forgetPasswordVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(forgetPasswordVM);
+            }
+            if (forgetPasswordVM.EmailOrPhoneNumber.IsEmail())
+            {
+                var user = _userService.GetUserByEmail(forgetPasswordVM.EmailOrPhoneNumber);
+                if (user != null)
+                {
+                    var body = _viewRenderService.RenderToStringAsync("",);
+                }
+                else
+                {
+                    ModelState.AddModelError("EmailOrPhoneNumber", "کاربری با ایمیل وارد شده موجود نمی باشد");
+                    return View(forgetPasswordVM);
+                }
+
+            }
+            else
+            {
+                if (forgetPasswordVM.EmailOrPhoneNumber.Any(x => char.IsLetter(x)) || forgetPasswordVM.EmailOrPhoneNumber.Length != 10)
+                {
+                    ModelState.AddModelError("EmailOrPhoneNumber", "لطفا شماره تلفن را به صورت صحیح وارد کنید");
+                    return View(forgetPasswordVM);
+                }
+            }
             return null;
         }
 

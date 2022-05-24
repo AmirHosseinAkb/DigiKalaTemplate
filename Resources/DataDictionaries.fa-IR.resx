@@ -156,6 +156,12 @@
   <data name="EmailOrPhone" xml:space="preserve">
     <value>ایمیل یا شماره همراه</value>
   </data>
+  <data name="ForgetPassword" xml:space="preserve">
+    <value>فراموشی رمز عبور</value>
+  </data>
+  <data name="ForgotPasswordCaption" xml:space="preserve">
+    <value>برای تعویض رمز عبور خود ایمیل یا شماره همراهتان را وارد کنید</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>سلام</value>
   </data>
@@ -170,6 +176,12 @@
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>تکرار رمز عبور</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>تغییر رمز عبور</value>
+  </data>
+  <data name="ResetPasswordEmailText" xml:space="preserve">
+    <value>برای تغییر رمز عبور خود لطفا روی دکمه زیر کلیک نمایید.</value>
   </data>
   <data name="ReturnHome" xml:space="preserve">
     <value>بازگشت به صفحه اصلی</value>
