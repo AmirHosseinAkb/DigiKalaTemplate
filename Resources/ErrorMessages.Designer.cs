@@ -22,7 +22,7 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ErrorMessages {
+    public class ErrorMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.ErrorMessages", typeof(ErrorMessages).Assembly);
@@ -51,12 +51,57 @@ namespace Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please reactivate your account through the site.
+        /// </summary>
+        public static string ActivationErrorText {
+            get {
+                return ResourceManager.GetString("ActivationErrorText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activation operation failed!.
+        /// </summary>
+        public static string ActivationErrorTitle {
+            get {
+                return ResourceManager.GetString("ActivationErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter the phone number correctly.
+        /// </summary>
+        public static string EnterPhoneNumberCorrectly {
+            get {
+                return ResourceManager.GetString("EnterPhoneNumberCorrectly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your account is inactive. Please check your email or sign in with your phone number.
+        /// </summary>
+        public static string NoActiveUserAccount {
+            get {
+                return ResourceManager.GetString("NoActiveUserAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no user with the entered email.
+        /// </summary>
+        public static string NoUserWithEnteredEmail {
+            get {
+                return ResourceManager.GetString("NoUserWithEnteredEmail", resourceCulture);
             }
         }
     }

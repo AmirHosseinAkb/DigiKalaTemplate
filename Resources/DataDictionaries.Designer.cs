@@ -79,24 +79,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please reactivate your account through the site.
-        /// </summary>
-        public static string ActivationErrorText {
-            get {
-                return ResourceManager.GetString("ActivationErrorText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Activation operation failed!.
-        /// </summary>
-        public static string ActivationErrorTitle {
-            get {
-                return ResourceManager.GetString("ActivationErrorTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Active Account.
         /// </summary>
         public static string ActiveAccount {
@@ -120,24 +102,6 @@ namespace Resources {
         public static string AllRightsReserved {
             get {
                 return ResourceManager.GetString("AllRightsReserved", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Your Account Has Been Created.
-        /// </summary>
-        public static string ConfirmRegister {
-            get {
-                return ResourceManager.GetString("ConfirmRegister", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Your account has been successfully created. Now you can log in to your account and complete your account information to everyone Access the facilities and services and   related services.
-        /// </summary>
-        public static string ConfirmRegisterText {
-            get {
-                return ResourceManager.GetString("ConfirmRegisterText", resourceCulture);
             }
         }
         

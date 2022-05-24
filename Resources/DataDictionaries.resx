@@ -123,12 +123,6 @@
   <data name="ActivationError" xml:space="preserve">
     <value>!Activation Error</value>
   </data>
-  <data name="ActivationErrorText" xml:space="preserve">
-    <value>Please reactivate your account through the site</value>
-  </data>
-  <data name="ActivationErrorTitle" xml:space="preserve">
-    <value>Activation operation failed!</value>
-  </data>
   <data name="ActiveAccount" xml:space="preserve">
     <value>Active Account</value>
   </data>
@@ -137,12 +131,6 @@
   </data>
   <data name="AllRightsReserved" xml:space="preserve">
     <value>All Rights Reserved</value>
-  </data>
-  <data name="ConfirmRegister" xml:space="preserve">
-    <value>Your Account Has Been Created</value>
-  </data>
-  <data name="ConfirmRegisterText" xml:space="preserve">
-    <value>Your account has been successfully created. Now you can log in to your account and complete your account information to everyone Access the facilities and services and   related services</value>
   </data>
   <data name="ConfirmUserInformations" xml:space="preserve">
     <value>Confirm Your Informations</value>

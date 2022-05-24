@@ -40,7 +40,7 @@
       <LastGenOutput>ButtonCaptions.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="ConfirmationMessages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ConfirmationMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="DataDictionaries.resx">
@@ -48,7 +48,7 @@
       <LastGenOutput>DataDictionaries.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="ErrorMessages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="PageTitles.resx">

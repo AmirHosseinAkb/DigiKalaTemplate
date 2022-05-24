@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using Resources;
 
 namespace DigiKala.Controllers
 {
@@ -45,7 +46,7 @@ namespace DigiKala.Controllers
                 {
                     if (!user.IsActive)
                     {
-                        ModelState.AddModelError("EmailOrPhoneNumber", "حساب کاربری شما غیرفعال می باشد لطفا ایمیلتان را بررسی کنید یا از طریق شماره تلفن وارد شوید.");
+                        ModelState.AddModelError("EmailOrPhoneNumber", ErrorMessages.NoActiveUserAccount);
                         return View(registerAndLoginVM);
                     }
                     return Redirect("/Login");
@@ -59,7 +60,7 @@ namespace DigiKala.Controllers
             {
                 if (registerAndLoginVM.EmailOrPhoneNumber.Any(x => char.IsLetter(x)) || registerAndLoginVM.EmailOrPhoneNumber.Length != 10)
                 {
-                    ModelState.AddModelError("EmailOrPhone", "لطفا شماره تلفن را به صورت صحیح وارد کنید");
+                    ModelState.AddModelError("EmailOrPhoneNumber", ErrorMessages.EnterPhoneNumberCorrectly);
                     return View(registerAndLoginVM);
                 }
 
@@ -137,7 +138,7 @@ namespace DigiKala.Controllers
 
             //Send Email
             var body = _viewRenderService.RenderToStringAsync("Account/ActivationEmail", user);
-            SendEmail.Send(user.Email, "فعالسازی حساب کاربری", body);
+            SendEmail.Send(user.Email,DataDictionaries.ActiveAccount, body);
 
             return View("SuccessRegister");
         }
@@ -169,11 +170,11 @@ namespace DigiKala.Controllers
                 if (user != null)
                 {
                     var body = _viewRenderService.RenderToStringAsync("Account/ResetPasswordEmail",user);
-                    SendEmail.Send(user.Email, "تغییر رمز عبور|مای استور", body);
+                    SendEmail.Send(user.Email,DataDictionaries.ResetPassword, body);
                 }
                 else
                 {
-                    ModelState.AddModelError("EmailOrPhoneNumber", "کاربری با ایمیل وارد شده موجود نمی باشد");
+                    ModelState.AddModelError("EmailOrPhoneNumber",ErrorMessages.NoUserWithEnteredEmail);
                     return View(forgetPasswordVM);
                 }
 
@@ -182,7 +183,7 @@ namespace DigiKala.Controllers
             {
                 if (forgetPasswordVM.EmailOrPhoneNumber.Any(x => char.IsLetter(x)) || forgetPasswordVM.EmailOrPhoneNumber.Length != 10)
                 {
-                    ModelState.AddModelError("EmailOrPhoneNumber", "لطفا شماره تلفن را به صورت صحیح وارد کنید");
+                    ModelState.AddModelError("EmailOrPhoneNumber", ErrorMessages.EnterPhoneNumberCorrectly);
                     return View(forgetPasswordVM);
                 }
                 if (_userService.IsExistUserByPhoneNumber(forgetPasswordVM.EmailOrPhoneNumber))

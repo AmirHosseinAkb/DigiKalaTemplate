@@ -123,12 +123,6 @@
   <data name="ActivationError" xml:space="preserve">
     <value>خطای فعالسازی</value>
   </data>
-  <data name="ActivationErrorText" xml:space="preserve">
-    <value>Please reactivate your account through the site</value>
-  </data>
-  <data name="ActivationErrorTitle" xml:space="preserve">
-    <value>عملیات فعالسازی با شکست مواجه شد!</value>
-  </data>
   <data name="ActiveAccount" xml:space="preserve">
     <value>فعالسازی حساب کاربری</value>
   </data>
@@ -137,12 +131,6 @@
   </data>
   <data name="AllRightsReserved" xml:space="preserve">
     <value>کلیه حقوق این سایت متعلق به مای استور می باشد</value>
-  </data>
-  <data name="ConfirmRegister" xml:space="preserve">
-    <value>حساب کاربری شما ساخته شد</value>
-  </data>
-  <data name="ConfirmRegisterText" xml:space="preserve">
-    <value>حساب کاربری شما با موفقیت ساخته شد حال میتوانید وارد حساب کاربری خود شده و با تکمیل اطلاعات حساب کاربری خود به کلیه امکانات و سرویس‌ها و سرویس‌های وابسته به آن دسترسی داشته باشید</value>
   </data>
   <data name="ConfirmUserInformations" xml:space="preserve">
     <value>تکمیل اطلاعات کاربری</value>
