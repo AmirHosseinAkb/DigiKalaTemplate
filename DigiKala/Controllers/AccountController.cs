@@ -62,13 +62,17 @@ namespace DigiKala.Controllers
                     ModelState.AddModelError("EmailOrPhoneNumber", ErrorMessages.EnterPhoneNumberCorrectly);
                     return View(registerAndLoginVM);
                 }
-
             }
             return Redirect("");
         }
 
-        [Route("Login")]
+        [Route("Test")]
+        public IActionResult Test()
+        {
+            throw new Exception();
+        }
 
+        [Route("Login")]
         public IActionResult Login()
         {
             if (HttpContext.Session.GetString("EmailAddress") == null)

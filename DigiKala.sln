@@ -5,11 +5,11 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigiKala", "DigiKala\DigiKala.csproj", "{94042140-21FC-4B14-8D99-CCF82FB3D5E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiKala.Data", "DigiKala.Data\DigiKala.Data.csproj", "{63F9EAF8-2A77-4C82-8E51-45F13A98FE63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigiKala.Data", "DigiKala.Data\DigiKala.Data.csproj", "{63F9EAF8-2A77-4C82-8E51-45F13A98FE63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiKala.Core", "DigiKala.Core\DigiKala.Core.csproj", "{3528FC31-4237-4887-A8B5-F35BE0DEA6FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigiKala.Core", "DigiKala.Core\DigiKala.Core.csproj", "{3528FC31-4237-4887-A8B5-F35BE0DEA6FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{32288D96-FEAE-4334-8DB4-86E7CED2B793}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resources", "Resources\Resources.csproj", "{32288D96-FEAE-4334-8DB4-86E7CED2B793}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

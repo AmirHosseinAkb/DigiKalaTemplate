@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 var webApplcationOptions =
     new WebApplicationOptions()
     {
-        EnvironmentName = Microsoft.Extensions.Hosting.Environments.Development
+        EnvironmentName = Microsoft.Extensions.Hosting.Environments.Production
     };
 
 var builder = WebApplication.CreateBuilder(webApplcationOptions);
@@ -42,6 +42,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddRazorPages();
+
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options=>
@@ -59,7 +61,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler("/NotFoundError");
+    app.UseExceptionHandler("/Errors/Error404");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
@@ -82,5 +84,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
     );
+
+app.MapRazorPages();
 
 app.Run();
