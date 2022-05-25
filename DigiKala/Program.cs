@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 var webApplcationOptions =
     new WebApplicationOptions()
     {
-        EnvironmentName = Microsoft.Extensions.Hosting.Environments.Production
+        EnvironmentName = Microsoft.Extensions.Hosting.Environments.Development
     };
 
 var builder = WebApplication.CreateBuilder(webApplcationOptions);

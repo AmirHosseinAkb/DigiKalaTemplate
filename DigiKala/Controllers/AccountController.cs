@@ -203,7 +203,7 @@ namespace DigiKala.Controllers
         }
 
         [Route("ResetPassword/{activationCode?}")]
-        public IActionResult ResetPassword(string? activationCode)
+        public IActionResult ResetPassword(string activationCode)
         {
             if (!_userService.IsExistUserByActivationCode(activationCode))
             {
@@ -223,7 +223,7 @@ namespace DigiKala.Controllers
             }
             var activationCode = TempData["ActivationCode"]!.ToString();
             ViewBag.PasswordReseted=_userService.ResetUserPassword(activationCode, resetPasswordVM.NewPassword);
-            return View("/Account/SuccessResetPassword");
+            return View("SuccessResetPassword");
         }
 
 
