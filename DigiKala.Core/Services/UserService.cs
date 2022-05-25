@@ -76,5 +76,10 @@ namespace DigiKala.Core.Services
             }
             return false;
         }
+
+        public User IsExistUserForLogin(string email, string password)
+        {
+            return _context.Users.SingleOrDefault(u => u.Email == EmailConvertor.FixEmail(email) && u.Password == PasswordHasher.HashPasswordMD5(password));
+        }
     }
 }

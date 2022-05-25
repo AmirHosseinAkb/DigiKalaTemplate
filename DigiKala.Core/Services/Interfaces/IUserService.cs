@@ -17,5 +17,6 @@ namespace DigiKala.Core.Services.Interfaces
         User GetUserByPhoneNumber(string phoneNumber);
         bool IsExistUserByActivationCode(string activationCode);
         bool ResetUserPassword(string activationCode, string password);
+        User IsExistUserForLogin(string email, string password);
     }
 }

@@ -40,8 +40,7 @@ namespace DigiKala.Controllers
             if (registerAndLoginVM.EmailOrPhoneNumber.IsEmail())
             {
                 var user = _userService.GetUserByEmail(registerAndLoginVM.EmailOrPhoneNumber);
-                TempData["EmailAddressCheck"] = registerAndLoginVM.EmailOrPhoneNumber;
-                TempData["EmailAddress"] = registerAndLoginVM.EmailOrPhoneNumber;
+                HttpContext.Session.SetString("EmailAddress", registerAndLoginVM.EmailOrPhoneNumber);
                 if (user != null)
                 {
                     if (!user.IsActive)
@@ -72,7 +71,7 @@ namespace DigiKala.Controllers
 
         public IActionResult Login()
         {
-            if (TempData["EmailAddressCheck"] == null)
+            if (HttpContext.Session.GetString("EmailAddress") == null)
                 return Redirect("/RegisterAndLogin");
             return View();
         }
@@ -84,31 +83,41 @@ namespace DigiKala.Controllers
             {
                 return View(loginVM);
             }
-            var email = TempData["EmailAddress"]?.ToString();
-            var user = _userService.GetUserByEmail(email!);
-            var claims = new List<Claim>()
+            var email = HttpContext.Session.GetString("EmailAddress");
+            var user = _userService.IsExistUserForLogin(email!, loginVM.Password);
+            if (user != null)
             {
-                new Claim(ClaimTypes.NameIdentifier,user.UserId.ToString()),
-                new Claim(ClaimTypes.Name,user.Email!),
-                new Claim("AvatarName",user.AvatarName)
-            };
+                var claims = new List<Claim>()
+                {
+                    new Claim(ClaimTypes.NameIdentifier,user.UserId.ToString()),
+                    new Claim(ClaimTypes.Name,user.Email!),
+                    new Claim("AvatarName",user.AvatarName)
+                };
 
-            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-            var principal = new ClaimsPrincipal(identity);
+                var principal = new ClaimsPrincipal(identity);
 
-            var properties = new AuthenticationProperties()
+                var properties = new AuthenticationProperties()
+                {
+                    IsPersistent = true
+                };
+                
+                HttpContext.SignInAsync(principal, properties);
+                return Redirect("/");
+            }
+            else
             {
-                IsPersistent = true
-            };
-            HttpContext.SignInAsync(principal, properties);
-            return Redirect("/");
+                ModelState.AddModelError("Password", ErrorMessages.EnterPasswordCorrectly);
+                return View(loginVM);
+            }
+
         }
 
         [Route("Register")]
         public IActionResult Register()
         {
-            if (TempData["EmailAddressCheck"] == null)
+            if (HttpContext.Session.GetString("EmailAddress") == null)
                 return Redirect("/RegisterAndLogin");
 
             return View();
@@ -122,7 +131,7 @@ namespace DigiKala.Controllers
             {
                 return View(registerVM);
             }
-            var email = TempData["EmailAddress"]?.ToString();
+            var email = HttpContext.Session.GetString("EmailAddress");
             var user = new User()
             {
                 Email = EmailConvertor.FixEmail(email),
@@ -138,7 +147,7 @@ namespace DigiKala.Controllers
 
             //Send Email
             var body = _viewRenderService.RenderToStringAsync("Account/ActivationEmail", user);
-            SendEmail.Send(user.Email,DataDictionaries.ActiveAccount, body);
+            SendEmail.Send(user.Email, DataDictionaries.ActiveAccount, body);
 
             return View("SuccessRegister");
         }
@@ -169,12 +178,12 @@ namespace DigiKala.Controllers
                 var user = _userService.GetUserByEmail(forgetPasswordVM.EmailOrPhoneNumber);
                 if (user != null)
                 {
-                    var body = _viewRenderService.RenderToStringAsync("Account/ResetPasswordEmail",user);
-                    SendEmail.Send(user.Email,DataDictionaries.ResetPassword, body);
+                    var body = _viewRenderService.RenderToStringAsync("Account/ResetPasswordEmail", user);
+                    SendEmail.Send(user.Email, DataDictionaries.ResetPassword, body);
                 }
                 else
                 {
-                    ModelState.AddModelError("EmailOrPhoneNumber",ErrorMessages.NoUserWithEnteredEmail);
+                    ModelState.AddModelError("EmailOrPhoneNumber", ErrorMessages.NoUserWithEnteredEmail);
                     return View(forgetPasswordVM);
                 }
 
@@ -187,7 +196,7 @@ namespace DigiKala.Controllers
                     return View(forgetPasswordVM);
                 }
                 var user = _userService.GetUserByPhoneNumber(forgetPasswordVM.EmailOrPhoneNumber);
-                if (user!=null)
+                if (user != null)
                 {
                     var body = _viewRenderService.RenderToStringAsync("Account/ResetPasswordEmail", user);
                     SendEmail.Send(user.Email, DataDictionaries.ResetPassword, body);
@@ -222,7 +231,7 @@ namespace DigiKala.Controllers
                 return View(resetPasswordVM);
             }
             var activationCode = TempData["ActivationCode"]!.ToString();
-            ViewBag.PasswordReseted=_userService.ResetUserPassword(activationCode, resetPasswordVM.NewPassword);
+            ViewBag.PasswordReseted = _userService.ResetUserPassword(activationCode, resetPasswordVM.NewPassword);
             return View("SuccessResetPassword");
         }
 
