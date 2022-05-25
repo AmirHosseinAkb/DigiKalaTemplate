@@ -2,3 +2,94 @@
 @model DigiKala.Pages.UserPanel.UserInformationsModel
 @{
 }
+
+<main class="page-content">
+    <div class="container">
+        <div class="row mb-5">
+
+            <partial name="PartialViews/_UserPanelSideBar"></partial>
+
+            <div class="col-xl-9 col-lg-8 col-md-7">
+                <div class="alert alert-warning alert-dismissible fade show mb-5" role="alert">
+                    <div>
+                        سفارش شما در انتظار پرداخت است. برای جلوگیری از لغو سفارش، لطفا پرداخت را انجام دهید.
+                        <a href="#" class="btn btn-sm btn-primary mx-3">سفارش های من</a>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <div class="ui-box bg-white mb-5">
+                    <div class="ui-box-title">اطلاعات شخصی</div>
+                    <div class="ui-box-content">
+                        <div class="row">
+                            <div class="col-lg-6 mb-3">
+                                <div class="border-bottom py-2">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="fs-7 fw-bold text-dark">نام و نام خانوادگی</div>
+                                        <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-fullname-modal"><i class="ri-ball-pen-fill"></i></button>
+                                    </div>
+                                    <div class="fs-6 fw-bold text-muted">محسن اسماعیلی </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="border-bottom py-2">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="fs-7 fw-bold text-dark">کد ملی</div>
+                                        <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-national-id-modal"><i class="ri-ball-pen-fill"></i></button>
+                                    </div>
+                                    <div class="fs-6 fw-bold text-muted">-</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="border-bottom py-2">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="fs-7 fw-bold text-dark">شماره تلفن همراه</div>
+                                        <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-phone-number-modal"><i class="ri-ball-pen-fill"></i></button>
+                                    </div>
+                                    <div class="fs-6 fw-bold text-muted">09xxxxxxxxx</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="border-bottom py-2">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="fs-7 fw-bold text-dark">پست الکترونیک</div>
+                                        <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-email-modal"><i class="ri-ball-pen-fill"></i></button>
+                                    </div>
+                                    <div class="fs-6 fw-bold text-muted">example@example.com</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="border-bottom py-2">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="fs-7 fw-bold text-dark">تاریخ تولد</div>
+                                        <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-birth-modal"><i class="ri-ball-pen-fill"></i></button>
+                                    </div>
+                                    <div class="fs-6 fw-bold text-muted">-</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="border-bottom py-2">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="fs-7 fw-bold text-dark">روش بازگرداندن وجه</div>
+                                        <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-returned-modal"><i class="ri-ball-pen-fill"></i></button>
+                                    </div>
+                                    <div class="fs-6 fw-bold text-muted">-</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="border-bottom py-2">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="fs-7 fw-bold text-dark">رمز عبور</div>
+                                        <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-change-password-modal"><i class="ri-ball-pen-fill"></i></button>
+                                    </div>
+                                    <div class="fs-6 fw-bold text-muted">-</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- remove-from-favorite-modal -->
+    <!--  remove-from-favorite-modal -->
+</main>
