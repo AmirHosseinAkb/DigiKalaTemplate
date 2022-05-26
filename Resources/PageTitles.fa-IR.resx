@@ -141,4 +141,10 @@
   <data name="SuccessResetPassword" xml:space="preserve">
     <value>موفقیت بازیابی رمز عبور</value>
   </data>
+  <data name="UserInformations" xml:space="preserve">
+    <value>اطلاعات حساب</value>
+  </data>
+  <data name="UserPanel" xml:space="preserve">
+    <value>پنل کاربری</value>
+  </data>
 </root>

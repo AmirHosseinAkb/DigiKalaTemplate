@@ -144,14 +144,23 @@
   <data name="EmailOrPhone" xml:space="preserve">
     <value>Email or Phone</value>
   </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
   <data name="ForgetPassword" xml:space="preserve">
     <value>ForgetPassword</value>
   </data>
   <data name="ForgotPasswordCaption" xml:space="preserve">
     <value>Enter your email or mobile number to change your password</value>
   </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>Hello</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>

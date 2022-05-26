@@ -1,6 +1,7 @@
 ﻿@page
 @model DigiKala.Pages.UserPanel.UserInformationsModel
 @{
+    ViewData["Title"] = PageTitles.UserInformations;
 }
 
 <main class="page-content">
@@ -27,7 +28,7 @@
                                         <div class="fs-7 fw-bold text-dark">نام و نام خانوادگی</div>
                                         <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-fullname-modal"><i class="ri-ball-pen-fill"></i></button>
                                     </div>
-                                    <div class="fs-6 fw-bold text-muted">محسن اسماعیلی </div>
+                                    <div class="fs-6 fw-bold text-muted">@(Model.UserInformationsVM.FirstName +" "+ Model.UserInformationsVM.LastName)</div>
                                 </div>
                             </div>
                             <div class="col-lg-6 mb-3">
@@ -66,15 +67,15 @@
                                     <div class="fs-6 fw-bold text-muted">-</div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 mb-3">
+                            @*<div class="col-lg-6 mb-3">
                                 <div class="border-bottom py-2">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div class="fs-7 fw-bold text-dark">روش بازگرداندن وجه</div>
-                                        <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-returned-modal"><i class="ri-ball-pen-fill"></i></button>
-                                    </div>
-                                    <div class="fs-6 fw-bold text-muted">-</div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                <div class="fs-7 fw-bold text-dark">روش بازگرداندن وجه</div>
+                                <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-returned-modal"><i class="ri-ball-pen-fill"></i></button>
                                 </div>
-                            </div>
+                                <div class="fs-6 fw-bold text-muted">-</div>
+                                </div>
+                                </div>*@
                             <div class="col-lg-6 mb-3">
                                 <div class="border-bottom py-2">
                                     <div class="d-flex align-items-center justify-content-between">
@@ -90,6 +91,202 @@
             </div>
         </div>
     </div>
-    <!-- remove-from-favorite-modal -->
-    <!--  remove-from-favorite-modal -->
+    <div id="nameModal" class="remodal remodal-xs" data-remodal-id="personal-info-fullname-modal" data-remodal-options="hashTracking: false">
+        <div class="remodal-header">
+            <div class="remodal-title">@DataDictionaries.FullName</div>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+        <form method="post" asp-page-handler="ConfirmUserInformations">
+            <div class="remodal-content">
+                <div class="form-element-row mb-3">
+                    <label class="label fs-7">@DataDictionaries.FirstName</label>
+                    <input asp-for="UserFullNameVM.FirstName" type="text" value="@Model.UserInformationsVM.FirstName" class="form-control" placeholder="">
+                    <span asp-validation-for="UserFullNameVM.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-element-row">
+                    <label class="label fs-7">@DataDictionaries.LastName</label>
+                    <input asp-for="UserFullNameVM.LastName" type="text" value="@Model.UserInformationsVM.LastName" class="form-control" placeholder="">
+                    <span asp-validation-for="UserFullNameVM.LastName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="remodal-footer">
+                <button class="btn btn-sm btn-primary px-3">@ButtonCaptions.SaveInformations</button>
+            </div>
+        </form>
+    </div>
+    <!--  personal-info-fullname-modal -->
+    <!-- personal-info-national-id-modal -->
+    <div class="remodal remodal-xs" data-remodal-id="personal-info-national-id-modal"
+         data-remodal-options="hashTracking: false">
+        <div class="remodal-header">
+            <div class="remodal-title">کد ملی</div>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+        <form method="post" asp-page-handler="ConfirmUserInformations">
+            <div class="remodal-content">
+                <div class="form-element-row mb-3">
+                    <input asp-for="UserNationalNumberVM.NationalNumber" type="number" value="@Model.UserInformationsVM.NationalNumber" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="remodal-footer">
+                <button class="btn btn-sm btn-primary px-3">ثبت اطلاعات</button>
+            </div>
+        </form>
+    </div>
+    <!--  personal-info-national-id-modal -->
+    <!-- personal-info-phone-number-modal -->
+    <div class="remodal remodal-xs" data-remodal-id="personal-info-phone-number-modal"
+         data-remodal-options="hashTracking: false">
+        <div class="remodal-header">
+            <div class="remodal-title">شماره موبایل</div>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+        <form method="post" asp-page-handler="ConfirmUserInformations">
+            <div class="remodal-content">
+                <div class="form-element-row mb-3">
+                    <input asp-for="UserPhoneNumberVM.PhoneNumber" type="number" value="@Model.UserInformationsVM.PhoneNumber" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="remodal-footer">
+                <button class="btn btn-sm btn-primary px-3">دریافت کد تایید و تغییر شماره</button>
+            </div>
+        </form>
+    </div>
+    <!--  personal-info-phone-number-modal -->
+    <!-- personal-info-email-modal -->
+    <div class="remodal remodal-xs" data-remodal-id="personal-info-email-modal"
+         data-remodal-options="hashTracking: false">
+        <div class="remodal-header">
+            <div class="remodal-title">ایمیل</div>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+        <form method="post" asp-page-handler="ConfirmUserInformations">
+            <div class="remodal-content">
+                <div class="form-element-row mb-3">
+                    <input asp-for="UserEmailVM.Email" type="text" value="@Model.UserInformationsVM.Email" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="remodal-footer">
+                <button class="btn btn-sm btn-primary px-3">تایید</button>
+            </div>
+        </form>
+    </div>
+    <!--  personal-info-email-modal -->
+    <!-- personal-info-birth-modal -->
+    <div class="remodal remodal-xs" data-remodal-id="personal-info-birth-modal"
+         data-remodal-options="hashTracking: false">
+        <div class="remodal-header">
+            <div class="remodal-title">تولد</div>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+        <form method="post" asp-page-handler="ConfirmUserInformations">
+            <div class="remodal-content">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-element-row">
+                            <label class="label fs-7">سال</label>
+                            <input asp-for="UserBirthDateVM.BirthYear" type="number" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-element-row">
+                            <label class="label fs-7">ماه</label>
+                            <select class="select2" asp-for="UserBirthDateVM.BirthMonth" id="month">
+                                <option value="0">ماه</option>
+                                <option value="01">فروردین</option>
+                                <option value="02">اردیبهشت</option>
+                                <option value="03">خرداد</option>
+                                <option value="04">تیر</option>
+                                <option value="05">مرداد</option>
+                                <option value="06">شهریور</option>
+                                <option value="07">مهر</option>
+                                <option value="08">آبان</option>
+                                <option value="09">آ‌ذر</option>
+                                <option value="10">دی</option>
+                                <option value="11">بهمن</option>
+                                <option value="12">اسفند</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-element-row">
+                            <label class="label fs-7">روز</label>
+                            <input type="text" asp-for="UserBirthDateVM.BirthDay" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="remodal-footer">
+                <button class="btn btn-sm btn-primary px-3">ثبت تاریخ تولد</button>
+            </div>
+        </form>
+    </div>
+    <!--  personal-info-birth-modal -->
+    <!-- personal-info-returned-modal -->
+    @*<div class="remodal remodal-xs" data-remodal-id="personal-info-returned-modal" data-remodal-options="hashTracking: false">
+        <div class="remodal-header">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+        <div class="remodal-content">
+        <div class="fs-7 fw-bold mb-4">
+        لطفا روش بازگرداندن وجوه خود را انتخاب نمایید. همچنین برای کسب اطلاعات بیشتر لطفا ملاحظات بازگشت
+        وجه را مطالعه نمایید.
+        </div>
+        <div class="custom-radio-outline">
+        <input type="radio" class="custom-radio-outline-input" name="checkoutPayment"
+        id="checkoutPayment01">
+        <label for="checkoutPayment01" class="custom-radio-outline-label">
+        <span class="label">
+        <span class="icon"><i class="ri-secure-payment-fill"></i></span>
+        <span class="detail">
+        <span class="title">واریز به حساب بانکی</span>
+        </span>
+        </span>
+        </label>
+        </div>
+        <div class="custom-radio-outline">
+        <input type="radio" class="custom-radio-outline-input" name="checkoutPayment"
+        id="checkoutPayment02">
+        <label for="checkoutPayment02" class="custom-radio-outline-label">
+        <span class="label">
+        <span class="icon"><i class="ri-wallet-3-fill"></i></span>
+        <span class="detail">
+        <span class="title">واریز به کیف پول</span>
+        </span>
+        </span>
+        </label>
+        </div>
+        </div>
+        <div class="remodal-footer">
+        <button class="btn btn-sm btn-primary px-3">ثبت</button>
+        </div>
+        </div>*@
+    <!--  personal-info-returned-modal -->
+    <!-- personal-info-change-password-modal -->
+    <div class="remodal remodal-xs" data-remodal-id="personal-info-change-password-modal"
+         data-remodal-options="hashTracking: false">
+        <div class="remodal-header">
+            <div class="remodal-title">ویرایش رمز عبور</div>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+        <form method="post" asp-page-handler="ConfirmUserInformations">
+            <div class="remodal-content">
+                <div class="form-element-row mb-3">
+                    <label class="label fs-7">رمز عبور فعلی</label>
+                    <input asp-for="UserPasswordVM.CurrentPassword" type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-element-row mb-3">
+                    <label class="label fs-7">رمز عبور جدید</label>
+                    <input asp-for="UserPasswordVM.NewPassword" type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-element-row mb-3">
+                    <label class="label fs-7">تکرار رمز عبور جدید</label>
+                    <input asp-for="UserPasswordVM.RepeatNewPassword" type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="remodal-footer">
+                <button class="btn btn-sm btn-primary px-3">ثبت</button>
+            </div>
+        </form>
+    </div>
 </main>

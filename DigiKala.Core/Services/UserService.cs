@@ -7,6 +7,7 @@ using DigiKala.Core.Convertors;
 using DigiKala.Core.Generators;
 using DigiKala.Core.Security;
 using DigiKala.Core.Services.Interfaces;
+using DigiKala.Core.ViewModels.User;
 using DigiKala.Data.Context;
 using DigiKala.Data.Entities.User;
 
@@ -80,6 +81,51 @@ namespace DigiKala.Core.Services
         public User IsExistUserForLogin(string email, string password)
         {
             return _context.Users.SingleOrDefault(u => u.Email == EmailConvertor.FixEmail(email) && u.Password == PasswordHasher.HashPasswordMD5(password));
+        }
+
+        public UserInformationsViewModel GetUserInformationsForShow(string email)
+        {
+            return _context.Users.Where(u => u.Email == EmailConvertor.FixEmail(email))
+                .Select(u => new UserInformationsViewModel()
+                {
+                    Email=u.Email,
+                    BirthDate=u.BirthDate,
+                    FirstName=u.FirstName,
+                    LastName=u.LastName,
+                    NationalNumber=u.NationalNumber,
+                    PhoneNumber=u.PhoneNumber,
+                }).Single();
+        }
+
+        public void ConfirmUserInformations(string userEmail,string firstName = "", string lastName = "", string nationalNumber = "", string phoneNumber = "", string email = "", string birthDate = "", string password = "")
+        {
+            var user = GetUserByEmail(userEmail);
+            if (!string.IsNullOrEmpty(firstName) || !string.IsNullOrEmpty(lastName))
+            {
+                user.FirstName = firstName;
+                user.LastName = lastName;
+            }
+            if (!string.IsNullOrEmpty(nationalNumber))
+            {
+                user.NationalNumber = nationalNumber;
+            }
+            if (!string.IsNullOrEmpty(phoneNumber))
+            {
+                user.PhoneNumber = phoneNumber;
+            }
+            if (!string.IsNullOrEmpty(email))
+            {
+                user.Email = EmailConvertor.FixEmail(email);
+            }
+            if (!string.IsNullOrEmpty(birthDate))
+            {
+                user.BirthDate = birthDate;
+            }
+            if (!string.IsNullOrEmpty(password))
+            {
+                user.Password = PasswordHasher.HashPasswordMD5(password);
+            }
+            _context.SaveChanges();    
         }
     }
 }

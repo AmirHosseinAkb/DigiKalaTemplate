@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DigiKala.Core.ViewModels.User;
 
 namespace DigiKala.Core.Services.Interfaces
 {
     public interface IUserService
     {
+        #region Account
         bool IsExistUserByEmail(string email);
         void AddUser(User user);
         bool ActiveUserAccount(string activeCode);
@@ -18,5 +20,15 @@ namespace DigiKala.Core.Services.Interfaces
         bool IsExistUserByActivationCode(string activationCode);
         bool ResetUserPassword(string activationCode, string password);
         User IsExistUserForLogin(string email, string password);
+
+        #endregion
+
+        #region UserPanel
+
+        UserInformationsViewModel GetUserInformationsForShow(string email);
+
+        void ConfirmUserInformations(string userEmail, string firstName = "", string lastName = "", string nationalNumber = ""
+            , string phoneNumber = "", string email = "", string birthDate = "", string password = "");
+        #endregion
     }
 }

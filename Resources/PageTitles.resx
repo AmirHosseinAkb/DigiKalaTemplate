@@ -141,4 +141,10 @@
   <data name="SuccessResetPassword" xml:space="preserve">
     <value>Success Reset Password</value>
   </data>
+  <data name="UserInformations" xml:space="preserve">
+    <value>User Informations</value>
+  </data>
+  <data name="UserPanel" xml:space="preserve">
+    <value>User Panel</value>
+  </data>
 </root>

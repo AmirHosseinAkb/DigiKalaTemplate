@@ -144,14 +144,23 @@
   <data name="EmailOrPhone" xml:space="preserve">
     <value>ایمیل یا شماره همراه</value>
   </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>نام </value>
+  </data>
   <data name="ForgetPassword" xml:space="preserve">
     <value>فراموشی رمز عبور</value>
   </data>
   <data name="ForgotPasswordCaption" xml:space="preserve">
     <value>برای تعویض رمز عبور خود ایمیل یا شماره همراهتان را وارد کنید</value>
   </data>
+  <data name="FullName" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>سلام</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>نام خانوادگی</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>ورود</value>

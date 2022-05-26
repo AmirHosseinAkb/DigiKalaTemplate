@@ -131,5 +131,23 @@ namespace Resources {
                 return ResourceManager.GetString("SuccessResetPassword", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Informations.
+        /// </summary>
+        public static string UserInformations {
+            get {
+                return ResourceManager.GetString("UserInformations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Panel.
+        /// </summary>
+        public static string UserPanel {
+            get {
+                return ResourceManager.GetString("UserPanel", resourceCulture);
+            }
+        }
     }
 }

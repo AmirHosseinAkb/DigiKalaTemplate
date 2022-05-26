@@ -43,8 +43,6 @@ namespace DigiKala.Data.Entities.User
         [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
         public string? BirthDate { get; set; }
 
-        [Display(Name = "نحوه بازگشت وجه")]
-        public byte? RefundType { get; set; }
 
         [Display(Name = "تاریخ عضویت")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]

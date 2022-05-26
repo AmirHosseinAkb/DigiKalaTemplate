@@ -138,4 +138,13 @@
   <data name="ReturnHome" xml:space="preserve">
     <value>Return Home</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveBirthDate" xml:space="preserve">
+    <value>Save Birth Date</value>
+  </data>
+  <data name="SaveInformations" xml:space="preserve">
+    <value>Save Informations</value>
+  </data>
 </root>

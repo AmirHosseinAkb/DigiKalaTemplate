@@ -122,5 +122,32 @@ namespace Resources {
                 return ResourceManager.GetString("ReturnHome", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Birth Date.
+        /// </summary>
+        public static string SaveBirthDate {
+            get {
+                return ResourceManager.GetString("SaveBirthDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Informations.
+        /// </summary>
+        public static string SaveInformations {
+            get {
+                return ResourceManager.GetString("SaveInformations", resourceCulture);
+            }
+        }
     }
 }
