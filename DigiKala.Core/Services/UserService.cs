@@ -97,7 +97,7 @@ namespace DigiKala.Core.Services
                 }).Single();
         }
 
-        public void ConfirmUserInformations(string userEmail,string firstName = "", string lastName = "", string nationalNumber = "", string phoneNumber = "", string email = "", string birthDate = "", string password = "")
+        public void ConfirmUserInformations(string userEmail,string firstName = "", string lastName = "", string nationalNumber = "", string phoneNumber = "", string email = "", string birthDate = "")
         {
             var user = GetUserByEmail(userEmail);
             if (!string.IsNullOrEmpty(firstName) || !string.IsNullOrEmpty(lastName))
@@ -119,11 +119,13 @@ namespace DigiKala.Core.Services
             }
             if (!string.IsNullOrEmpty(birthDate))
             {
-                user.BirthDate = birthDate;
-            }
-            if (!string.IsNullOrEmpty(password))
-            {
-                user.Password = PasswordHasher.HashPasswordMD5(password);
+                string[] splitBirthDate = birthDate.Split('/');
+                var date = new System.DateTime(
+                    int.Parse(splitBirthDate[0]),
+                    int.Parse(splitBirthDate[1]),
+                    int.Parse(splitBirthDate[2]),
+                    new System.Globalization.PersianCalendar());
+                user.BirthDate = date;
             }
             _context.SaveChanges();    
         }

@@ -123,6 +123,9 @@
   <data name="ActivationErrorTitle" xml:space="preserve">
     <value>Activation operation failed!</value>
   </data>
+  <data name="EnterCurrentPasswordCorrectly" xml:space="preserve">
+    <value>Enter Current Password Correctly</value>
+  </data>
   <data name="EnterPasswordCorrectly" xml:space="preserve">
     <value>Enter Password Correctly</value>
   </data>

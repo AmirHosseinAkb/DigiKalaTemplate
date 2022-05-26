@@ -34,7 +34,7 @@ namespace DigiKala.Core.ViewModels.User
 
         [Display(Name = "تاریخ تولد")]
         [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
-        public string? BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         [Display(Name = "رمز عبور فعلی")]
         [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
@@ -70,7 +70,8 @@ namespace DigiKala.Core.ViewModels.User
     {
         [Display(Name = "کدملی")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        [MaxLength(50, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
+        [MaxLength(10, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
+        [MinLength(10, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
         public string NationalNumber { get; set; }
     }
     public class UserEmailViewModel
@@ -86,7 +87,8 @@ namespace DigiKala.Core.ViewModels.User
     {
         [Display(Name = "شماره همراه")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        [MaxLength(50, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
+        [MaxLength(11, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
+        [MinLength(11, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
         public string PhoneNumber { get; set; }
     }
 

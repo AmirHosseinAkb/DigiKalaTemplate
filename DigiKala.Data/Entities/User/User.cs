@@ -40,8 +40,7 @@ namespace DigiKala.Data.Entities.User
         public string? PhoneNumber { get; set; }
 
         [Display(Name = "تاریخ تولد")]
-        [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
-        public string? BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
 
         [Display(Name = "تاریخ عضویت")]

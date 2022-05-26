@@ -123,6 +123,9 @@
   <data name="ActivationErrorTitle" xml:space="preserve">
     <value>عملیات فعالسازی با شکست مواجه شد!</value>
   </data>
+  <data name="EnterCurrentPasswordCorrectly" xml:space="preserve">
+    <value>رمز عبور فعلی خود را بصورت صحیح وارد کنید</value>
+  </data>
   <data name="EnterPasswordCorrectly" xml:space="preserve">
     <value>لطفا رمز عبور خود را بصورت صحیح وارد کنید</value>
   </data>

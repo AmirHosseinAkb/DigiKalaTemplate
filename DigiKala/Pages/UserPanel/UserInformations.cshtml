@@ -37,7 +37,7 @@
                                         <div class="fs-7 fw-bold text-dark">کد ملی</div>
                                         <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-national-id-modal"><i class="ri-ball-pen-fill"></i></button>
                                     </div>
-                                    <div class="fs-6 fw-bold text-muted">-</div>
+                                    <div class="fs-6 fw-bold text-muted">@(Model.UserInformationsVM.NationalNumber)</div>
                                 </div>
                             </div>
                             <div class="col-lg-6 mb-3">
@@ -46,7 +46,15 @@
                                         <div class="fs-7 fw-bold text-dark">شماره تلفن همراه</div>
                                         <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-phone-number-modal"><i class="ri-ball-pen-fill"></i></button>
                                     </div>
-                                    <div class="fs-6 fw-bold text-muted">09xxxxxxxxx</div>
+                                    @if (Model.UserInformationsVM.PhoneNumber == "")
+                                    {
+                                        <div class="fs-6 fw-bold text-muted">09xxxxxxxxx</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="fs-6 fw-bold text-muted">@(Model.UserInformationsVM.PhoneNumber)</div>
+                                    }
+
                                 </div>
                             </div>
                             <div class="col-lg-6 mb-3">
@@ -55,7 +63,15 @@
                                         <div class="fs-7 fw-bold text-dark">پست الکترونیک</div>
                                         <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-email-modal"><i class="ri-ball-pen-fill"></i></button>
                                     </div>
-                                    <div class="fs-6 fw-bold text-muted">example@example.com</div>
+                                    @if (Model.UserInformationsVM.Email == "")
+                                    {
+                                        <div class="fs-6 fw-bold text-muted">example@example.com</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="fs-6 fw-bold text-muted">@(Model.UserInformationsVM.Email)</div>
+                                    }
+
                                 </div>
                             </div>
                             <div class="col-lg-6 mb-3">
@@ -64,7 +80,7 @@
                                         <div class="fs-7 fw-bold text-dark">تاریخ تولد</div>
                                         <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-birth-modal"><i class="ri-ball-pen-fill"></i></button>
                                     </div>
-                                    <div class="fs-6 fw-bold text-muted">-</div>
+                                    <div class="fs-6 fw-bold text-muted">@Model.UserInformationsVM.BirthDate?.ToShamsi()</div>
                                 </div>
                             </div>
                             @*<div class="col-lg-6 mb-3">
@@ -126,6 +142,7 @@
             <div class="remodal-content">
                 <div class="form-element-row mb-3">
                     <input asp-for="UserNationalNumberVM.NationalNumber" type="number" value="@Model.UserInformationsVM.NationalNumber" class="form-control" placeholder="">
+                    <span asp-validation-for="UserNationalNumberVM.NationalNumber" class="text-danger"></span>
                 </div>
             </div>
             <div class="remodal-footer">
@@ -145,6 +162,7 @@
             <div class="remodal-content">
                 <div class="form-element-row mb-3">
                     <input asp-for="UserPhoneNumberVM.PhoneNumber" type="number" value="@Model.UserInformationsVM.PhoneNumber" class="form-control" placeholder="">
+                    <span asp-validation-for="UserPhoneNumberVM.PhoneNumber" class="text-danger"></span>
                 </div>
             </div>
             <div class="remodal-footer">
@@ -164,6 +182,7 @@
             <div class="remodal-content">
                 <div class="form-element-row mb-3">
                     <input asp-for="UserEmailVM.Email" type="text" value="@Model.UserInformationsVM.Email" class="form-control" placeholder="">
+                    <span asp-validation-for="UserEmailVM.Email" class="text-danger"></span>
                 </div>
             </div>
             <div class="remodal-footer">
@@ -186,13 +205,13 @@
                         <div class="form-element-row">
                             <label class="label fs-7">سال</label>
                             <input asp-for="UserBirthDateVM.BirthYear" type="number" class="form-control" placeholder="">
+                            <span asp-validation-for="UserBirthDateVM.BirthYear" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="form-element-row">
                             <label class="label fs-7">ماه</label>
                             <select class="select2" asp-for="UserBirthDateVM.BirthMonth" id="month">
-                                <option value="0">ماه</option>
                                 <option value="01">فروردین</option>
                                 <option value="02">اردیبهشت</option>
                                 <option value="03">خرداد</option>
@@ -206,12 +225,14 @@
                                 <option value="11">بهمن</option>
                                 <option value="12">اسفند</option>
                             </select>
+                            <span asp-validation-for="UserBirthDateVM.BirthMonth" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="form-element-row">
                             <label class="label fs-7">روز</label>
                             <input type="text" asp-for="UserBirthDateVM.BirthDay" class="form-control" placeholder="">
+                            <span asp-validation-for="UserBirthDateVM.BirthDay" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -269,24 +290,48 @@
             <div class="remodal-title">ویرایش رمز عبور</div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <form method="post" asp-page-handler="ConfirmUserInformations">
+        <form id="frmChangePassword" method="post" asp-page-handler="ChangeUserPassword">
             <div class="remodal-content">
                 <div class="form-element-row mb-3">
                     <label class="label fs-7">رمز عبور فعلی</label>
-                    <input asp-for="UserPasswordVM.CurrentPassword" type="text" class="form-control" placeholder="">
+                    <input id="currentPasswordInp" asp-for="UserPasswordVM.CurrentPassword" type="text" class="form-control" placeholder="">
+                    <span asp-validation-for="UserPasswordVM.CurrentPassword" class="text-danger"></span>
+                    <p style="display:none" id="currentPasswordValidation" class="text-danger">@ErrorMessages.EnterCurrentPasswordCorrectly</p>
                 </div>
                 <div class="form-element-row mb-3">
                     <label class="label fs-7">رمز عبور جدید</label>
                     <input asp-for="UserPasswordVM.NewPassword" type="text" class="form-control" placeholder="">
+                    <span asp-validation-for="UserPasswordVM.NewPassword" class="text-danger"></span>
                 </div>
                 <div class="form-element-row mb-3">
                     <label class="label fs-7">تکرار رمز عبور جدید</label>
                     <input asp-for="UserPasswordVM.RepeatNewPassword" type="text" class="form-control" placeholder="">
+                    <span asp-validation-for="UserPasswordVM.RepeatNewPassword" class="text-danger"></span>
                 </div>
             </div>
-            <div class="remodal-footer">
-                <button class="btn btn-sm btn-primary px-3">ثبت</button>
-            </div>
         </form>
+        <div class="remodal-footer">
+            <button class="btn btn-sm btn-primary px-3">ثبت</button>
+        </div>
     </div>
 </main>
+
+@section Scripts{
+    <script>
+    $(function(){
+        $("#currentPasswordInp").blur(function(){
+            $.ajax({
+                type:"get",
+                url:"/UserPanel/UserInformations?handler=IsCurrentPasswordCorrect?currentPassword="+$("#currentPasswordInp").val()
+            }).done(function(result){
+                if(result=="false"){
+                    $("#currentPasswordValidation").show();
+                }
+                else{
+                    $("#currentPasswordValidation").hide();
+                }
+            });
+        });
+    });
+</script>
+}
