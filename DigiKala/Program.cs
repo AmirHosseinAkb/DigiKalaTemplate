@@ -3,8 +3,8 @@ using DigiKala.Core.Services.Interfaces;
 using DigiKala.Data.Context;
 using DigiKala.Core.Convertors;
 using Microsoft.EntityFrameworkCore;
-using DigiKala.Core.Middlewares;
 using DigiKala.Core.Extensions;
+using DigiKala.Infrastructure.ExtensionMethods;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var webApplcationOptions =
@@ -51,7 +51,7 @@ builder.Services.AddSession(options=>
     options.IdleTimeout=TimeSpan.FromDays(1)
 
 );
-
+builder.Services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -68,7 +68,7 @@ else
 
 app.UseHttpsRedirection();
 
-app.UseStaticFiles();
+app.UseCustomStaticFiles();
 
 app.UseRouting();
 

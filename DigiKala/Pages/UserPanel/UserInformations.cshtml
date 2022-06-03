@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{handler?}"
 @model DigiKala.Pages.UserPanel.UserInformationsModel
 @{
     ViewData["Title"] = PageTitles.UserInformations;
@@ -28,7 +28,7 @@
                                         <div class="fs-7 fw-bold text-dark">نام و نام خانوادگی</div>
                                         <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-fullname-modal"><i class="ri-ball-pen-fill"></i></button>
                                     </div>
-                                    <div class="fs-6 fw-bold text-muted">@(Model.UserInformationsVM.FirstName +" "+ Model.UserInformationsVM.LastName)</div>
+                                    <div id="nameInp" class="fs-6 fw-bold text-muted">@(Model.UserInformationsVM.FirstName +" "+ Model.UserInformationsVM.LastName)</div>
                                 </div>
                             </div>
                             <div class="col-lg-6 mb-3">
@@ -113,7 +113,7 @@
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
         <form method="post" asp-page-handler="ConfirmUserInformations">
-            <div class="remodal-content">
+            <div id="" class="remodal-content">
                 <div class="form-element-row mb-3">
                     <label class="label fs-7">@DataDictionaries.FirstName</label>
                     <input asp-for="UserFullNameVM.FirstName" type="text" value="@Model.UserInformationsVM.FirstName" class="form-control" placeholder="">
@@ -126,7 +126,7 @@
                 </div>
             </div>
             <div class="remodal-footer">
-                <button class="btn btn-sm btn-primary px-3">@ButtonCaptions.SaveInformations</button>
+                <button id="btnName" class="btn btn-sm btn-primary px-3">@ButtonCaptions.SaveInformations</button>
             </div>
         </form>
     </div>
@@ -284,7 +284,7 @@
         </div>*@
     <!--  personal-info-returned-modal -->
     <!-- personal-info-change-password-modal -->
-    <div class="remodal remodal-xs" data-remodal-id="personal-info-change-password-modal"
+    <div  class="remodal remodal-xs" data-remodal-id="personal-info-change-password-modal"
          data-remodal-options="hashTracking: false">
         <div class="remodal-header">
             <div class="remodal-title">ویرایش رمز عبور</div>
@@ -315,23 +315,3 @@
         </div>
     </div>
 </main>
-
-@section Scripts{
-    <script>
-    $(function(){
-        $("#currentPasswordInp").blur(function(){
-            $.ajax({
-                type:"get",
-                url:"/UserPanel/UserInformations?handler=IsCurrentPasswordCorrect?currentPassword="+$("#currentPasswordInp").val()
-            }).done(function(result){
-                if(result=="false"){
-                    $("#currentPasswordValidation").show();
-                }
-                else{
-                    $("#currentPasswordValidation").hide();
-                }
-            });
-        });
-    });
-</script>
-}

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigiKala.Core.Middlewares
+namespace DigiKala.Infrastructure.Middlewares
 {
     public class CultureCookieHandlerMiddleware
     {

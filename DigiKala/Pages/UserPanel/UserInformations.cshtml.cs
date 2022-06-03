@@ -19,17 +19,11 @@ namespace DigiKala.Pages.UserPanel
 
 
         public UserInformationsViewModel UserInformationsVM { get; set; }
-        [BindProperty]
         public UserFullNameViewModel UserFullNameVM { get; set; }
-        [BindProperty]
         public UserEmailViewModel UserEmailVM { get; set; }
-        [BindProperty]
         public UserNationalNumberViewMode UserNationalNumberVM { get; set; }
-        [BindProperty]
         public UserBirthDateViewModel UserBirthDateVM { get; set; }
-        [BindProperty]
         public UserPasswordViewModel UserPasswordVM { get; set; }
-        [BindProperty]
         public UserPhoneNumberViewModel UserPhoneNumberVM { get; set; }
 
         public void OnGet()
@@ -37,17 +31,14 @@ namespace DigiKala.Pages.UserPanel
             UserInformationsVM = _userService.GetUserInformationsForShow(User.Identity!.Name!);
         }
 
-        public IActionResult OnPostConfirmUserInformations()
+        public IActionResult OnGetConfirmUserFullName(string firstName, string lastName)
         {
-            string birthDate = "";
-            if (UserBirthDateVM!.BirthDay != null && UserBirthDateVM.BirthMonth != null && UserBirthDateVM.BirthYear != null)
+            if(string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName))
             {
-                birthDate = UserBirthDateVM.BirthYear + "/" + UserBirthDateVM.BirthMonth + "/" + UserBirthDateVM.BirthDay;
+                return RedirectToPage();
             }
-            _userService.ConfirmUserInformations(User.Identity!.Name!, UserFullNameVM!.FirstName, UserFullNameVM.LastName
-                , UserNationalNumberVM!.NationalNumber, UserPhoneNumberVM!.PhoneNumber, UserEmailVM!.Email, birthDate);
-
-            return RedirectToPage();
+            _userService.ConfirmUserInformations(User.Identity.Name, firstName, lastName);
+            return Content(firstName + " " + lastName);
         }
 
         public IActionResult OnPostChangeUserPassword()
