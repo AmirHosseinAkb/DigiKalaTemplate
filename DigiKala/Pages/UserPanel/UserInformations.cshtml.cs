@@ -49,7 +49,16 @@ namespace DigiKala.Pages.UserPanel
             }
             _userService.ConfirmUserInformations(User.Identity.Name, "", "", nationalNumber);
             return Content(nationalNumber);
-        }        
+        }
+        public IActionResult OnGetConfirmUserPhoneNumber(string phoneNumber)
+        {
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+            {
+                return RedirectToPage();
+            }
+            _userService.ConfirmUserInformations(User.Identity.Name, "", "", "", phoneNumber);
+            return Content(phoneNumber);
+        }
 
         public IActionResult OnPostChangeUserPassword()
         {

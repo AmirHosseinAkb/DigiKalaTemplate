@@ -40,5 +40,20 @@ $(function () {
         }
     });
 });
+$(function () {
+    $("#btnPhoneNumber").click(function (e) {
+        if ($("#UserPhoneNumberVM_PhoneNumber").val() != "") {
+            e.preventDefault();
+            $.ajax({
+                type: "Get",
+                url: "/UserPanel/UserInformations/ConfirmUserPhoneNumber?phoneNumber=" + $("#UserPhoneNumberVM_PhoneNumber").val(),
+                beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
+                success: function (res) {
+                    Success("#phoneNumberInp", "#phoneNumberModal", res);
+                }
+            });
+        }
+    });
+});
 
 // Write your JavaScript code.
