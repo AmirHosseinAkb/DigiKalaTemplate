@@ -26,15 +26,34 @@ $(function () {
 });
 
 $(function () {
-    $("#btnNationalNumber").click(function (e) {
-        if ($("#UserNationalNumberVM_NationalNumber").val() != "") {
+    $("#btnEmail").click(function (e) {
+        if ($("#UserEmailVM_Email").val() != "") {
             e.preventDefault();
             $.ajax({
                 type: "Get",
-                url: "/UserPanel/UserInformations/ConfirmUserNationalNumber?nationalNumber=" + $("#UserNationalNumberVM_NationalNumber").val(),
+                url: "/UserPanel/UserInformations/ConfirmUserEmail?email=" + $("#UserEmailVM_Email").val(),
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#nationalNumberInp", "#nationalnumberModal", res);
+                    Success("#emailInp", "#emailModal", res);
+                    window.location = "/RegisterAndLogin?emailChanged=true";
+                },
+                error: function (error) {
+                    alert(error.responseText);
+                }
+            });
+        }
+    });
+});
+$(function () {
+    $("#btnPhoneNumber").click(function (e) {
+        if ($("#UserPhoneNumberVM_PhoneNumber").val() != "") {
+            e.preventDefault();
+            $.ajax({
+                type: "Get",
+                url: "/UserPanel/UserInformations/ConfirmUserPhoneNumber?phoneNumber=" + $("#UserPhoneNumberVM_PhoneNumber").val(),
+                beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
+                success: function (res) {
+                    Success("#phoneNumberInp", "#phoneNumberModal", res);
                 }
             });
         }

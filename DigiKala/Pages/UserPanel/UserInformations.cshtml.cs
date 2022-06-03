@@ -60,6 +60,23 @@ namespace DigiKala.Pages.UserPanel
             return Content(phoneNumber);
         }
 
+        public IActionResult OnGetConfirmUserEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return RedirectToPage();
+            }
+            if (User.Identity!.Name == email.ToLower())
+            {
+                return BadRequest(new { message = "ایمیلی غیر از ایمیل فعلی خود را وارد کنید" });
+            }
+            if (_userService.IsExistUserByEmail(email))
+            {
+                return BadRequest(new { message = "این ایمیل قبلا ثبت شده است" });
+            }
+            _userService.ConfirmUserInformations(User.Identity!.Name!, "", "", "", "", email);
+            return Content(email);
+        }
         public IActionResult OnPostChangeUserPassword()
         {
             var user = _userService.GetUserByEmail(User.Identity!.Name!);

@@ -13,10 +13,16 @@
 </head>
 <body>
     <div class="page-wrapper">
-         <partial name="PartialViews/_RegisterAndLoginHeader" ></partial>
+        <partial name="PartialViews/_RegisterAndLoginHeader"></partial>
         <main class="page-content page-auth">
             <!-- auth-container -->
             <div class="auth-container">
+                @if (ViewBag.IsEmailChanged == true)
+                {
+                    <div class="alert alert-warning">
+                        پس از ویرایش ایمیل لازم است دوباره وارد شوید
+                    </div>
+                }
                 <div class="auth-title mb-3">@DataDictionaries.RegisterAndLogin</div>
                 <!-- auth-box -->
                 <div class="auth-box ui-box">
@@ -52,9 +58,9 @@
             </div>
             <!-- auth-container -->
         </main>
-        <partial name="PartialViews/_RegisterAndLoginFooter" ></partial>
+        <partial name="PartialViews/_RegisterAndLoginFooter"></partial>
     </div>
-    <partial name="PartialViews/_Scripts" ></partial>
+    <partial name="PartialViews/_Scripts"></partial>
 </body>
 </html>
 

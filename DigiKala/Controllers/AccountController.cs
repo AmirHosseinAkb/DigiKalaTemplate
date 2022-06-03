@@ -24,8 +24,9 @@ namespace DigiKala.Controllers
         private IViewRenderService _viewRenderService;
 
         [Route("RegisterAndLogin")]
-        public IActionResult RegisterAndLogin()
+        public IActionResult RegisterAndLogin(bool emailChanged=false)
         {
+            ViewBag.IsEmailChanged = emailChanged;
             return View();
         }
 
@@ -66,14 +67,8 @@ namespace DigiKala.Controllers
             return Redirect("");
         }
 
-        [Route("Test")]
-        public IActionResult Test()
-        {
-            throw new Exception();
-        }
-
         [Route("Login")]
-        public IActionResult Login()
+        public IActionResult Login(bool emailChanged = false)
         {
             if (HttpContext.Session.GetString("EmailAddress") == null)
                 return Redirect("/RegisterAndLogin");
@@ -108,7 +103,7 @@ namespace DigiKala.Controllers
                 };
                 
                 HttpContext.SignInAsync(principal, properties);
-                return Redirect("/");
+                return Redirect("/UserPanel");
             }
             else
             {

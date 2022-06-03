@@ -60,7 +60,7 @@
                             <div class="col-lg-6 mb-3">
                                 <div class="border-bottom py-2">
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <div class="fs-7 fw-bold text-dark">پست الکترونیک</div>
+                                        <div class="fs-7 fw-bold text-dark">@DataDictionaries.Email</div>
                                         <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-email-modal"><i class="ri-ball-pen-fill"></i></button>
                                     </div>
                                     @if (Model.UserInformationsVM.Email == "")
@@ -69,7 +69,7 @@
                                     }
                                     else
                                     {
-                                        <div class="fs-6 fw-bold text-muted">@(Model.UserInformationsVM.Email)</div>
+                                        <div id="emailInp" class="fs-6 fw-bold text-muted">@(Model.UserInformationsVM.Email)</div>
                                     }
 
                                 </div>
@@ -166,16 +166,16 @@
                 </div>
             </div>
             <div class="remodal-footer">
-                <button id="btnPhoneNumber" class="btn btn-sm btn-primary px-3">دریافت کد تایید و تغییر شماره</button>
+                <button id="btnPhoneNumber" class="btn btn-sm btn-primary px-3">@ButtonCaptions.Save</button>
             </div>
         </form>
     </div>
     <!--  personal-info-phone-number-modal -->
     <!-- personal-info-email-modal -->
-    <div class="remodal remodal-xs" data-remodal-id="personal-info-email-modal"
+    <div id="emailModal" class="remodal remodal-xs" data-remodal-id="personal-info-email-modal"
          data-remodal-options="hashTracking: false">
         <div class="remodal-header">
-            <div class="remodal-title">ایمیل</div>
+            <div class="remodal-title">@DataDictionaries.Email</div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
         <form method="post" asp-page-handler="ConfirmUserInformations">
@@ -186,7 +186,7 @@
                 </div>
             </div>
             <div class="remodal-footer">
-                <button class="btn btn-sm btn-primary px-3">تایید</button>
+                <button id="btnEmail" class="btn btn-sm btn-primary px-3">@ButtonCaptions.Save</button>
             </div>
         </form>
     </div>
