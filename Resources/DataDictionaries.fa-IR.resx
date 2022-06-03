@@ -132,6 +132,9 @@
   <data name="AllRightsReserved" xml:space="preserve">
     <value>کلیه حقوق این سایت متعلق به مای استور می باشد</value>
   </data>
+  <data name="BirthDate" xml:space="preserve">
+    <value>تاریخ تولد</value>
+  </data>
   <data name="ConfirmUserInformations" xml:space="preserve">
     <value>تکمیل اطلاعات کاربری</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="CurrentPassword" xml:space="preserve">
     <value>رمز عبور فعلی</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>ایمیل</value>
   </data>
   <data name="EmailOrPhone" xml:space="preserve">
     <value>ایمیل یا شماره همراه</value>
@@ -165,11 +171,17 @@
   <data name="Login" xml:space="preserve">
     <value>ورود</value>
   </data>
+  <data name="NationalNumber" xml:space="preserve">
+    <value>کد ملی</value>
+  </data>
   <data name="NewPassword" xml:space="preserve">
     <value>رمز عبور جدید</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>رمز عبور</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>شماره همراه</value>
   </data>
   <data name="RegisterAndLogin" xml:space="preserve">
     <value>ورود/ثبت نام</value>

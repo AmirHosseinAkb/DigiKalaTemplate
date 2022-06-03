@@ -25,7 +25,7 @@
                             <div class="col-lg-6 mb-3">
                                 <div class="border-bottom py-2">
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <div class="fs-7 fw-bold text-dark">نام و نام خانوادگی</div>
+                                        <div class="fs-7 fw-bold text-dark">@DataDictionaries.FullName</div>
                                         <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-fullname-modal"><i class="ri-ball-pen-fill"></i></button>
                                     </div>
                                     <div id="nameInp" class="fs-6 fw-bold text-muted">@(Model.UserInformationsVM.FirstName +" "+ Model.UserInformationsVM.LastName)</div>
@@ -34,10 +34,10 @@
                             <div class="col-lg-6 mb-3">
                                 <div class="border-bottom py-2">
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <div class="fs-7 fw-bold text-dark">کد ملی</div>
+                                        <div class="fs-7 fw-bold text-dark">@DataDictionaries.NationalNumber</div>
                                         <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-national-id-modal"><i class="ri-ball-pen-fill"></i></button>
                                     </div>
-                                    <div class="fs-6 fw-bold text-muted">@(Model.UserInformationsVM.NationalNumber)</div>
+                                    <div id="nationalNumberInp" class="fs-6 fw-bold text-muted">@(Model.UserInformationsVM.NationalNumber)</div>
                                 </div>
                             </div>
                             <div class="col-lg-6 mb-3">
@@ -132,13 +132,13 @@
     </div>
     <!--  personal-info-fullname-modal -->
     <!-- personal-info-national-id-modal -->
-    <div class="remodal remodal-xs" data-remodal-id="personal-info-national-id-modal"
+    <div id="nationalnumberModal" class="remodal remodal-xs" data-remodal-id="personal-info-national-id-modal"
          data-remodal-options="hashTracking: false">
         <div class="remodal-header">
-            <div class="remodal-title">کد ملی</div>
+            <div class="remodal-title">@DataDictionaries.NationalNumber</div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <form method="post" asp-page-handler="ConfirmUserInformations">
+        <form method="post" asp-page-handler="ConfirmUserNationalNumber">
             <div class="remodal-content">
                 <div class="form-element-row mb-3">
                     <input asp-for="UserNationalNumberVM.NationalNumber" type="number" value="@Model.UserInformationsVM.NationalNumber" class="form-control" placeholder="">
@@ -146,7 +146,7 @@
                 </div>
             </div>
             <div class="remodal-footer">
-                <button class="btn btn-sm btn-primary px-3">ثبت اطلاعات</button>
+                <button id="btnNationalNumber" class="btn btn-sm btn-primary px-3">@ButtonCaptions.SaveInformations</button>
             </div>
         </form>
     </div>

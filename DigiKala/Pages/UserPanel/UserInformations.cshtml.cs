@@ -40,6 +40,16 @@ namespace DigiKala.Pages.UserPanel
             _userService.ConfirmUserInformations(User.Identity.Name, firstName, lastName);
             return Content(firstName + " " + lastName);
         }
+        
+        public IActionResult OnGetConfirmUserNationalNumber(string nationalNumber)
+        {
+            if (string.IsNullOrWhiteSpace(nationalNumber))
+            {
+                return RedirectToPage();
+            }
+            _userService.ConfirmUserInformations(User.Identity.Name, "", "", nationalNumber);
+            return Content(nationalNumber);
+        }        
 
         public IActionResult OnPostChangeUserPassword()
         {

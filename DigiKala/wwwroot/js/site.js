@@ -21,4 +21,26 @@ $(function () {
         }
     });
 });
+
+$(function () {
+    $("#btnNationalNumber").click(function (e) {
+        if ($("#UserNationalNumberVM_NationalNumber").val() != "") {
+            e.preventDefault();
+            $.ajax({
+                type: "Get",
+                url: "/UserPanel/UserInformations/ConfirmUserNationalNumber?nationalNumber=" + $("#UserNationalNumberVM_NationalNumber").val(),
+                beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
+                success: function (res) {
+                    $("#nationalNumberInp").text(res);
+                    $("#nationalnumberModal").removeClass("remodal-is-opened");
+                    $("#nationalnumberModal").addClass("remodal-is-closed");
+                    $("div.remodal-is-opened").addClass("remodal-is-closed");
+                    $("div.remodal-is-opened").css("display", "none");
+                    $("div.remodal-is-opened").removeClass("remodal-is-opened");
+                }
+            });
+        }
+    });
+});
+
 // Write your JavaScript code.

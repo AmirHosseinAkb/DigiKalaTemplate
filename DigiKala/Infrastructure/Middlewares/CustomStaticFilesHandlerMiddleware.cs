@@ -54,6 +54,12 @@ namespace DigiKala.Infrastructure.Middlewares
                         httpContext.Response.ContentType = "text/css";
                         break;
                     }
+                case ".txt":
+                    {
+                        httpContext.Response.StatusCode = 200;
+                        httpContext.Response.ContentType = "text/plain";
+                        break;
+                    }
                 case ".jpg":
                 case ".jpeg":
                     {
@@ -67,7 +73,7 @@ namespace DigiKala.Infrastructure.Middlewares
                         return;
                     }
             }
-            httpContext.Response.SendFileAsync(phyisicalPath);
+            await httpContext.Response.SendFileAsync(phyisicalPath);
         }
     }
 }

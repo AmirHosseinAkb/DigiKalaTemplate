@@ -132,6 +132,9 @@
   <data name="AllRightsReserved" xml:space="preserve">
     <value>All Rights Reserved</value>
   </data>
+  <data name="BirthDate" xml:space="preserve">
+    <value>Birth Date</value>
+  </data>
   <data name="ConfirmUserInformations" xml:space="preserve">
     <value>Confirm Your Informations</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="CurrentPassword" xml:space="preserve">
     <value>CurrentPassword</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
   <data name="EmailOrPhone" xml:space="preserve">
     <value>Email or Phone</value>
@@ -165,11 +171,17 @@
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="NationalNumber" xml:space="preserve">
+    <value>National Number</value>
+  </data>
   <data name="NewPassword" xml:space="preserve">
     <value>NewPassword</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
   </data>
   <data name="RegisterAndLogin" xml:space="preserve">
     <value>Register/Login</value>
