@@ -8,9 +8,10 @@ namespace DigiKala.Infrastructure.Middlewares
 {
     public class CustomStaticFilesHandlerMiddleware
     {
-        public CustomStaticFilesHandlerMiddleware(RequestDelegate next)
+        public CustomStaticFilesHandlerMiddleware(RequestDelegate next,IHostEnvironment _hostEnvironment)
         {
             Next = next;
+            HostEnvironment = _hostEnvironment;  
         }
         private RequestDelegate Next { get; }
         private IHostEnvironment HostEnvironment { get; }
