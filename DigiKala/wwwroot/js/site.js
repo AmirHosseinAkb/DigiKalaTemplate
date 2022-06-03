@@ -1,6 +1,14 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
+function Success(inputName, modalName, res) {
+    $(inputName).text(res);
+    $(modalName).removeClass("remodal-is-opened");
+    $(modalName).addClass("remodal-is-closed");
+    $("div.remodal-is-opened").addClass("remodal-is-closed");
+    $("div.remodal-is-opened").css("display", "none");
+    $("div.remodal-is-opened").removeClass("remodal-is-opened");
+}
 $(function () {
     $("#btnName").click(function (e) {
         if ($("#UserFullNameVM_FirstName").val() != "" && $("#UserFullNameVM_LastName").val() != "") {
@@ -10,12 +18,7 @@ $(function () {
                 url: "/UserPanel/UserInformations/ConfirmUserFullName?firstName=" + $("#UserFullNameVM_FirstName").val() + "&lastName=" + $("#UserFullNameVM_LastName").val(),
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    $("#nameInp").text(res);
-                    $("#nameModal").removeClass("remodal-is-opened");
-                    $("#nameModal").addClass("remodal-is-closed");
-                    $("div.remodal-is-opened").addClass("remodal-is-closed");
-                    $("div.remodal-is-opened").css("display", "none");
-                    $("div.remodal-is-opened").removeClass("remodal-is-opened");
+                    Success("#nameInp","#nameModal",res);
                 }
             });
         }
@@ -31,12 +34,7 @@ $(function () {
                 url: "/UserPanel/UserInformations/ConfirmUserNationalNumber?nationalNumber=" + $("#UserNationalNumberVM_NationalNumber").val(),
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    $("#nationalNumberInp").text(res);
-                    $("#nationalnumberModal").removeClass("remodal-is-opened");
-                    $("#nationalnumberModal").addClass("remodal-is-closed");
-                    $("div.remodal-is-opened").addClass("remodal-is-closed");
-                    $("div.remodal-is-opened").css("display", "none");
-                    $("div.remodal-is-opened").removeClass("remodal-is-opened");
+                    Success("#nationalNumberInp", "#nationalnumberModal", res);
                 }
             });
         }
