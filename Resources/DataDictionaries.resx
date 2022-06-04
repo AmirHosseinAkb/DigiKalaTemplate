@@ -186,6 +186,9 @@
   <data name="RegisterAndLogin" xml:space="preserve">
     <value>Register/Login</value>
   </data>
+  <data name="ReLoginAfterEditEmail" xml:space="preserve">
+    <value>Relogin after edit email</value>
+  </data>
   <data name="RepeatNewPassword" xml:space="preserve">
     <value>Repeat New Password</value>
   </data>

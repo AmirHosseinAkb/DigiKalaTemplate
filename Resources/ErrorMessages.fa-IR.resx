@@ -123,14 +123,23 @@
   <data name="ActivationErrorTitle" xml:space="preserve">
     <value>عملیات فعالسازی با شکست مواجه شد!</value>
   </data>
+  <data name="EmailExists" xml:space="preserve">
+    <value>این ایمیل از قبل وجود دارد</value>
+  </data>
   <data name="EnterCurrentPasswordCorrectly" xml:space="preserve">
     <value>رمز عبور فعلی خود را بصورت صحیح وارد کنید</value>
+  </data>
+  <data name="EnterOtherEmail" xml:space="preserve">
+    <value>ایمیلی غیر از ایمیل خودتان را وارد کنید</value>
   </data>
   <data name="EnterPasswordCorrectly" xml:space="preserve">
     <value>لطفا رمز عبور خود را بصورت صحیح وارد کنید</value>
   </data>
   <data name="EnterPhoneNumberCorrectly" xml:space="preserve">
     <value>لطفا شماره تلفن خود را بصورت صحیح وارد کنید</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطا</value>
   </data>
   <data name="Error404Text" xml:space="preserve">
     <value>با عرض پوزش از شما، چنین صفحه‌ای در سایت وجود ندارد یا این صفحه از سایت پاک شده است</value>

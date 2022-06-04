@@ -5,6 +5,7 @@ using DigiKala.Core.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
 using System.ComponentModel.DataAnnotations;
 using DigiKala.Core.Security;
+using Resources;
 
 namespace DigiKala.Pages.UserPanel
 {
@@ -68,11 +69,11 @@ namespace DigiKala.Pages.UserPanel
             }
             if (User.Identity!.Name == email.ToLower())
             {
-                return BadRequest(new { message = "ایمیلی غیر از ایمیل فعلی خود را وارد کنید" });
+                return BadRequest(new { message = ErrorMessages.EnterOtherEmail });
             }
             if (_userService.IsExistUserByEmail(email))
             {
-                return BadRequest(new { message = "این ایمیل قبلا ثبت شده است" });
+                return BadRequest(new { message = ErrorMessages.EmailExists });
             }
             _userService.ConfirmUserInformations(User.Identity!.Name!, "", "", "", "", email);
             return Content(email);

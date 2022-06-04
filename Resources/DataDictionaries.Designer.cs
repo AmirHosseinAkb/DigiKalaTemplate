@@ -268,6 +268,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Relogin after edit email.
+        /// </summary>
+        public static string ReLoginAfterEditEmail {
+            get {
+                return ResourceManager.GetString("ReLoginAfterEditEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Repeat New Password.
         /// </summary>
         public static string RepeatNewPassword {

@@ -79,11 +79,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This Email Exists currently..
+        /// </summary>
+        public static string EmailExists {
+            get {
+                return ResourceManager.GetString("EmailExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter Current Password Correctly.
         /// </summary>
         public static string EnterCurrentPasswordCorrectly {
             get {
                 return ResourceManager.GetString("EnterCurrentPasswordCorrectly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter other email instead of your current email.
+        /// </summary>
+        public static string EnterOtherEmail {
+            get {
+                return ResourceManager.GetString("EnterOtherEmail", resourceCulture);
             }
         }
         
@@ -102,6 +120,15 @@ namespace Resources {
         public static string EnterPhoneNumberCorrectly {
             get {
                 return ResourceManager.GetString("EnterPhoneNumberCorrectly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         

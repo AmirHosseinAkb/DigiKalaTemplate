@@ -123,14 +123,23 @@
   <data name="ActivationErrorTitle" xml:space="preserve">
     <value>Activation operation failed!</value>
   </data>
+  <data name="EmailExists" xml:space="preserve">
+    <value>This Email Exists currently.</value>
+  </data>
   <data name="EnterCurrentPasswordCorrectly" xml:space="preserve">
     <value>Enter Current Password Correctly</value>
+  </data>
+  <data name="EnterOtherEmail" xml:space="preserve">
+    <value>Enter other email instead of your current email</value>
   </data>
   <data name="EnterPasswordCorrectly" xml:space="preserve">
     <value>Enter Password Correctly</value>
   </data>
   <data name="EnterPhoneNumberCorrectly" xml:space="preserve">
     <value>Please enter the phone number correctly</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
   </data>
   <data name="Error404Text" xml:space="preserve">
     <value>Sorry, there is no such page on the site or this page has been deleted.</value>

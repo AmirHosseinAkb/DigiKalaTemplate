@@ -186,6 +186,9 @@
   <data name="RegisterAndLogin" xml:space="preserve">
     <value>ورود/ثبت نام</value>
   </data>
+  <data name="ReLoginAfterEditEmail" xml:space="preserve">
+    <value>پس از ویرایش ایمیل نیاز است که دوباره وارد شوید</value>
+  </data>
   <data name="RepeatNewPassword" xml:space="preserve">
     <value>تکرار رمز عبور جدید</value>
   </data>

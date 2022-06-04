@@ -18,7 +18,7 @@ $(function () {
                 url: "/UserPanel/UserInformations/ConfirmUserFullName?firstName=" + $("#UserFullNameVM_FirstName").val() + "&lastName=" + $("#UserFullNameVM_LastName").val(),
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#nameInp","#nameModal",res);
+                    Success("#nameInp", "#nameModal", res);
                 }
             });
         }
