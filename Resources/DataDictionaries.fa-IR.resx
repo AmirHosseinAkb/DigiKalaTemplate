@@ -132,6 +132,12 @@
   <data name="AllRightsReserved" xml:space="preserve">
     <value>کلیه حقوق این سایت متعلق به مای استور می باشد</value>
   </data>
+  <data name="April" xml:space="preserve">
+    <value>فروردین</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>مرداد</value>
+  </data>
   <data name="BirthDate" xml:space="preserve">
     <value>تاریخ تولد</value>
   </data>
@@ -144,11 +150,20 @@
   <data name="CurrentPassword" xml:space="preserve">
     <value>رمز عبور فعلی</value>
   </data>
+  <data name="Day" xml:space="preserve">
+    <value>روز</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>آذر</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>ایمیل</value>
   </data>
   <data name="EmailOrPhone" xml:space="preserve">
     <value>ایمیل یا شماره همراه</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>بهمن</value>
   </data>
   <data name="FirstName" xml:space="preserve">
     <value>نام </value>
@@ -165,17 +180,41 @@
   <data name="Hello" xml:space="preserve">
     <value>سلام</value>
   </data>
+  <data name="January" xml:space="preserve">
+    <value>دی</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>تیر</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>خرداد</value>
+  </data>
   <data name="LastName" xml:space="preserve">
     <value>نام خانوادگی</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>ورود</value>
   </data>
+  <data name="March" xml:space="preserve">
+    <value>اسفند</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>اردیبهشت</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>ماه</value>
+  </data>
   <data name="NationalNumber" xml:space="preserve">
     <value>کد ملی</value>
   </data>
   <data name="NewPassword" xml:space="preserve">
     <value>رمز عبور جدید</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>آبان</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>مهر</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>رمز عبور</value>
@@ -204,10 +243,16 @@
   <data name="ResetUserPasswordText" xml:space="preserve">
     <value>رمز عبور شما با موفقیت بازیابی شد حال میتوانید با استفاده از این رمز عبور وارد سایت شوید</value>
   </data>
+  <data name="September" xml:space="preserve">
+    <value>شهریور</value>
+  </data>
   <data name="ShopName" xml:space="preserve">
     <value>مای استور</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>خوش آمدید!</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>سال</value>
   </data>
 </root>

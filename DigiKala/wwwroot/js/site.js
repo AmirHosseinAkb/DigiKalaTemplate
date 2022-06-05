@@ -11,7 +11,9 @@ function Success(inputName, modalName, res) {
 }
 $(function () {
     $("#btnName").click(function (e) {
-        if ($("#UserFullNameVM_FirstName").val() != "" && $("#UserFullNameVM_LastName").val() != "") {
+        var isValidFirstName = $("#UserFullNameVM_FirstName").valid();
+        var isValidLastName = $("#UserFullNameVM_LastName").valid();
+        if (isValidFirstName && isValidLastName) {
             e.preventDefault();
             $.ajax({
                 type: "Get",
@@ -27,7 +29,8 @@ $(function () {
 
 $(function () {
     $("#btnEmail").click(function (e) {
-        if ($("#UserEmailVM_Email").val() != "") {
+        var isValidEmail = $("#UserEmailVM_Email").valid();
+        if (isValidEmail) {
             e.preventDefault();
             $.ajax({
                 type: "Get",
@@ -46,29 +49,37 @@ $(function () {
 });
 $(function () {
     $("#btnPhoneNumber").click(function (e) {
-        if ($("#UserPhoneNumberVM_PhoneNumber").val() != "") {
-            e.preventDefault();
-            $.ajax({
-                type: "Get",
-                url: "/UserPanel/UserInformations/ConfirmUserPhoneNumber?phoneNumber=" + $("#UserPhoneNumberVM_PhoneNumber").val(),
-                beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
-                success: function (res) {
-                    Success("#phoneNumberInp", "#phoneNumberModal", res);
-                }
-            });
+        var isValid = $("#UserPhoneNumberVM_PhoneNumber").valid();
+        if (isValid) {
+            if ($("#UserPhoneNumberVM_PhoneNumber").val() != "") {
+                e.preventDefault();
+                $.ajax({
+                    type: "Get",
+                    url: "/UserPanel/UserInformations/ConfirmUserPhoneNumber?phoneNumber=" + $("#UserPhoneNumberVM_PhoneNumber").val(),
+                    beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
+                    success: function (res) {
+                        Success("#phoneNumberInp", "#phoneNumberModal", res);
+                    }
+                });
+            }
         }
     });
 });
 $(function () {
-    $("#btnPhoneNumber").click(function (e) {
-        if ($("#UserPhoneNumberVM_PhoneNumber").val() != "") {
+    $("#btnBirthDate").click(function (e) {
+        var isValidYear = $("#UserBirthDateVM_BirthYear").valid();
+        var isValidMonth = $("#month").valid();
+        var isValidDay = $("#UserBirthDateVM_BirthDay").valid();
+        if (isValidYear && isValidMonth && isValidDay) {
             e.preventDefault();
             $.ajax({
                 type: "Get",
-                url: "/UserPanel/UserInformations/ConfirmUserPhoneNumber?phoneNumber=" + $("#UserPhoneNumberVM_PhoneNumber").val(),
+                url: "/UserPanel/UserInformations/ConfirmUserBirthDate?year=" + $("#UserBirthDateVM_BirthYear").val()
+                    + "&month=" + $("#month").val()
+                    + "&day=" + $("#UserBirthDateVM_BirthDay").val(),
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#phoneNumberInp", "#phoneNumberModal", res);
+                    Success("#birthDateInp", "#birthDateModal", res);
                 }
             });
         }

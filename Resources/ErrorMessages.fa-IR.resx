@@ -129,6 +129,9 @@
   <data name="EnterCurrentPasswordCorrectly" xml:space="preserve">
     <value>رمز عبور فعلی خود را بصورت صحیح وارد کنید</value>
   </data>
+  <data name="EnterDateCorrectly" xml:space="preserve">
+    <value>تاریخ را بصورت صحیح وارد کنید</value>
+  </data>
   <data name="EnterOtherEmail" xml:space="preserve">
     <value>ایمیلی غیر از ایمیل خودتان را وارد کنید</value>
   </data>

@@ -97,6 +97,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter Date Correctly.
+        /// </summary>
+        public static string EnterDateCorrectly {
+            get {
+                return ResourceManager.GetString("EnterDateCorrectly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter other email instead of your current email.
         /// </summary>
         public static string EnterOtherEmail {

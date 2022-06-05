@@ -2,6 +2,7 @@
 @model DigiKala.Pages.UserPanel.UserInformationsModel
 @{
     ViewData["Title"] = PageTitles.UserInformations;
+    var splitUserBirthDate = Model.UserInformationsVM.BirthDate?.ToShamsi().Split('/');
 }
 
 <main class="page-content">
@@ -80,7 +81,7 @@
                                         <div class="fs-7 fw-bold text-dark">@DataDictionaries.BirthDate</div>
                                         <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-birth-modal"><i class="ri-ball-pen-fill"></i></button>
                                     </div>
-                                    <div class="fs-6 fw-bold text-muted">@Model.UserInformationsVM.BirthDate?.ToShamsi()</div>
+                                    <div id="birthDateInp" class="fs-6 fw-bold text-muted">@Model.UserInformationsVM.BirthDate?.ToShamsi()</div>
                                 </div>
                             </div>
                             @*<div class="col-lg-6 mb-3">
@@ -192,10 +193,10 @@
     </div>
     <!--  personal-info-email-modal -->
     <!-- personal-info-birth-modal -->
-    <div class="remodal remodal-xs" data-remodal-id="personal-info-birth-modal"
+    <div id="birthDateModal" class="remodal remodal-xs" data-remodal-id="personal-info-birth-modal"
          data-remodal-options="hashTracking: false">
         <div class="remodal-header">
-            <div class="remodal-title">تولد</div>
+            <div class="remodal-title">@DataDictionaries.BirthDate</div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
         <form method="post" asp-page-handler="ConfirmUserInformations">
@@ -203,42 +204,66 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="form-element-row">
-                            <label class="label fs-7">سال</label>
-                            <input asp-for="UserBirthDateVM.BirthYear" type="number" class="form-control" placeholder="">
+                            <label class="label fs-7">@DataDictionaries.Year</label>
+                            <input asp-for="UserBirthDateVM.BirthYear" type="number" value="@((splitUserBirthDate!=null)?splitUserBirthDate[0]:"")" class="form-control" placeholder="">
                             <span asp-validation-for="UserBirthDateVM.BirthYear" class="text-danger"></span>
                         </div>
                     </div>
+                    @{
+                        List<string> months = new List<string>(){
+                    DataDictionaries.April,
+                    DataDictionaries.May,
+                    DataDictionaries.June,
+                    DataDictionaries.July,
+                    DataDictionaries.August,
+                    DataDictionaries.September,
+                    DataDictionaries.October,
+                    DataDictionaries.November,
+                    DataDictionaries.December,
+                    DataDictionaries.January,
+                    DataDictionaries.February,
+                    DataDictionaries.March
+                    };
+                    }
                     <div class="col-4">
                         <div class="form-element-row">
-                            <label class="label fs-7">ماه</label>
+                            <label class="label fs-7">@DataDictionaries.Month</label>
                             <select class="select2" asp-for="UserBirthDateVM.BirthMonth" id="month">
-                                <option value="01">فروردین</option>
-                                <option value="02">اردیبهشت</option>
-                                <option value="03">خرداد</option>
-                                <option value="04">تیر</option>
-                                <option value="05">مرداد</option>
-                                <option value="06">شهریور</option>
-                                <option value="07">مهر</option>
-                                <option value="08">آبان</option>
-                                <option value="09">آ‌ذر</option>
-                                <option value="10">دی</option>
-                                <option value="11">بهمن</option>
-                                <option value="12">اسفند</option>
+                                @for (int i = 1; i <= 12; i++)
+                                {
+                                    string index = i.ToString().PadLeft(2, '0');
+                                    if (splitUserBirthDate != null)
+                                    {
+                                        if (splitUserBirthDate[1] == index)
+                                        {
+                                            <option value="@index" selected>@months[i-1]</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@index">@months[i-1]</option>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <option value="@index">@months[i-1]</option>
+                                    }
+
+                                }
                             </select>
                             <span asp-validation-for="UserBirthDateVM.BirthMonth" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="form-element-row">
-                            <label class="label fs-7">روز</label>
-                            <input type="text" asp-for="UserBirthDateVM.BirthDay" class="form-control" placeholder="">
+                            <label class="label fs-7">@DataDictionaries.Day</label>
+                            <input type="text" asp-for="UserBirthDateVM.BirthDay" value="@((splitUserBirthDate!=null)?splitUserBirthDate[2]:"")" class="form-control" placeholder="">
                             <span asp-validation-for="UserBirthDateVM.BirthDay" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="remodal-footer">
-                <button class="btn btn-sm btn-primary px-3">ثبت تاریخ تولد</button>
+                <button id="btnBirthDate" class="btn btn-sm btn-primary px-3">@ButtonCaptions.SaveBirthDate</button>
             </div>
         </form>
     </div>

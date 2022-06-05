@@ -119,13 +119,7 @@ namespace DigiKala.Core.Services
             }
             if (!string.IsNullOrEmpty(birthDate))
             {
-                string[] splitBirthDate = birthDate.Split('/');
-                var date = new System.DateTime(
-                    int.Parse(splitBirthDate[0]),
-                    int.Parse(splitBirthDate[1]),
-                    int.Parse(splitBirthDate[2]),
-                    new System.Globalization.PersianCalendar());
-                user.BirthDate = date;
+                user.BirthDate = DateTime.Parse(birthDate);
             }
             _context.SaveChanges();    
         }

@@ -96,12 +96,14 @@ namespace DigiKala.Core.ViewModels.User
     {
         [Display(Name = "سال تولد")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [Range(1300, 1400,ErrorMessage ="{0} باید بین {1} و {2} باشد")]
         public string BirthYear { get; set; }
         [Display(Name = "ماه تولد")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public string BirthMonth { get; set; }
         [Display(Name = "روز تولد")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [Range(1, 31, ErrorMessage = "{0} باید بین {1} و {2} باشد")]
         public string BirthDay { get; set; }
     }
 

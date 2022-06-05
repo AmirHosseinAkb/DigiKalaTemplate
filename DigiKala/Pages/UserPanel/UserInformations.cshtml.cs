@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 using System.ComponentModel.DataAnnotations;
 using DigiKala.Core.Security;
 using Resources;
+using System.Globalization;
+using DigiKala.Core.Convertors;
 
 namespace DigiKala.Pages.UserPanel
 {
@@ -53,7 +55,7 @@ namespace DigiKala.Pages.UserPanel
         }
         public IActionResult OnGetConfirmUserPhoneNumber(string phoneNumber)
         {
-            if (string.IsNullOrWhiteSpace(phoneNumber))
+            if (string.IsNullOrWhiteSpace(phoneNumber)|| phoneNumber.Length!=11)
             {
                 return RedirectToPage();
             }
@@ -69,14 +71,29 @@ namespace DigiKala.Pages.UserPanel
             }
             if (User.Identity!.Name == email.ToLower())
             {
-                return BadRequest(new { message = ErrorMessages.EnterOtherEmail });
+                return BadRequest(ErrorMessages.EnterOtherEmail);
             }
             if (_userService.IsExistUserByEmail(email))
             {
-                return BadRequest(new { message = ErrorMessages.EmailExists });
+                return BadRequest(ErrorMessages.EmailExists );
             }
             _userService.ConfirmUserInformations(User.Identity!.Name!, "", "", "", "", email);
             return Content(email);
+        }
+        public IActionResult OnGetConfirmUserBirthDate(string year,string month,string day)
+        {
+            try
+            {
+                PersianCalendar persianCalendar = new PersianCalendar();
+                var date = persianCalendar.ToDateTime(int.Parse(year), int.Parse(month), int.Parse(day), 0, 0, 0, 0);
+            }
+            catch(Exception error)
+            {
+                return BadRequest(ErrorMessages.EnterDateCorrectly);
+            }
+            var birthDate = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day),new PersianCalendar()).ToString();
+            _userService.ConfirmUserInformations(User.Identity.Name, "", "", "", "", "", birthDate);
+            return Content(DateTime.Parse(birthDate).ToShamsi());
         }
         public IActionResult OnPostChangeUserPassword()
         {
