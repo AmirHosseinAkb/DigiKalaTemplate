@@ -126,6 +126,9 @@
   <data name="ConfirmResetPassword" xml:space="preserve">
     <value>رمز عبور با موفقیت بازیابی شد</value>
   </data>
+  <data name="PasswordChangedSuccessfully" xml:space="preserve">
+    <value>رمز عبور شما با موفقیت تغییر یافت از این پس می توانید با استفاده از این رمز عبور وارد سایت شوید</value>
+  </data>
   <data name="ResetPasswordEmailSent" xml:space="preserve">
     <value>ایمیل تغییر رمز عبور با موفقیت ارسال شد</value>
   </data>

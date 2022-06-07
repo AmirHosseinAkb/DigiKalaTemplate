@@ -96,7 +96,7 @@
                             <div class="col-lg-6 mb-3">
                                 <div class="border-bottom py-2">
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <div class="fs-7 fw-bold text-dark">رمز عبور</div>
+                                        <div class="fs-7 fw-bold text-dark">@DataDictionaries.Password</div>
                                         <button class="btn btn-circle btn-outline-light" data-remodal-target="personal-info-change-password-modal"><i class="ri-ball-pen-fill"></i></button>
                                     </div>
                                     <div class="fs-6 fw-bold text-muted">-</div>
@@ -113,7 +113,7 @@
             <div class="remodal-title">@DataDictionaries.FullName</div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <form method="post" asp-page-handler="ConfirmUserInformations">
+        <form id="frmUserFullName" method="post">
             <div id="" class="remodal-content">
                 <div class="form-element-row mb-3">
                     <label class="label fs-7">@DataDictionaries.FirstName</label>
@@ -139,7 +139,7 @@
             <div class="remodal-title">@DataDictionaries.NationalNumber</div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <form method="post" asp-page-handler="ConfirmUserNationalNumber">
+        <form id="frmUserNationalNumber" method="post">
             <div class="remodal-content">
                 <div class="form-element-row mb-3">
                     <input asp-for="UserNationalNumberVM.NationalNumber" type="number" value="@Model.UserInformationsVM.NationalNumber" class="form-control" placeholder="">
@@ -159,7 +159,7 @@
             <div class="remodal-title">@DataDictionaries.PhoneNumber</div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <form method="post" asp-page-handler="ConfirmUserInformations">
+        <form id="frmUserPhoneNumber" method="post">
             <div class="remodal-content">
                 <div class="form-element-row mb-3">
                     <input asp-for="UserPhoneNumberVM.PhoneNumber" type="number" value="@Model.UserInformationsVM.PhoneNumber" class="form-control" placeholder="">
@@ -179,7 +179,7 @@
             <div class="remodal-title">@DataDictionaries.Email</div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <form method="post" asp-page-handler="ConfirmUserInformations">
+        <form id="frmUserEmail" method="post">
             <div class="remodal-content">
                 <div class="form-element-row mb-3">
                     <input asp-for="UserEmailVM.Email" type="text" value="@Model.UserInformationsVM.Email" class="form-control" placeholder="">
@@ -199,7 +199,7 @@
             <div class="remodal-title">@DataDictionaries.BirthDate</div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <form method="post" asp-page-handler="ConfirmUserInformations">
+        <form id="frmUserBirthDate" method="post">
             <div class="remodal-content">
                 <div class="row">
                     <div class="col-4">
@@ -309,34 +309,33 @@
         </div>*@
     <!--  personal-info-returned-modal -->
     <!-- personal-info-change-password-modal -->
-    <div class="remodal remodal-xs" data-remodal-id="personal-info-change-password-modal"
+    <div id="userPasswordModal" class="remodal remodal-xs" data-remodal-id="personal-info-change-password-modal"
          data-remodal-options="hashTracking: false">
         <div class="remodal-header">
-            <div class="remodal-title">ویرایش رمز عبور</div>
+            <div class="remodal-title">@DataDictionaries.EditPassword</div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <form id="frmChangePassword" method="post" asp-page-handler="ChangeUserPassword">
+        <form id="frmUserPassword" method="post">
             <div class="remodal-content">
                 <div class="form-element-row mb-3">
-                    <label class="label fs-7">رمز عبور فعلی</label>
-                    <input id="currentPasswordInp" asp-for="UserPasswordVM.CurrentPassword" type="text" class="form-control" placeholder="">
+                    <label class="label fs-7">@DataDictionaries.CurrentPassword</label>
+                    <input  asp-for="UserPasswordVM.CurrentPassword" type="password" class="form-control" placeholder="">
                     <span asp-validation-for="UserPasswordVM.CurrentPassword" class="text-danger"></span>
-                    <p style="display:none" id="currentPasswordValidation" class="text-danger">@ErrorMessages.EnterCurrentPasswordCorrectly</p>
                 </div>
                 <div class="form-element-row mb-3">
-                    <label class="label fs-7">رمز عبور جدید</label>
-                    <input asp-for="UserPasswordVM.NewPassword" type="text" class="form-control" placeholder="">
+                    <label class="label fs-7">@DataDictionaries.NewPassword</label>
+                    <input asp-for="UserPasswordVM.NewPassword" type="password" class="form-control" placeholder="">
                     <span asp-validation-for="UserPasswordVM.NewPassword" class="text-danger"></span>
                 </div>
                 <div class="form-element-row mb-3">
-                    <label class="label fs-7">تکرار رمز عبور جدید</label>
-                    <input asp-for="UserPasswordVM.RepeatNewPassword" type="text" class="form-control" placeholder="">
+                    <label class="label fs-7">@DataDictionaries.RepeatNewPassword</label>
+                    <input asp-for="UserPasswordVM.RepeatNewPassword" type="password" class="form-control" placeholder="">
                     <span asp-validation-for="UserPasswordVM.RepeatNewPassword" class="text-danger"></span>
                 </div>
             </div>
+            <div class="remodal-footer">
+                <button id="btnSavePassword" class="btn btn-sm btn-primary px-3">ثبت</button>
+            </div>
         </form>
-        <div class="remodal-footer">
-            <button class="btn btn-sm btn-primary px-3">ثبت</button>
-        </div>
     </div>
 </main>

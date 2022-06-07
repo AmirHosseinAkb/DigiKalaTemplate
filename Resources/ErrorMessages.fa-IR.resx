@@ -138,6 +138,9 @@
   <data name="EnterPasswordCorrectly" xml:space="preserve">
     <value>لطفا رمز عبور خود را بصورت صحیح وارد کنید</value>
   </data>
+  <data name="EnterPasswordRepeatCorrectly" xml:space="preserve">
+    <value>تکرار رمز عبور با رمز عبور مطابقت ندارد</value>
+  </data>
   <data name="EnterPhoneNumberCorrectly" xml:space="preserve">
     <value>لطفا شماره تلفن خود را بصورت صحیح وارد کنید</value>
   </data>

@@ -29,6 +29,7 @@ namespace DigiKala.Core.Services.Interfaces
 
         void ConfirmUserInformations(string userEmail, string firstName = "", string lastName = "", string nationalNumber = ""
             , string phoneNumber = "", string email = "", string birthDate ="");
+        void ChangeUserPassword(string email, string password);
         #endregion
     }
 }

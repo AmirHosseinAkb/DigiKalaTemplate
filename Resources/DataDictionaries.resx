@@ -156,6 +156,9 @@
   <data name="December" xml:space="preserve">
     <value>December</value>
   </data>
+  <data name="EditPassword" xml:space="preserve">
+    <value>Edit Password</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>

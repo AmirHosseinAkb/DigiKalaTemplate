@@ -35,24 +35,6 @@ namespace DigiKala.Core.ViewModels.User
         [Display(Name = "تاریخ تولد")]
         [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
         public DateTime? BirthDate { get; set; }
-
-        [Display(Name = "رمز عبور فعلی")]
-        [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
-        [MinLength(8, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
-        [DataType(DataType.Password)]
-        public string? CurrentPassword { get; set; }
-
-        [Display(Name = "رمز عبور جدید")]
-        [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
-        [MinLength(8, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
-        [DataType(DataType.Password)]
-        public string? NewPassword { get; set; }
-
-        [Display(Name = "تکرار رمز عبور جدید")]
-        [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
-        [MinLength(8, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
-        [DataType(DataType.Password)]
-        public string? RepeatNewPassword { get; set; }
     }
     public class UserFullNameViewModel
     {
@@ -113,21 +95,18 @@ namespace DigiKala.Core.ViewModels.User
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
         [MinLength(8, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
-        [DataType(DataType.Password)]
         public string CurrentPassword { get; set; }
 
         [Display(Name = "رمز عبور جدید")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
         [MinLength(8, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
-        [DataType(DataType.Password)]
         public string NewPassword { get; set; }
 
         [Display(Name = "تکرار رمز عبور جدید")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
         [MinLength(8, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
-        [DataType(DataType.Password)]
         [Compare(nameof(NewPassword), ErrorMessage = "رمز عبور جدید با تکرار آن مطابقت ندارد")]
         public string RepeatNewPassword { get; set; }
     }

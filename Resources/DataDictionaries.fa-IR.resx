@@ -156,6 +156,9 @@
   <data name="December" xml:space="preserve">
     <value>آذر</value>
   </data>
+  <data name="EditPassword" xml:space="preserve">
+    <value>ویرایش رمز عبور</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>ایمیل</value>
   </data>

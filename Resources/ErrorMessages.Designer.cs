@@ -124,6 +124,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter Password Repeat Correctly.
+        /// </summary>
+        public static string EnterPasswordRepeatCorrectly {
+            get {
+                return ResourceManager.GetString("EnterPasswordRepeatCorrectly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter the phone number correctly.
         /// </summary>
         public static string EnterPhoneNumberCorrectly {

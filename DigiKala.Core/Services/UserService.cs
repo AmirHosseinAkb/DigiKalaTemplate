@@ -123,5 +123,12 @@ namespace DigiKala.Core.Services
             }
             _context.SaveChanges();    
         }
+
+        public void ChangeUserPassword(string email,string password)
+        {
+            var user = GetUserByEmail(email);
+            user.Password = PasswordHasher.HashPasswordMD5(password);
+            _context.SaveChanges(); 
+        }
     }
 }

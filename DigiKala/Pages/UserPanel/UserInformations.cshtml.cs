@@ -8,6 +8,7 @@ using DigiKala.Core.Security;
 using Resources;
 using System.Globalization;
 using DigiKala.Core.Convertors;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace DigiKala.Pages.UserPanel
 {
@@ -22,11 +23,17 @@ namespace DigiKala.Pages.UserPanel
 
 
         public UserInformationsViewModel UserInformationsVM { get; set; }
+        [BindProperty]
         public UserFullNameViewModel UserFullNameVM { get; set; }
+        [BindProperty]
         public UserEmailViewModel UserEmailVM { get; set; }
+        [BindProperty]
         public UserNationalNumberViewMode UserNationalNumberVM { get; set; }
+        [BindProperty]
         public UserBirthDateViewModel UserBirthDateVM { get; set; }
+        [BindProperty]
         public UserPasswordViewModel UserPasswordVM { get; set; }
+        [BindProperty]
         public UserPhoneNumberViewModel UserPhoneNumberVM { get; set; }
 
         public void OnGet()
@@ -34,83 +41,94 @@ namespace DigiKala.Pages.UserPanel
             UserInformationsVM = _userService.GetUserInformationsForShow(User.Identity!.Name!);
         }
 
-        public IActionResult OnGetConfirmUserFullName(string firstName, string lastName)
+        public IActionResult OnPostConfirmUserFullName()
         {
-            if(string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName))
+            var firstNameValidation = ModelState.GetFieldValidationState("UserFullNameVm.FirstName");
+            var lastNameValidation = ModelState.GetFieldValidationState("UserFullNameVm.LastName");
+            if (firstNameValidation == ModelValidationState.Invalid || lastNameValidation==ModelValidationState.Invalid)
             {
                 return RedirectToPage();
             }
-            _userService.ConfirmUserInformations(User.Identity.Name, firstName, lastName);
-            return Content(firstName + " " + lastName);
+            _userService.ConfirmUserInformations(User.Identity.Name, UserFullNameVM.FirstName, UserFullNameVM.LastName);
+            return Content(UserFullNameVM.FirstName + " " + UserFullNameVM.LastName);
         }
         
-        public IActionResult OnGetConfirmUserNationalNumber(string nationalNumber)
+        public IActionResult OnPostConfirmUserNationalNumber()
         {
-            if (string.IsNullOrWhiteSpace(nationalNumber))
+            var validateNationalNumber = ModelState.GetFieldValidationState("UserNationalNumberVM.NationalNumber");
+            if (validateNationalNumber == ModelValidationState.Invalid)
             {
                 return RedirectToPage();
             }
-            _userService.ConfirmUserInformations(User.Identity.Name, "", "", nationalNumber);
-            return Content(nationalNumber);
+            _userService.ConfirmUserInformations(User.Identity.Name, "", "", UserNationalNumberVM.NationalNumber);
+            return Content(UserNationalNumberVM.NationalNumber);
         }
-        public IActionResult OnGetConfirmUserPhoneNumber(string phoneNumber)
+        public IActionResult OnPostConfirmUserPhoneNumber()
         {
-            if (string.IsNullOrWhiteSpace(phoneNumber)|| phoneNumber.Length!=11)
+            var validatePhoneNumber = ModelState.GetFieldValidationState("UserPhoneNumberVM.PhoneNumber");
+            if (validatePhoneNumber == ModelValidationState.Invalid)
             {
                 return RedirectToPage();
             }
-            _userService.ConfirmUserInformations(User.Identity.Name, "", "", "", phoneNumber);
-            return Content(phoneNumber);
+            _userService.ConfirmUserInformations(User.Identity.Name, "", "", "", UserPhoneNumberVM.PhoneNumber);
+            return Content(UserPhoneNumberVM.PhoneNumber);
         }
 
-        public IActionResult OnGetConfirmUserEmail(string email)
+        public IActionResult OnPostConfirmUserEmail()
         {
-            if (string.IsNullOrWhiteSpace(email))
+            var validateEmail = ModelState.GetFieldValidationState("UserEmailVm.Email");
+            if (validateEmail == ModelValidationState.Invalid)
             {
                 return RedirectToPage();
             }
-            if (User.Identity!.Name == email.ToLower())
+            if (User.Identity!.Name == UserEmailVM.Email.ToLower())
             {
                 return BadRequest(ErrorMessages.EnterOtherEmail);
             }
-            if (_userService.IsExistUserByEmail(email))
+            if (_userService.IsExistUserByEmail(UserEmailVM.Email))
             {
-                return BadRequest(ErrorMessages.EmailExists );
+                return BadRequest(ErrorMessages.EmailExists);
             }
-            _userService.ConfirmUserInformations(User.Identity!.Name!, "", "", "", "", email);
-            return Content(email);
+            _userService.ConfirmUserInformations(User.Identity!.Name!, "", "", "", "", UserEmailVM.Email);
+            return Content(UserEmailVM.Email);
         }
-        public IActionResult OnGetConfirmUserBirthDate(string year,string month,string day)
+        public IActionResult OnPostConfirmUserBirthDate()
         {
             try
             {
                 PersianCalendar persianCalendar = new PersianCalendar();
-                var date = persianCalendar.ToDateTime(int.Parse(year), int.Parse(month), int.Parse(day), 0, 0, 0, 0);
+                var date = persianCalendar.ToDateTime(int.Parse(UserBirthDateVM.BirthYear), int.Parse(UserBirthDateVM.BirthMonth), int.Parse(UserBirthDateVM.BirthDay), 0, 0, 0, 0);
             }
             catch(Exception error)
             {
                 return BadRequest(ErrorMessages.EnterDateCorrectly);
             }
-            var birthDate = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day),new PersianCalendar()).ToString();
+            var birthDate = new DateTime(int.Parse(UserBirthDateVM.BirthYear), int.Parse(UserBirthDateVM.BirthMonth), int.Parse(UserBirthDateVM.BirthDay),new PersianCalendar()).ToString();
             _userService.ConfirmUserInformations(User.Identity.Name, "", "", "", "", "", birthDate);
             return Content(DateTime.Parse(birthDate).ToShamsi());
         }
-        public IActionResult OnPostChangeUserPassword()
+        public IActionResult OnPostConfirmUserPassword()
         {
-            var user = _userService.GetUserByEmail(User.Identity!.Name!);
-
-            if (user.Password != PasswordHasher.HashPasswordMD5(UserPasswordVM.CurrentPassword))
+            var validateCurrentPassword = ModelState.GetFieldValidationState("UserPasswordVM.CurrentPassword");
+            var validateNewPassword = ModelState.GetFieldValidationState("UserPasswordVM.NewPassword");
+            var validateRepeatPassword = ModelState.GetFieldValidationState("UserPasswordVM.RepeatNewergfdPassword");
+            if (validateCurrentPassword == ModelValidationState.Invalid
+                || validateNewPassword == ModelValidationState.Invalid
+                || validateRepeatPassword == ModelValidationState.Invalid)
             {
                 return RedirectToPage();
             }
-
-            return RedirectToPage();
-        }
-        public IActionResult OnGetIsCurrentPasswordCorrect(string currentPassword)
-        {
-            var user = _userService.GetUserByEmail(User.Identity!.Name!);
-            var isCorrect = user.Password == PasswordHasher.HashPasswordMD5(currentPassword);
-            return Content(isCorrect.ToString().ToLower());
+            var user = _userService.GetUserByEmail(User.Identity.Name);
+            if (user.Password != PasswordHasher.HashPasswordMD5(UserPasswordVM.CurrentPassword))
+            {
+                return BadRequest(ErrorMessages.EnterCurrentPasswordCorrectly);
+            }
+            if (UserPasswordVM.NewPassword != UserPasswordVM.RepeatNewPassword)
+            {
+                return BadRequest(ErrorMessages.EnterPasswordRepeatCorrectly);
+            }
+            _userService.ChangeUserPassword(User.Identity.Name, UserPasswordVM.NewPassword);
+            return Content(ConfirmationMessages.PasswordChangedSuccessfully);
         }
     }
 }
