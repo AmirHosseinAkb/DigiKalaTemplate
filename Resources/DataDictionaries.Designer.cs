@@ -124,6 +124,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hi for login to your account use code:.
+        /// </summary>
+        public static string AuthorizationMessageText {
+            get {
+                return ResourceManager.GetString("AuthorizationMessageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Birth Date.
         /// </summary>
         public static string BirthDate {
@@ -183,6 +192,15 @@ namespace Resources {
         public static string EditPassword {
             get {
                 return ResourceManager.GetString("EditPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EditPhoneNumber.
+        /// </summary>
+        public static string EditPhoneNumber {
+            get {
+                return ResourceManager.GetString("EditPhoneNumber", resourceCulture);
             }
         }
         
@@ -403,6 +421,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remaining Time.
+        /// </summary>
+        public static string RemainingTime {
+            get {
+                return ResourceManager.GetString("RemainingTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Repeat New Password.
         /// </summary>
         public static string RepeatNewPassword {
@@ -417,6 +444,15 @@ namespace Resources {
         public static string RepeatPassword {
             get {
                 return ResourceManager.GetString("RepeatPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send again.
+        /// </summary>
+        public static string ReSend {
+            get {
+                return ResourceManager.GetString("ReSend", resourceCulture);
             }
         }
         
@@ -462,6 +498,24 @@ namespace Resources {
         public static string ShopName {
             get {
                 return ResourceManager.GetString("ShopName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To log in to your account, please enter the code sent..
+        /// </summary>
+        public static string UserVerificationLoginMessage {
+            get {
+                return ResourceManager.GetString("UserVerificationLoginMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verfication.
+        /// </summary>
+        public static string Verfication {
+            get {
+                return ResourceManager.GetString("Verfication", resourceCulture);
             }
         }
         

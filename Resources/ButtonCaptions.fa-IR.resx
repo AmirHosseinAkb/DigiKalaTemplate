@@ -126,6 +126,9 @@
   <data name="Continue" xml:space="preserve">
     <value>ادامه</value>
   </data>
+  <data name="JoinUs" xml:space="preserve">
+    <value>پیوستن به خانواده ما</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>ورود</value>
   </data>

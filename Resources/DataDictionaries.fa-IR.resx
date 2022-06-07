@@ -138,6 +138,9 @@
   <data name="August" xml:space="preserve">
     <value>مرداد</value>
   </data>
+  <data name="AuthorizationMessageText" xml:space="preserve">
+    <value>سلام برای ورود به اکانت کاربری خود این کد را وارد کنید:</value>
+  </data>
   <data name="BirthDate" xml:space="preserve">
     <value>تاریخ تولد</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="EditPassword" xml:space="preserve">
     <value>ویرایش رمز عبور</value>
+  </data>
+  <data name="EditPhoneNumber" xml:space="preserve">
+    <value>ویرایش شماره موبایل</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>ایمیل</value>
@@ -237,6 +243,9 @@
   <data name="RepeatPassword" xml:space="preserve">
     <value>تکرار رمز عبور</value>
   </data>
+  <data name="ReSend" xml:space="preserve">
+    <value>ارسال مجدد</value>
+  </data>
   <data name="ResetPassword" xml:space="preserve">
     <value>بازیابی رمز عبور</value>
   </data>
@@ -251,6 +260,15 @@
   </data>
   <data name="ShopName" xml:space="preserve">
     <value>مای استور</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>زمان باقی مانده</value>
+  </data>
+  <data name="UserVerificationLoginMessage" xml:space="preserve">
+    <value>برای ورود به حساب کاربری خود، لطفا کد ارسال شده را وارد نمایید</value>
+  </data>
+  <data name="Verfication" xml:space="preserve">
+    <value>تایید شماره موبایل</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>خوش آمدید!</value>

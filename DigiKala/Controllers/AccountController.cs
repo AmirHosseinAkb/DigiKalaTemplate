@@ -63,8 +63,35 @@ namespace DigiKala.Controllers
                     ModelState.AddModelError("EmailOrPhoneNumber", ErrorMessages.EnterPhoneNumberCorrectly);
                     return View(registerAndLoginVM);
                 }
+                var user = _userService.GetUserByPhoneNumber(registerAndLoginVM.EmailOrPhoneNumber);
+                if (user == null)
+                {
+                    var verificationCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999);
+                    MessageSender.SendMessage(registerAndLoginVM.EmailOrPhoneNumber
+                        , DataDictionaries.AuthorizationMessageText + " " + verificationCode);
+                    HttpContext.Session.SetInt32("VerificationCode", verificationCode);
+                    HttpContext.Session.SetString("PhoneNumber", registerAndLoginVM.EmailOrPhoneNumber);
+                    return Redirect("");
+                }
             }
-            return Redirect("");
+            return Redirect("Verification");
+        }
+
+        [Route("Verification")]
+        public IActionResult Verification()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        [Route("Verification")]
+        public IActionResult Verification()
+        {
+            var phoneNumber = HttpContext.Session.GetString("PhoneNumber");
+            var user = _userService.GetUserByPhoneNumber(phoneNumber);
+            ViewBag.IsExistUser = user;
+            ViewBag.PhoneNumber = phoneNumber;
+            return View();
         }
 
         [Route("Login")]
@@ -137,7 +164,7 @@ namespace DigiKala.Controllers
                 Password = PasswordHasher.HashPasswordMD5(registerVM.Password),
                 AvatarName = "Default.png",
                 IsActive = false,
-                MessageCode = RandomNumberGenerator.RandomIntegerGenerator(10000, 99999).ToString(),
+                MessageCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999).ToString(),
                 ActivationCode = NameGenerator.GenerateUniqName(),
                 RegisterDate = DateTime.Now
             };

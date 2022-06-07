@@ -8,7 +8,7 @@ namespace DigiKala.Core.Generators
 {
     public class RandomNumberGenerator
     {
-        public static int RandomIntegerGenerator(int minValue,int maxValue)
+        public static int GenerateRendomInteger(int minValue,int maxValue)
         {
             var random = new System.Random();
             if (minValue == 0)

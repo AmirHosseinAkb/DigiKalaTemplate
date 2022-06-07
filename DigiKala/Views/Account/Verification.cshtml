@@ -1,0 +1,90 @@
+﻿@{
+    Layout = null;
+    var currentCulture =
+    System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+}
+
+<html lang="@currentCulture">
+<head>
+    <title>@PageTitles.Verification</title>
+
+    <partial name="PartialViews/_Styles"></partial>
+
+</head>
+<body>
+    <div class="page-wrapper">
+        <partial name="PartialViews/_RegisterAndLoginHeader"></partial>
+        <main class="page-content page-auth">
+
+            <div class="auth-container">
+
+                <div class="auth-title mb-3">@DataDictionaries.Verfication</div>
+                <div class="auth-box ui-box">
+                    <form action="#" class="auth-form">
+                        @if (ViewBag.IsExistUser == null)
+                        {
+                            <div class="form-element-row mb-3">
+                                <p>
+                                    حساب کاربری با شماره موبایل <span class="border-bottom">@ViewBag.PhoneNumber</span> وجود ندارد.
+                                    برای ایجاد
+                                    حساب
+                                    کاربری، لطفا
+                                    کد ارسال شده را وارد نمایید.
+                                </p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-element-row mb-3">
+                                <p>
+                                    @DataDictionaries.UserVerificationLoginMessage
+                                </p>
+                            </div>
+                        }
+
+
+                        <div class="form-element-row mb-3">
+                            <div class="form-input-code-container fa-num">
+                                <input type="text" maxlength="2" class="form-control input-code" id="input-code-0" data-next="1" autocomplete="off" autofocus="">
+                                <span class="divider">-</span>
+                                <input type="text" maxlength="2" class="form-control input-code" id="input-code-1" data-next="2" autocomplete="off">
+                                <span class="divider">-</span>
+                                <input type="text" maxlength="2" class="form-control input-code" id="input-code-2" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="verify-code-wrapper mt-3 mb-5">
+                            <div class="d-flex align-items-center" dir="ltr">
+                                <span class="text-sm">@DataDictionaries.RemainingTime</span>
+                                <span class="mx-2">|</span>
+                                <div id="timer--verify-code" data-minutes-left="1" class="jst-timeout"><div class="jst-hours">00:</div><div class="jst-minutes">00:</div><div class="jst-seconds">00</div><div class="jst-clearDiv"></div></div>
+                            </div>
+                            <a href="#" class="send-again link d-inline-block">@DataDictionaries.ReSend</a>
+                        </div>
+                        @if (ViewBag.IsExistUser == null)
+                        {
+                            <div class="form-element-row mb-3">
+                                <button type="submit" class="btn btn-primary">@ButtonCaptions.JoinUs</button>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-element-row mb-3">
+                                <button type="submit" class="btn btn-primary">@ButtonCaptions.Login</button>
+                            </div>
+                        }
+
+
+                        <div class="form-element-row">
+                            <a href="#" class="link mx-auto">@DataDictionaries.EditPhoneNumber <i class="ri-pencil-fill ms-1"></i></a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </main>
+        <partial name="PartialViews/_RegisterAndLoginFooter"></partial>
+    </div>
+    <partial name="PartialViews/_Scripts"></partial>
+</body>
+</html>

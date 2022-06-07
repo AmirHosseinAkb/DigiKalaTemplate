@@ -126,6 +126,9 @@
   <data name="Continue" xml:space="preserve">
     <value>Continue</value>
   </data>
+  <data name="JoinUs" xml:space="preserve">
+    <value>JoinUs</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>

@@ -147,4 +147,7 @@
   <data name="UserPanel" xml:space="preserve">
     <value>پنل کاربری</value>
   </data>
+  <data name="Verification" xml:space="preserve">
+    <value>تایید شماره موبایل</value>
+  </data>
 </root>

@@ -138,6 +138,9 @@
   <data name="August" xml:space="preserve">
     <value>August</value>
   </data>
+  <data name="AuthorizationMessageText" xml:space="preserve">
+    <value>Hi for login to your account use code:</value>
+  </data>
   <data name="BirthDate" xml:space="preserve">
     <value>Birth Date</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="EditPassword" xml:space="preserve">
     <value>Edit Password</value>
+  </data>
+  <data name="EditPhoneNumber" xml:space="preserve">
+    <value>EditPhoneNumber</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
@@ -231,11 +237,17 @@
   <data name="ReLoginAfterEditEmail" xml:space="preserve">
     <value>Relogin after edit email</value>
   </data>
+  <data name="RemainingTime" xml:space="preserve">
+    <value>Remaining Time</value>
+  </data>
   <data name="RepeatNewPassword" xml:space="preserve">
     <value>Repeat New Password</value>
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat Password</value>
+  </data>
+  <data name="ReSend" xml:space="preserve">
+    <value>Send again</value>
   </data>
   <data name="ResetPassword" xml:space="preserve">
     <value>Reset Password</value>
@@ -251,6 +263,12 @@
   </data>
   <data name="ShopName" xml:space="preserve">
     <value>MyStore</value>
+  </data>
+  <data name="UserVerificationLoginMessage" xml:space="preserve">
+    <value>To log in to your account, please enter the code sent.</value>
+  </data>
+  <data name="Verfication" xml:space="preserve">
+    <value>Verfication</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome</value>

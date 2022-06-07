@@ -149,5 +149,14 @@ namespace Resources {
                 return ResourceManager.GetString("UserPanel", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verification.
+        /// </summary>
+        public static string Verification {
+            get {
+                return ResourceManager.GetString("Verification", resourceCulture);
+            }
+        }
     }
 }
