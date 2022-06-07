@@ -130,5 +130,11 @@ namespace DigiKala.Core.Services
             user.Password = PasswordHasher.HashPasswordMD5(password);
             _context.SaveChanges(); 
         }
+
+        public void UpdateUser(User user)
+        {
+            _context.Users.Update(user);
+            _context.SaveChanges();
+        }
     }
 }
