@@ -196,11 +196,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SomeErrorsEccuredWhileSendingMessage.
+        ///   Looks up a localized string similar to Some errors eccured while sending message.
         /// </summary>
         public static string SomeErrorsEccuredWhileSendingMessage {
             get {
                 return ResourceManager.GetString("SomeErrorsEccuredWhileSendingMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verification code isnt correct.
+        /// </summary>
+        public static string VerificationCodeIsntCorrect {
+            get {
+                return ResourceManager.GetString("VerificationCodeIsntCorrect", resourceCulture);
             }
         }
     }

@@ -13,20 +13,14 @@
 </head>
 <body>
     <div class="page-wrapper">
-        @if (ViewBag.MessageDoesntSend==true)
-        {
-            <div class="alert alert-warning">
-                @ErrorMessages.SomeErrorsEccuredWhileSendingMessage
-            </div>
-        }
         <partial name="PartialViews/_RegisterAndLoginHeader"></partial>
         <main class="page-content page-auth">
             <!-- auth-container -->
             <div class="auth-container">
-                @if (ViewBag.IsEmailChanged == true)
+                @if (ViewBag.MessageDoesntSend == true)
                 {
                     <div class="alert alert-warning">
-                        @DataDictionaries.ReLoginAfterEditEmail
+                        @ErrorMessages.SomeErrorsEccuredWhileSendingMessage
                     </div>
                 }
                 <div class="auth-title mb-3">@DataDictionaries.RegisterAndLogin</div>

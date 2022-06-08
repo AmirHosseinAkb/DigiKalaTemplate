@@ -52,9 +52,9 @@ namespace DigiKala.Data.Entities.User
         [MaxLength(500, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
         public string AvatarName { get; set; } = "Default.png";
 
+        [Display(Name = "کد تایید")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        [MaxLength(500, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
-        public string MessageCode { get; set; }
+        public int MessageCode { get; set; }
 
         [Required]
         [MaxLength(500, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]

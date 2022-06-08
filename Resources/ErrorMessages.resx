@@ -163,6 +163,9 @@
     <value>Page Not Found</value>
   </data>
   <data name="SomeErrorsEccuredWhileSendingMessage" xml:space="preserve">
-    <value>SomeErrorsEccuredWhileSendingMessage</value>
+    <value>Some errors eccured while sending message</value>
+  </data>
+  <data name="VerificationCodeIsntCorrect" xml:space="preserve">
+    <value>Verification code isnt correct</value>
   </data>
 </root>

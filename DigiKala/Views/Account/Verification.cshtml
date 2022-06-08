@@ -1,4 +1,5 @@
-﻿@{
+﻿@model VerificationViewModel
+@{
     Layout = null;
     var currentCulture =
     System.Threading.Thread.CurrentThread.CurrentCulture.Name;
@@ -39,8 +40,9 @@
                         }
                         <div class="form-element-row mb-3">
                             <div class="form-input-code-container fa-num">
-                                <input type="text" maxlength="5" class="form-control input-code" id="input-code-0"  autocomplete="off" autofocus="">
+                                <input asp-for="VerificationCode" type="text" maxlength="5" class="form-control input-code" id="input-code-0"  autocomplete="off" autofocus="">
                             </div>
+                            <span asp-validation-for="VerificationCode" class="text-danger"></span>
                         </div>
 
                         <div class="verify-code-wrapper mt-3 mb-5">

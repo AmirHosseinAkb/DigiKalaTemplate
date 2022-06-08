@@ -67,7 +67,7 @@ namespace DigiKala.Controllers
                 if (user == null)
                 {
                     var verificationCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999);
-                    var isMessageSent=MessageSender.SendMessage(registerAndLoginVM.EmailOrPhoneNumber
+                    var isMessageSent = MessageSender.SendMessage(registerAndLoginVM.EmailOrPhoneNumber
                         , DataDictionaries.AuthorizationMessageText + " " + verificationCode);
                     if (!isMessageSent)
                     {
@@ -75,10 +75,9 @@ namespace DigiKala.Controllers
                         return View();
                     }
                     HttpContext.Session.SetInt32("VerificationCode", verificationCode);
-                    HttpContext.Session.SetString("PhoneNumber", registerAndLoginVM.EmailOrPhoneNumber);
-                    return Redirect("Verification");
                 }
-                return Redirect("/");
+                HttpContext.Session.SetString("PhoneNumber", registerAndLoginVM.EmailOrPhoneNumber);
+                return Redirect("Verification");
             }
         }
 
@@ -93,12 +92,57 @@ namespace DigiKala.Controllers
             ViewBag.PhoneNumber = phoneNumber;
             return View();
         }
-        //[HttpPost]
-        //[Route("Verification")]
-        //public IActionResult Verification()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        [Route("Verification")]
+        public IActionResult Verification(VerificationViewModel verificationVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(verificationVM);
+            }
+            var phoneNumber = HttpContext.Session.GetString("PhoneNumber");
+            var user = _userService.GetUserByPhoneNumber(phoneNumber);
+            if (user == null)
+            {
+                var verificationCode = HttpContext.Session.GetInt32("VerificationCode");
+                if (verificationVM.VerificationCode != verificationCode)
+                {
+                    ModelState.AddModelError("VerificationCode", ErrorMessages.VerificationCodeIsntCorrect);
+                }
+                DigiKala.Data.Entities.User.User user1 = new User()
+                {
+                    PhoneNumber = phoneNumber,
+                    ActivationCode = NameGenerator.GenerateUniqName(),
+                    IsActive = true,
+                    AvatarName = "Default.png",
+                    MessageCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999),
+                    RegisterDate = DateTime.Now,
+                    IsDeleted = false
+                };
+                _userService.AddUser(user1);
+            }
+            if (verificationVM.VerificationCode != user.MessageCode)
+            {
+                ModelState.AddModelError("VerificationCode", ErrorMessages.VerificationCodeIsntCorrect);
+            }
+            var claims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.NameIdentifier,user.UserId.ToString()),
+                new Claim(ClaimTypes.Name,user.PhoneNumber!),
+                new Claim("AvatarName",user.AvatarName)
+            };
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var principal = new ClaimsPrincipal(identity);
+
+            var properties = new AuthenticationProperties()
+            {
+                IsPersistent = true
+            };
+
+            HttpContext.SignInAsync(principal, properties);
+            return Redirect("/UserPanel");
+        }
 
         [Route("Login")]
         public IActionResult Login(bool emailChanged = false)
@@ -170,7 +214,7 @@ namespace DigiKala.Controllers
                 Password = PasswordHasher.HashPasswordMD5(registerVM.Password),
                 AvatarName = "Default.png",
                 IsActive = false,
-                MessageCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999).ToString(),
+                MessageCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999),
                 ActivationCode = NameGenerator.GenerateUniqName(),
                 RegisterDate = DateTime.Now
             };

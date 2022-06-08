@@ -65,4 +65,11 @@ namespace DigiKala.Core.ViewModels.User
         [Compare("NewPassword", ErrorMessage = "تکرار رمز عبور با رمز عبور مطابقت ندارد")]
         public string RepeatNewPassword { get; set; }
     }
+    public class VerificationViewModel
+    {
+        [Display(Name = "کد تایید")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [Range(10000,99999,ErrorMessage ="کد تایید پنج رقمی را به صورت صحیح وارد کنید")]
+        public int VerificationCode { get; set; }
+    }
 }
