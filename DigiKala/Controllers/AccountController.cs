@@ -24,7 +24,7 @@ namespace DigiKala.Controllers
         private IViewRenderService _viewRenderService;
 
         [Route("RegisterAndLogin")]
-        public IActionResult RegisterAndLogin(bool emailChanged=false)
+        public IActionResult RegisterAndLogin(bool emailChanged = false)
         {
             ViewBag.IsEmailChanged = emailChanged;
             return View();
@@ -58,7 +58,7 @@ namespace DigiKala.Controllers
             }
             else
             {
-                if (registerAndLoginVM.EmailOrPhoneNumber.Any(x => char.IsLetter(x)) || registerAndLoginVM.EmailOrPhoneNumber.Length != 10)
+                if (registerAndLoginVM.EmailOrPhoneNumber.Any(x => char.IsLetter(x)) || registerAndLoginVM.EmailOrPhoneNumber.Length != 11)
                 {
                     ModelState.AddModelError("EmailOrPhoneNumber", ErrorMessages.EnterPhoneNumberCorrectly);
                     return View(registerAndLoginVM);
@@ -66,33 +66,40 @@ namespace DigiKala.Controllers
                 var user = _userService.GetUserByPhoneNumber(registerAndLoginVM.EmailOrPhoneNumber);
                 if (user == null)
                 {
-                    var verificationCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999);
-                    MessageSender.SendMessage(registerAndLoginVM.EmailOrPhoneNumber
+                    var verificationCode = RandomNumberGenerator.GenerateRendomInteger(100000, 999999);
+                    var isMessageSent=MessageSender.SendMessage(registerAndLoginVM.EmailOrPhoneNumber
                         , DataDictionaries.AuthorizationMessageText + " " + verificationCode);
+                    if (!isMessageSent)
+                    {
+                        ViewBag.MessageDoesntSend = true;
+                        return View();
+                    }
                     HttpContext.Session.SetInt32("VerificationCode", verificationCode);
                     HttpContext.Session.SetString("PhoneNumber", registerAndLoginVM.EmailOrPhoneNumber);
-                    return Redirect("");
+                    return Redirect("Verification");
                 }
+                return Redirect("/");
             }
-            return Redirect("Verification");
         }
 
         [Route("Verification")]
         public IActionResult Verification()
         {
-            return View();
-        }
-        
-        [HttpPost]
-        [Route("Verification")]
-        public IActionResult Verification()
-        {
             var phoneNumber = HttpContext.Session.GetString("PhoneNumber");
+            if(string.IsNullOrEmpty(phoneNumber))
+                return View("RegisterAndLogin");    
             var user = _userService.GetUserByPhoneNumber(phoneNumber);
             ViewBag.IsExistUser = user;
             ViewBag.PhoneNumber = phoneNumber;
             return View();
         }
+
+        //[HttpPost]
+        //[Route("Verification")]
+        //public IActionResult Verification()
+        //{
+        //    return View();
+        //}
 
         [Route("Login")]
         public IActionResult Login(bool emailChanged = false)
@@ -128,7 +135,7 @@ namespace DigiKala.Controllers
                 {
                     IsPersistent = true
                 };
-                
+
                 HttpContext.SignInAsync(principal, properties);
                 return Redirect("/UserPanel");
             }
@@ -164,7 +171,7 @@ namespace DigiKala.Controllers
                 Password = PasswordHasher.HashPasswordMD5(registerVM.Password),
                 AvatarName = "Default.png",
                 IsActive = false,
-                MessageCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999).ToString(),
+                MessageCode = RandomNumberGenerator.GenerateRendomInteger(100000, 999999).ToString(),
                 ActivationCode = NameGenerator.GenerateUniqName(),
                 RegisterDate = DateTime.Now
             };

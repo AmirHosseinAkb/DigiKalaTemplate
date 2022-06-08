@@ -13,6 +13,12 @@
 </head>
 <body>
     <div class="page-wrapper">
+        @if (ViewBag.MessageDoesntSend==true)
+        {
+            <div class="alert alert-warning">
+                متاسفانه خطایی در ارسال پیامک رخ داد
+            </div>
+        }
         <partial name="PartialViews/_RegisterAndLoginHeader"></partial>
         <main class="page-content page-auth">
             <!-- auth-container -->
@@ -20,26 +26,24 @@
                 @if (ViewBag.IsEmailChanged == true)
                 {
                     <div class="alert alert-warning">
-                       @DataDictionaries.ReLoginAfterEditEmail
+                        @DataDictionaries.ReLoginAfterEditEmail
                     </div>
                 }
                 <div class="auth-title mb-3">@DataDictionaries.RegisterAndLogin</div>
-                <!-- auth-box -->
+
                 <div class="auth-box ui-box">
-                    <!-- auth-form -->
+
                     <form method="post" class="auth-form">
-                        <!-- form-element -->
+
                         <div class="form-element-row mb-5">
                             <input asp-for="EmailOrPhoneNumber" type="text" class="form-control" placeholder="@DataDictionaries.EmailOrPhone">
                             <span asp-validation-for=EmailOrPhoneNumber class="text-danger"></span>
                         </div>
-                        <!--  form-element -->
-                        <!-- form-element -->
+
                         <div class="form-element-row mb-3">
                             <button class="btn btn-primary">@ButtonCaptions.Continue</button>
                         </div>
-                        <!--  form-element -->
-                        <!-- form-element -->
+
                         <div class="form-element-row">
                             <div>
                                 با ورود و یا ثبت نام در سایت شما <a href="#" class="link">
@@ -50,13 +54,11 @@
                                 سایت و <a href="#" class="link">قوانین حریم خصوصی</a> آن را می‌پذیرید.
                             </div>
                         </div>
-                        <!--  form-element -->
                     </form>
-                    <!--  auth-form -->
                 </div>
-                <!--  auth-box -->
+
             </div>
-            <!-- auth-container -->
+
         </main>
         <partial name="PartialViews/_RegisterAndLoginFooter"></partial>
     </div>

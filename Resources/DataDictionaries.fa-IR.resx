@@ -139,7 +139,7 @@
     <value>مرداد</value>
   </data>
   <data name="AuthorizationMessageText" xml:space="preserve">
-    <value>سلام برای ورود به اکانت کاربری خود این کد را وارد کنید:</value>
+    <value>به مای استور خوش آمدید برای ورود به حساب کاربری خود کد زیر را وارد کنید:</value>
   </data>
   <data name="BirthDate" xml:space="preserve">
     <value>تاریخ تولد</value>
@@ -236,6 +236,9 @@
   </data>
   <data name="ReLoginAfterEditEmail" xml:space="preserve">
     <value>پس از ویرایش ایمیل نیاز است که دوباره وارد شوید</value>
+  </data>
+  <data name="RemainingTime" xml:space="preserve">
+    <value>زمان باقیمانده</value>
   </data>
   <data name="RepeatNewPassword" xml:space="preserve">
     <value>تکرار رمز عبور جدید</value>
