@@ -270,6 +270,12 @@
   <data name="UserVerificationLoginMessage" xml:space="preserve">
     <value>برای ورود به حساب کاربری خود، لطفا کد ارسال شده را وارد نمایید</value>
   </data>
+  <data name="UserVerificationRegisterMessageS1" xml:space="preserve">
+    <value>حساب کاربری با شماره موبایل </value>
+  </data>
+  <data name="UserVerificationRegisterMessageS2" xml:space="preserve">
+    <value>وجود ندارد. برای ایجاد حساب کاربری خود کد ارسال شده را وارد نمایید</value>
+  </data>
   <data name="Verfication" xml:space="preserve">
     <value>تایید شماره موبایل</value>
   </data>

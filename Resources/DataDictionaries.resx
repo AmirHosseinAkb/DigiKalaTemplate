@@ -267,6 +267,12 @@
   <data name="UserVerificationLoginMessage" xml:space="preserve">
     <value>To log in to your account, please enter the code sent.</value>
   </data>
+  <data name="UserVerificationRegisterMessageS1" xml:space="preserve">
+    <value>There is no account with mobile number </value>
+  </data>
+  <data name="UserVerificationRegisterMessageS2" xml:space="preserve">
+    <value>To create an account, please enter the code sent</value>
+  </data>
   <data name="Verfication" xml:space="preserve">
     <value>Verfication</value>
   </data>

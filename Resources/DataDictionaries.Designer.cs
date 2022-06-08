@@ -511,6 +511,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is no account with mobile number .
+        /// </summary>
+        public static string UserVerificationRegisterMessageS1 {
+            get {
+                return ResourceManager.GetString("UserVerificationRegisterMessageS1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To create an account, please enter the code sent.
+        /// </summary>
+        public static string UserVerificationRegisterMessageS2 {
+            get {
+                return ResourceManager.GetString("UserVerificationRegisterMessageS2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Verfication.
         /// </summary>
         public static string Verfication {

@@ -194,5 +194,14 @@ namespace Resources {
                 return ResourceManager.GetString("PageNotFound", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SomeErrorsEccuredWhileSendingMessage.
+        /// </summary>
+        public static string SomeErrorsEccuredWhileSendingMessage {
+            get {
+                return ResourceManager.GetString("SomeErrorsEccuredWhileSendingMessage", resourceCulture);
+            }
+        }
     }
 }

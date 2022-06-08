@@ -66,7 +66,7 @@ namespace DigiKala.Controllers
                 var user = _userService.GetUserByPhoneNumber(registerAndLoginVM.EmailOrPhoneNumber);
                 if (user == null)
                 {
-                    var verificationCode = RandomNumberGenerator.GenerateRendomInteger(100000, 999999);
+                    var verificationCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999);
                     var isMessageSent=MessageSender.SendMessage(registerAndLoginVM.EmailOrPhoneNumber
                         , DataDictionaries.AuthorizationMessageText + " " + verificationCode);
                     if (!isMessageSent)
@@ -86,14 +86,13 @@ namespace DigiKala.Controllers
         public IActionResult Verification()
         {
             var phoneNumber = HttpContext.Session.GetString("PhoneNumber");
-            if(string.IsNullOrEmpty(phoneNumber))
-                return View("RegisterAndLogin");    
+            //if (string.IsNullOrEmpty(phoneNumber))
+            //    return View("RegisterAndLogin");
             var user = _userService.GetUserByPhoneNumber(phoneNumber);
             ViewBag.IsExistUser = user;
             ViewBag.PhoneNumber = phoneNumber;
             return View();
         }
-
         //[HttpPost]
         //[Route("Verification")]
         //public IActionResult Verification()
@@ -171,7 +170,7 @@ namespace DigiKala.Controllers
                 Password = PasswordHasher.HashPasswordMD5(registerVM.Password),
                 AvatarName = "Default.png",
                 IsActive = false,
-                MessageCode = RandomNumberGenerator.GenerateRendomInteger(100000, 999999).ToString(),
+                MessageCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999).ToString(),
                 ActivationCode = NameGenerator.GenerateUniqName(),
                 RegisterDate = DateTime.Now
             };

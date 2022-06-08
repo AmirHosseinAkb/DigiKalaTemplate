@@ -1,13 +1,27 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-function Success(inputName, modalName, res) {
+function Success(inputName, modalName, res,toastMessage) {
     $(inputName).text(res);
     $(modalName).removeClass("remodal-is-opened");
     $(modalName).addClass("remodal-is-closed");
     $("div.remodal-is-opened").addClass("remodal-is-closed");
     $("div.remodal-is-opened").css("display", "none");
     $("div.remodal-is-opened").removeClass("remodal-is-opened");
+    iziToast.success({
+        message: toastMessage,
+        rtl: true,
+        position: 'bottomCenter',
+        timeout:3000
+    });
+}
+function WarningMessage(message) {
+    iziToast.warning({
+        message: message,
+        rtl: true,
+        position: 'bottomCenter',
+        timeout: 3000
+    });
 }
 $(function () {
     $("#btnName").click(function (e) {
@@ -22,7 +36,7 @@ $(function () {
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#nameInp", "#nameModal", res);
+                    Success("#nameInp", "#nameModal", res,"نام و نام خانوادگی شما با موفقیت ویرایش شد");
                 }
             });
         }
@@ -41,7 +55,7 @@ $(function () {
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#nationalNumberInp", "#nationalnumberModal", res);
+                    Success("#nationalNumberInp", "#nationalnumberModal", res,"کد ملی شما با موفقیت ویرایش شد");
                 }
             });
         }
@@ -59,11 +73,11 @@ $(function () {
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#emailInp", "#emailModal", res);
+                    Success("#emailInp", "#emailModal", res,"ایمیل شما با موفقیت ویرایش شد");
                     window.location = "/RegisterAndLogin?emailChanged=true";
                 },
                 error: function (error) {
-                    alert(error.responseText);
+                    WarningMessage(error.responseText);
                 }
             });
         }
@@ -81,7 +95,10 @@ $(function () {
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#phoneNumberInp", "#phoneNumberModal", res);
+                    Success("#phoneNumberInp", "#phoneNumberModal", res,"شماره همراه شما با موفقیت ویرایش شد");
+                },
+                error: function (error) {
+                    WarningMessage(error.responseText);
                 }
             });
         }
@@ -101,7 +118,10 @@ $(function () {
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#birthDateInp", "#birthDateModal", res);
+                    Success("#birthDateInp", "#birthDateModal", res,"تاریخ تولد شما با موفقیت ویرایش شد");
+                },
+                error: function (error) {
+                    WarningMessage(error.responseText);
                 }
             });
         }
@@ -122,7 +142,12 @@ $(function () {
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    alert(res);
+                    iziToast.success({
+                        message: "رمز عبور شما با موفقیت ویرایش شد از این پس می توانید با استفاده از این رمز عبور وارد سایت شوید",
+                        rtl: true,
+                        position: 'bottomCenter',
+                        timeout: 3000
+                    });
                     $("#userPasswordModal").removeClass("remodal-is-opened");
                     $("#userPasswordModal").addClass("remodal-is-closed");
                     $("div.remodal-is-opened").addClass("remodal-is-closed");
@@ -130,7 +155,7 @@ $(function () {
                     $("div.remodal-is-opened").removeClass("remodal-is-opened");
                 },
                 error: function (error) {
-                    alert(error.responseText);
+                    WarningMessage(error.responseText);
                 }
             });
         }

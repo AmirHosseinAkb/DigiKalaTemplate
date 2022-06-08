@@ -162,4 +162,7 @@
   <data name="PageNotFound" xml:space="preserve">
     <value>Page Not Found</value>
   </data>
+  <data name="SomeErrorsEccuredWhileSendingMessage" xml:space="preserve">
+    <value>SomeErrorsEccuredWhileSendingMessage</value>
+  </data>
 </root>

@@ -16,7 +16,7 @@
         @if (ViewBag.MessageDoesntSend==true)
         {
             <div class="alert alert-warning">
-                متاسفانه خطایی در ارسال پیامک رخ داد
+                @ErrorMessages.SomeErrorsEccuredWhileSendingMessage
             </div>
         }
         <partial name="PartialViews/_RegisterAndLoginHeader"></partial>

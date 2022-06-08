@@ -20,16 +20,12 @@
 
                 <div class="auth-title mb-3">@DataDictionaries.Verfication</div>
                 <div class="auth-box ui-box">
-                    <form action="#" class="auth-form">
+                    <form method="post" class="auth-form">
                         @if (ViewBag.IsExistUser == null)
                         {
                             <div class="form-element-row mb-3">
                                 <p>
-                                    حساب کاربری با شماره موبایل <span class="border-bottom">@ViewBag.PhoneNumber</span> وجود ندارد.
-                                    برای ایجاد
-                                    حساب
-                                    کاربری، لطفا
-                                    کد ارسال شده را وارد نمایید.
+                                    @DataDictionaries.UserVerificationRegisterMessageS1 <span class="border-bottom">@ViewBag.PhoneNumber</span> @DataDictionaries.UserVerificationRegisterMessageS2
                                 </p>
                             </div>
                         }
@@ -41,15 +37,9 @@
                                 </p>
                             </div>
                         }
-
-
                         <div class="form-element-row mb-3">
                             <div class="form-input-code-container fa-num">
-                                <input type="text" maxlength="2" class="form-control input-code" id="input-code-0" data-next="1" autocomplete="off" autofocus="">
-                                <span class="divider">-</span>
-                                <input type="text" maxlength="2" class="form-control input-code" id="input-code-1" data-next="2" autocomplete="off">
-                                <span class="divider">-</span>
-                                <input type="text" maxlength="2" class="form-control input-code" id="input-code-2" autocomplete="off">
+                                <input type="text" maxlength="5" class="form-control input-code" id="input-code-0"  autocomplete="off" autofocus="">
                             </div>
                         </div>
 
