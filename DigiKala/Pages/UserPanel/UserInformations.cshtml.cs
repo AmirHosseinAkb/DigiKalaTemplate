@@ -112,6 +112,7 @@ namespace DigiKala.Pages.UserPanel
             var validateCurrentPassword = ModelState.GetFieldValidationState("UserPasswordVM.CurrentPassword");
             var validateNewPassword = ModelState.GetFieldValidationState("UserPasswordVM.NewPassword");
             var validateRepeatPassword = ModelState.GetFieldValidationState("UserPasswordVM.RepeatNewergfdPassword");
+            
             if (validateCurrentPassword == ModelValidationState.Invalid
                 || validateNewPassword == ModelValidationState.Invalid
                 || validateRepeatPassword == ModelValidationState.Invalid)

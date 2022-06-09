@@ -166,6 +166,6 @@
     <value>متاسفانه خطایی هنگام ارسال پیامک رخ داده است</value>
   </data>
   <data name="VerificationCodeIsntCorrect" xml:space="preserve">
-    <value>Verification code isnt correct</value>
+    <value>کد تایید وارد شده صحیح نمی باشد</value>
   </data>
 </root>

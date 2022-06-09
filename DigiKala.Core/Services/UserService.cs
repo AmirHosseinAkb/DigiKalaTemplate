@@ -83,9 +83,10 @@ namespace DigiKala.Core.Services
             return _context.Users.SingleOrDefault(u => u.Email == EmailConvertor.FixEmail(email) && u.Password == PasswordHasher.HashPasswordMD5(password));
         }
 
-        public UserInformationsViewModel GetUserInformationsForShow(string email)
+        public UserInformationsViewModel GetUserInformationsForShow(string emailOrPhoneNumber)
         {
-            return _context.Users.Where(u => u.Email == EmailConvertor.FixEmail(email))
+            return _context.Users.Where(u => u.Email == EmailConvertor.FixEmail(emailOrPhoneNumber) 
+            || u.PhoneNumber== emailOrPhoneNumber)
                 .Select(u => new UserInformationsViewModel()
                 {
                     Email=u.Email,
@@ -97,9 +98,9 @@ namespace DigiKala.Core.Services
                 }).Single();
         }
 
-        public void ConfirmUserInformations(string userEmail,string firstName = "", string lastName = "", string nationalNumber = "", string phoneNumber = "", string email = "", string birthDate = "")
+        public void ConfirmUserInformations(string userEmailOrPhoneNumber, string firstName = "", string lastName = "", string nationalNumber = "", string phoneNumber = "", string email = "", string birthDate = "")
         {
-            var user = GetUserByEmail(userEmail);
+            var user = GetUserByEmailOrPhoneNumber(userEmailOrPhoneNumber);
             if (!string.IsNullOrEmpty(firstName) || !string.IsNullOrEmpty(lastName))
             {
                 user.FirstName = firstName;
@@ -124,9 +125,9 @@ namespace DigiKala.Core.Services
             _context.SaveChanges();    
         }
 
-        public void ChangeUserPassword(string email,string password)
+        public void ChangeUserPassword(string emailOrPhoneNumber, string password)
         {
-            var user = GetUserByEmail(email);
+            var user = GetUserByEmailOrPhoneNumber(emailOrPhoneNumber);
             user.Password = PasswordHasher.HashPasswordMD5(password);
             _context.SaveChanges(); 
         }
@@ -135,6 +136,11 @@ namespace DigiKala.Core.Services
         {
             _context.Users.Update(user);
             _context.SaveChanges();
+        }
+
+        public User GetUserByEmailOrPhoneNumber(string emailOrPhoneNumber)
+        {
+            return _context.Users.SingleOrDefault(u => u.Email == EmailConvertor.FixEmail(emailOrPhoneNumber) || u.PhoneNumber == emailOrPhoneNumber);
         }
     }
 }

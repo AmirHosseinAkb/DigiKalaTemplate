@@ -76,6 +76,16 @@ namespace DigiKala.Controllers
                     }
                     HttpContext.Session.SetInt32("VerificationCode", verificationCode);
                 }
+                else
+                {
+                    var isMessageSentToUser = MessageSender.SendMessage(registerAndLoginVM.EmailOrPhoneNumber
+                        , DataDictionaries.AuthorizationMessageText + " " + user.MessageCode);
+                    if (!isMessageSentToUser)
+                    {
+                        ViewBag.MessageDoesntSend = true;
+                        return View();
+                    }
+                }
                 HttpContext.Session.SetString("PhoneNumber", registerAndLoginVM.EmailOrPhoneNumber);
                 return Redirect("Verification");
             }
@@ -85,8 +95,10 @@ namespace DigiKala.Controllers
         public IActionResult Verification()
         {
             var phoneNumber = HttpContext.Session.GetString("PhoneNumber");
-            //if (string.IsNullOrEmpty(phoneNumber))
-            //    return View("RegisterAndLogin");
+            
+            if (string.IsNullOrEmpty(phoneNumber))
+                return View("RegisterAndLogin");
+            
             var user = _userService.GetUserByPhoneNumber(phoneNumber);
             ViewBag.IsExistUser = user;
             ViewBag.PhoneNumber = phoneNumber;
@@ -109,7 +121,7 @@ namespace DigiKala.Controllers
                 {
                     ModelState.AddModelError("VerificationCode", ErrorMessages.VerificationCodeIsntCorrect);
                 }
-                DigiKala.Data.Entities.User.User user1 = new User()
+                user = new User()
                 {
                     PhoneNumber = phoneNumber,
                     ActivationCode = NameGenerator.GenerateUniqName(),
@@ -119,16 +131,22 @@ namespace DigiKala.Controllers
                     RegisterDate = DateTime.Now,
                     IsDeleted = false
                 };
-                _userService.AddUser(user1);
+                _userService.AddUser(user);
             }
-            if (verificationVM.VerificationCode != user.MessageCode)
+            else
             {
-                ModelState.AddModelError("VerificationCode", ErrorMessages.VerificationCodeIsntCorrect);
+                if (verificationVM.VerificationCode != user.MessageCode)
+                {
+                    ModelState.AddModelError("VerificationCode", ErrorMessages.VerificationCodeIsntCorrect);
+                    return View(verificationVM);
+                }
+                user.MessageCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999);
+                _userService.UpdateUser(user);
             }
             var claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.NameIdentifier,user.UserId.ToString()),
-                new Claim(ClaimTypes.Name,user.PhoneNumber!),
+                new Claim(ClaimTypes.Name,user.PhoneNumber),
                 new Claim("AvatarName",user.AvatarName)
             };
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
