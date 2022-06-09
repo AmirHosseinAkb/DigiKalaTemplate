@@ -74,7 +74,6 @@ $(function () {
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
                     Success("#emailInp", "#emailModal", res,"ایمیل شما با موفقیت ویرایش شد");
-                    window.location = "/RegisterAndLogin?emailChanged=true";
                 },
                 error: function (error) {
                     WarningMessage(error.responseText);

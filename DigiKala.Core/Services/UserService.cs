@@ -98,7 +98,7 @@ namespace DigiKala.Core.Services
                 }).Single();
         }
 
-        public void ConfirmUserInformations(string userEmailOrPhoneNumber, string firstName = "", string lastName = "", string nationalNumber = "", string phoneNumber = "", string email = "", string birthDate = "")
+        public User ConfirmUserInformations(string userEmailOrPhoneNumber, string firstName = "", string lastName = "", string nationalNumber = "", string phoneNumber = "", string email = "", string birthDate = "")
         {
             var user = GetUserByEmailOrPhoneNumber(userEmailOrPhoneNumber);
             if (!string.IsNullOrEmpty(firstName) || !string.IsNullOrEmpty(lastName))
@@ -122,7 +122,8 @@ namespace DigiKala.Core.Services
             {
                 user.BirthDate = DateTime.Parse(birthDate);
             }
-            _context.SaveChanges();    
+            _context.SaveChanges();
+            return user;
         }
 
         public void ChangeUserPassword(string emailOrPhoneNumber, string password)

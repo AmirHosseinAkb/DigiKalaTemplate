@@ -163,7 +163,7 @@ namespace DigiKala.Controllers
         }
 
         [Route("Login")]
-        public IActionResult Login(bool emailChanged = false)
+        public IActionResult Login()
         {
             if (HttpContext.Session.GetString("EmailAddress") == null)
                 return Redirect("/RegisterAndLogin");

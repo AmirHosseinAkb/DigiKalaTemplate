@@ -27,7 +27,7 @@ namespace DigiKala.Core.Services.Interfaces
 
         UserInformationsViewModel GetUserInformationsForShow(string email);
 
-        void ConfirmUserInformations(string userEmailOrPhoneNumber, string firstName = "", string lastName = "", string nationalNumber = ""
+        User ConfirmUserInformations(string userEmailOrPhoneNumber, string firstName = "", string lastName = "", string nationalNumber = ""
             , string phoneNumber = "", string email = "", string birthDate ="");
         void ChangeUserPassword(string emailOrPhoneNumber, string password);
         User GetUserByEmailOrPhoneNumber(string emailOrPhoneNumber);

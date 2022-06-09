@@ -9,6 +9,10 @@ using Resources;
 using System.Globalization;
 using DigiKala.Core.Convertors;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
+using DigiKala.Data.Entities.User;
 
 namespace DigiKala.Pages.UserPanel
 {
@@ -40,7 +44,44 @@ namespace DigiKala.Pages.UserPanel
         {
             UserInformationsVM = _userService.GetUserInformationsForShow(User.Identity!.Name!);
         }
+        //*******************
 
+        public void SignInUserAgain(User user,bool byEmail=false)
+        {
+            var claims=new List<Claim>();
+            if (byEmail)
+            {
+                List<Claim> list = new List<Claim>()
+                {
+                    new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
+                    new Claim(ClaimTypes.Name, user.Email!),
+                    new Claim("AvatarName", user.AvatarName)
+                };
+                claims.AddRange(list);
+            }
+            else
+            {
+                List<Claim> list = new List<Claim>()
+                {
+                    new Claim(ClaimTypes.NameIdentifier,user.UserId.ToString()),
+                    new Claim(ClaimTypes.Name,user.PhoneNumber!),
+                    new Claim("AvatarName",user.AvatarName)
+                };
+                claims.AddRange(list);
+            }
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var principal = new ClaimsPrincipal(identity);
+
+            var properties = new AuthenticationProperties()
+            {
+                IsPersistent = true
+            };
+
+            HttpContext.SignInAsync(principal, properties);
+        }
+        
+        //*******************
         public IActionResult OnPostConfirmUserFullName()
         {
             var firstNameValidation = ModelState.GetFieldValidationState("UserFullNameVm.FirstName");
@@ -70,7 +111,8 @@ namespace DigiKala.Pages.UserPanel
             {
                 return RedirectToPage();
             }
-            _userService.ConfirmUserInformations(User.Identity.Name, "", "", "", UserPhoneNumberVM.PhoneNumber);
+            var user=_userService.ConfirmUserInformations(User.Identity.Name, "", "", "", UserPhoneNumberVM.PhoneNumber);
+            SignInUserAgain(user);
             return Content(UserPhoneNumberVM.PhoneNumber);
         }
 
@@ -89,7 +131,8 @@ namespace DigiKala.Pages.UserPanel
             {
                 return BadRequest(ErrorMessages.EmailExists);
             }
-            _userService.ConfirmUserInformations(User.Identity!.Name!, "", "", "", "", UserEmailVM.Email);
+            var user=_userService.ConfirmUserInformations(User.Identity!.Name!, "", "", "", "", UserEmailVM.Email);
+            SignInUserAgain(user, true);
             return Content(UserEmailVM.Email);
         }
         public IActionResult OnPostConfirmUserBirthDate()
