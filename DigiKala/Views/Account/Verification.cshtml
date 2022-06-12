@@ -40,7 +40,7 @@
                         }
                         <div class="form-element-row mb-3">
                             <div class="form-input-code-container fa-num">
-                                <input asp-for="VerificationCode" type="text" maxlength="5" class="form-control input-code" id="input-code-0"  autocomplete="off" autofocus="">
+                                <input asp-for="VerificationCode" type="text" maxlength="5" class="form-control input-code" id="input-code-0" autocomplete="off" autofocus="">
                             </div>
                             <span asp-validation-for="VerificationCode" class="text-danger"></span>
                         </div>
@@ -50,13 +50,9 @@
                                 <span class="text-sm">@DataDictionaries.RemainingTime</span>
                                 <span class="mx-2">|</span>
                                 <div id="timer--verify-code" data-minutes-left="1" class="jst-timeout">
-                                    <div class="jst-hours">00:</div>
-                                    <div class="jst-minutes">00:</div>
-                                    <div class="jst-seconds">00</div>
-                                    <div class="jst-clearDiv"></div>
                                 </div>
                             </div>
-                            <a href="/ResendVerificationMessage" class="send-again">@DataDictionaries.ReSend</a>
+                            <a id="btnResend" href="/ResendVerificationMessage" class="send-again">@DataDictionaries.ReSend</a>
                         </div>
                         @if (ViewBag.IsExistUser == null)
                         {
@@ -83,5 +79,12 @@
         <partial name="PartialViews/_RegisterAndLoginFooter"></partial>
     </div>
     <partial name="PartialViews/_Scripts"></partial>
+    <script>
+        $(function(){
+            $("#btnResend").click(function(){
+            window.location.replace("/ResendVerificationMessage");
+            })
+        });
+    </script>
 </body>
 </html>

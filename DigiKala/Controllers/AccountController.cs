@@ -96,8 +96,8 @@ namespace DigiKala.Controllers
         {
             var phoneNumber = HttpContext.Session.GetString("PhoneNumber");
             
-            if (string.IsNullOrEmpty(phoneNumber))
-                return View("RegisterAndLogin");
+            //if (string.IsNullOrEmpty(phoneNumber))
+            //    return View("RegisterAndLogin");
             
             var user = _userService.GetUserByPhoneNumber(phoneNumber);
             ViewBag.IsExistUser = user;
