@@ -90,7 +90,7 @@ namespace DigiKala.Controllers
                 return Redirect("Verification");
             }
         }
-
+        
         [Route("Verification")]
         public IActionResult Verification()
         {
@@ -162,6 +162,23 @@ namespace DigiKala.Controllers
             return Redirect("/UserPanel");
         }
 
+        [Route("ResendVerificationMessage")]
+        public IActionResult ResendVerificationMessage()
+        {
+            var phoneNumber = HttpContext.Session.GetString("PhoneNumber");
+            var user = _userService.GetUserByPhoneNumber(phoneNumber);
+            var isMessageSentToUser = MessageSender.SendMessage(phoneNumber
+                        , DataDictionaries.AuthorizationMessageText + " " + user.MessageCode);
+            if (!isMessageSentToUser)
+            {
+                ViewBag.MessageDoesntSend = true;
+                return View("Verification");
+            }
+            user.MessageCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999);
+            _userService.UpdateUser(user);
+            return Redirect("Verification");
+        }
+        
         [Route("Login")]
         public IActionResult Login()
         {

@@ -50,9 +50,13 @@
                                 <span class="text-sm">@DataDictionaries.RemainingTime</span>
                                 <span class="mx-2">|</span>
                                 <div id="timer--verify-code" data-minutes-left="1" class="jst-timeout">
+                                    <div class="jst-hours">00:</div>
+                                    <div class="jst-minutes">00:</div>
+                                    <div class="jst-seconds">00</div>
+                                    <div class="jst-clearDiv"></div>
                                 </div>
                             </div>
-                            <a href="#" class="send-again link d-inline-block">@DataDictionaries.ReSend</a>
+                            <a href="/ResendVerificationMessage" class="send-again">@DataDictionaries.ReSend</a>
                         </div>
                         @if (ViewBag.IsExistUser == null)
                         {
@@ -69,7 +73,7 @@
 
 
                         <div class="form-element-row">
-                            <a href="#" class="link mx-auto">@DataDictionaries.EditPhoneNumber <i class="ri-pencil-fill ms-1"></i></a>
+                            <a href="/RegisterAndLogin" class="link mx-auto">@DataDictionaries.EditPhoneNumber <i class="ri-pencil-fill ms-1"></i></a>
                         </div>
 
                     </form>
