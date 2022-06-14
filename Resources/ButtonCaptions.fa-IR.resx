@@ -120,6 +120,9 @@
   <data name="ActiveAccount" xml:space="preserve">
     <value>فعالسازی حساب کاربری</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
   <data name="ConfirmUserInformations" xml:space="preserve">
     <value>تکمیل اطلاعات کاربری</value>
   </data>
@@ -149,5 +152,8 @@
   </data>
   <data name="SaveInformations" xml:space="preserve">
     <value>ثبت اطلاعات</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>جستجو</value>
   </data>
 </root>

@@ -120,6 +120,9 @@
   <data name="ActiveAccount" xml:space="preserve">
     <value>Active Account</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
   <data name="ConfirmUserInformations" xml:space="preserve">
     <value>Confirm Your Informations</value>
   </data>
@@ -149,5 +152,8 @@
   </data>
   <data name="SaveInformations" xml:space="preserve">
     <value>Save Informations</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
   </data>
 </root>

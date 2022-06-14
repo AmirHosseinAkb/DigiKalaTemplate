@@ -234,6 +234,9 @@
   <data name="RegisterAndLogin" xml:space="preserve">
     <value>Register/Login</value>
   </data>
+  <data name="RegisterDate" xml:space="preserve">
+    <value>RegisterDate</value>
+  </data>
   <data name="ReLoginAfterEditEmail" xml:space="preserve">
     <value>Relogin after edit email</value>
   </data>
@@ -263,6 +266,9 @@
   </data>
   <data name="ShopName" xml:space="preserve">
     <value>MyStore</value>
+  </data>
+  <data name="UsersList" xml:space="preserve">
+    <value>UsersList</value>
   </data>
   <data name="UserVerificationLoginMessage" xml:space="preserve">
     <value>To log in to your account, please enter the code sent.</value>

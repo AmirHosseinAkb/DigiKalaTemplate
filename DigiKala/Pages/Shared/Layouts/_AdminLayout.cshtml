@@ -1,31 +1,32 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <title>Moltran - Responsive Admin Dashboard Template</title>
-        <partial name="PartialViews/_MetaTags"></partial>
-        <partial name="PartialViews/_Styles" ></partial>
-    </head>
+<head>
+    <title>Moltran - Responsive Admin Dashboard Template</title>
+    <partial name="PartialViews/_AdminMetaTags"></partial>
+    <partial name="PartialViews/_AdminStyles"></partial>
+</head>
 
-    <body class="fixed-left">
-        
-        <div id="wrapper">
-        
-            <partial name="PartialViews/_Header"></partial>
+<body class="fixed-left">
 
-            <partial name="PartialViews/_AdminRightSideBar" ></partial>
-            
-            <div class="content-page">
-                <!-- Start content -->
-               @RenderBody()
-               
-               <partial name="PartialViews/_Footer"></partial>
+    <div id="wrapper">
+
+        <partial name="PartialViews/_AdminHeader"></partial>
+
+        <partial name="PartialViews/_AdminRightSideBar"></partial>
+
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                @RenderBody()
             </div>
-            
-            <partial name="PartialViews/_AdminLeftSideBar" ></partial>
-            
+            <partial name="PartialViews/_AdminFooter"></partial>
         </div>
-        
-        <partial name="PartialViews/_Scripts" ></partial>
-        
-    </body>
+
+        <partial name="PartialViews/_AdminLeftSideBar"></partial>
+
+    </div>
+
+    <partial name="PartialViews/_AdminScripts"></partial>
+
+</body>
 </html>

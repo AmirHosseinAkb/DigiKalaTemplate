@@ -412,6 +412,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RegisterDate.
+        /// </summary>
+        public static string RegisterDate {
+            get {
+                return ResourceManager.GetString("RegisterDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Relogin after edit email.
         /// </summary>
         public static string ReLoginAfterEditEmail {
@@ -498,6 +507,15 @@ namespace Resources {
         public static string ShopName {
             get {
                 return ResourceManager.GetString("ShopName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UsersList.
+        /// </summary>
+        public static string UsersList {
+            get {
+                return ResourceManager.GetString("UsersList", resourceCulture);
             }
         }
         
