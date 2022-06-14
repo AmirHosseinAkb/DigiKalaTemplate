@@ -143,5 +143,43 @@ namespace DigiKala.Core.Services
         {
             return _context.Users.SingleOrDefault(u => u.Email == EmailConvertor.FixEmail(emailOrPhoneNumber) || u.PhoneNumber == emailOrPhoneNumber);
         }
+
+        public Tuple<List<UsersInformationsForShowInAdminViewModel>, int, int,int> GetUsersInformationsForShowInAdmin(int pageId = 1, string fullName = ""
+            , string email = "", string phoneNumber = "", int take = 10)
+        {
+            if (take < 10)
+                take = 10;
+            
+            IQueryable<User> users = _context.Users;
+            if (!string.IsNullOrEmpty(fullName))
+            {
+                users = users.Where(u => (u.FirstName != null && u.FirstName.Contains(fullName)) 
+                || (u.LastName!=null && u.LastName.Contains(fullName)));
+            }
+            if (!string.IsNullOrEmpty(email))
+            {
+                users = users.Where(u => u.Email!=null && u.Email.Contains(EmailConvertor.FixEmail(email)));
+            }
+            if (!string.IsNullOrEmpty(phoneNumber))
+            {
+                users = users.Where(u => u.PhoneNumber != null && u.PhoneNumber.Contains(phoneNumber));
+            }
+            var skip = (pageId - 1) * take;
+            var pageCount = users.Count() / take;
+            if (users.Count() % take != 0)
+                pageCount++;
+            var informations = users.Skip(skip).Take(take)
+                .Select(u => new UsersInformationsForShowInAdminViewModel()
+                {
+                    UserId = u.UserId,
+                    Email = u.Email,
+                    FullName = u.FirstName + " " + u.LastName,
+                    PhoneNumber = u.PhoneNumber,
+                    RegisterDate = u.RegisterDate,
+                    NationalNumber = u.NationalNumber,
+                    //RoleName
+                }).ToList();
+            return Tuple.Create(informations, pageId, pageCount,take);
+        }
     }
 }

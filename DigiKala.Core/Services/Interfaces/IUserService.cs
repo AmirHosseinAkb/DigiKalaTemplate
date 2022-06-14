@@ -33,5 +33,11 @@ namespace DigiKala.Core.Services.Interfaces
         User GetUserByEmailOrPhoneNumber(string emailOrPhoneNumber);
         void UpdateUser(User user);
         #endregion
+        #region Admin
+
+        Tuple<List<UsersInformationsForShowInAdminViewModel>,int,int,int> GetUsersInformationsForShowInAdmin(
+            int pageId=1,string fullName = "", string email = "", string phoneNumber = "", int take = 10);
+        
+        #endregion
     }
 }

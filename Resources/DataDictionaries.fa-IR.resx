@@ -171,6 +171,9 @@
   <data name="EmailOrPhone" xml:space="preserve">
     <value>ایمیل یا شماره همراه</value>
   </data>
+  <data name="Entries" xml:space="preserve">
+    <value>ورودی</value>
+  </data>
   <data name="February" xml:space="preserve">
     <value>بهمن</value>
   </data>
@@ -225,11 +228,20 @@
   <data name="October" xml:space="preserve">
     <value>مهر</value>
   </data>
+  <data name="Of" xml:space="preserve">
+    <value>از</value>
+  </data>
+  <data name="Operations" xml:space="preserve">
+    <value>عملیات</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>رمز عبور</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
     <value>شماره همراه</value>
+  </data>
+  <data name="Record" xml:space="preserve">
+    <value>رکورد</value>
   </data>
   <data name="RegisterAndLogin" xml:space="preserve">
     <value>ورود/ثبت نام</value>
@@ -261,14 +273,26 @@
   <data name="ResetUserPasswordText" xml:space="preserve">
     <value>رمز عبور شما با موفقیت بازیابی شد حال میتوانید با استفاده از این رمز عبور وارد سایت شوید</value>
   </data>
+  <data name="Role" xml:space="preserve">
+    <value>نقش</value>
+  </data>
   <data name="September" xml:space="preserve">
     <value>شهریور</value>
   </data>
   <data name="ShopName" xml:space="preserve">
     <value>مای استور</value>
   </data>
+  <data name="Show" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>در حال نمایش</value>
+  </data>
   <data name="String" xml:space="preserve">
     <value>زمان باقی مانده</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>تا</value>
   </data>
   <data name="UsersList" xml:space="preserve">
     <value>لیست کاربران سایت</value>

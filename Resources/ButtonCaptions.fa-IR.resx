@@ -129,6 +129,12 @@
   <data name="Continue" xml:space="preserve">
     <value>ادامه</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
   <data name="JoinUs" xml:space="preserve">
     <value>پیوستن به خانواده ما</value>
   </data>

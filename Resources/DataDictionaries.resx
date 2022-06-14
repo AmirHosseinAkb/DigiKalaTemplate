@@ -171,6 +171,9 @@
   <data name="EmailOrPhone" xml:space="preserve">
     <value>Email or Phone</value>
   </data>
+  <data name="Entries" xml:space="preserve">
+    <value>entries</value>
+  </data>
   <data name="February" xml:space="preserve">
     <value>February</value>
   </data>
@@ -225,11 +228,20 @@
   <data name="October" xml:space="preserve">
     <value>October</value>
   </data>
+  <data name="Of" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="Operations" xml:space="preserve">
+    <value>Operations</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
     <value>Phone Number</value>
+  </data>
+  <data name="Record" xml:space="preserve">
+    <value>Record</value>
   </data>
   <data name="RegisterAndLogin" xml:space="preserve">
     <value>Register/Login</value>
@@ -261,11 +273,23 @@
   <data name="ResetUserPasswordText" xml:space="preserve">
     <value>Your password has been successfully recovered and you can now log in using this password</value>
   </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
   <data name="September" xml:space="preserve">
     <value>September</value>
   </data>
   <data name="ShopName" xml:space="preserve">
     <value>MyStore</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Showing</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>to</value>
   </data>
   <data name="UsersList" xml:space="preserve">
     <value>UsersList</value>

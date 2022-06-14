@@ -1,7 +1,7 @@
 ﻿@page "{handler?}"
 @model DigiKala.Pages.UserPanel.UserInformationsModel
 @{
-    Layout = "/Views/Shared/Layouts/_DefaultLayout";
+    Layout = "Layouts/_DefaultLayout";
     ViewData["Title"] = PageTitles.UserInformations;
     var splitUserBirthDate = Model.UserInformationsVM.BirthDate?.ToShamsi().Split('/');
 }
