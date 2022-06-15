@@ -12,6 +12,8 @@ namespace DigiKala.Data.Entities.User
         [Key]
         public int UserId { get; set; }
 
+        [Required]
+        public int RoleId { get; set; }
         [Display(Name ="ایمیل")]
         [MaxLength(200, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
         [EmailAddress(ErrorMessage ="فرمت ایمیل صحیح نمی باشد")]
@@ -63,5 +65,12 @@ namespace DigiKala.Data.Entities.User
         public bool IsActive { get; set; }
 
         public bool IsDeleted { get; set; }
+
+
+        #region Relations
+
+        public Role Role { get; set; }
+
+        #endregion
     }
 }

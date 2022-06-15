@@ -14,41 +14,51 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                             <div class="row">
-                                <div class="col-md-2">
-                                    <div id="datatable_filter" class="dataTables_filter">
-                                        <input type="search" class="form-control input-sm" placeholder="@DataDictionaries.FullName" aria-controls="datatable">
+                                <form method="get">
+                                    <div class="col-md-3">
+                                        <div id="datatable_filter" class="dataTables_filter">
+                                            <input name="fullName" type="search" class="form-control input-sm" placeholder="@DataDictionaries.FullName" aria-controls="datatable">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div id="datatable_filter" class="dataTables_filter">
-                                        <input type="search" class="form-control input-sm" placeholder="@DataDictionaries.Email" aria-controls="datatable">
+                                    <div class="col-md-2">
+                                        <div id="datatable_filter" class="dataTables_filter">
+                                            <input name="email" type="search" class="form-control input-sm" placeholder="@DataDictionaries.Email" aria-controls="datatable">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div id="datatable_filter" class="dataTables_filter">
-                                        <input type="search" class="form-control input-sm" placeholder="@DataDictionaries.PhoneNumber" aria-controls="datatable">
+                                    <div class="col-md-2">
+                                        <div id="datatable_filter" class="dataTables_filter">
+                                            <input name="phoneNumber" type="search" class="form-control input-sm" placeholder="@DataDictionaries.PhoneNumber" aria-controls="datatable">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="dataTables_length" id="datatable_length">
-                                        <label>
-                                            @DataDictionaries.Show
-                                            <select name="datatable_length" aria-controls="datatable" class="form-control input-sm">
-                                                <option value="10">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>
-                                            @DataDictionaries.Record
-                                        </label>
+                                    <div class="col-md-3">
+                                        <div class="dataTables_length" id="datatable_length">
+                                            <label>
+                                                @DataDictionaries.Show
+                                                <select name="take" aria-controls="datatable" class="form-control input-sm">
+                                                    @for (var i = 1; i <= 5; i++)
+                                                    {
+                                                        int x=20;
+                                                        if (i * x == (int)ViewData["Take"])
+                                                        {
+                                                            <option value="@(i * x)" selected>@(i * x)</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@(i*x)">@(i*x)</option>
+                                                        }
+                                                    }
+                                                </select>
+                                                @DataDictionaries.Record
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div id="datatable_filter" class="dataTables_filter">
-                                        <input type="submit" value="@ButtonCaptions.Search" class="btn btn-primary" />
-                                        <a href="/Admin/Users" class="btn btn-warning">@ButtonCaptions.Clear</a>
+                                    <div class="col-md-2">
+                                        <div id="datatable_filter" class="dataTables_filter">
+                                            <input type="submit" value="@ButtonCaptions.Search" class="btn btn-primary" />
+                                            <a href="/Admin/Users" class="btn btn-warning">@ButtonCaptions.Clear</a>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                             <div class="row m-t-10">
                                 <div class="col-sm-12">
@@ -93,7 +103,7 @@
                                         int pageId = Model.UsersInformationsVm.Item2;
                                         int totalEntries = Model.UsersInformationsVm.Item1.Count();
                                         int startEntry = (pageId - 1) * take + 1;
-                                        int endEntry=pageId*take;
+                                        int endEntry = pageId * take;
                                         if (totalEntries < endEntry)
                                             endEntry = totalEntries;
                                     }

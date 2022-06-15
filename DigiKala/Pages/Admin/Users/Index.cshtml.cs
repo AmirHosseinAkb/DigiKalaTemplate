@@ -15,8 +15,11 @@ namespace DigiKala.Pages.Admin.Users
         
         public Tuple<List<UsersInformationsForShowInAdminViewModel>,int,int,int> UsersInformationsVm { get; set; }
         
-        public void OnGet(int pageId = 1, string fullName = "", string email = "", string phoneNumber = "", int take = 10)
+        public void OnGet(int pageId = 1, string fullName = "", string email = "", string phoneNumber = "", int take = 20)
         {
+            if (take %20!=0)
+                take = 20;
+            ViewData["Take"] = take;
             UsersInformationsVm = _userService.GetUsersInformationsForShowInAdmin(pageId, fullName, email, phoneNumber, take);
         }
     }
