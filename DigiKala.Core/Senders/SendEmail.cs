@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace DigiKala.Core.Senders
             // mail.Attachments.Add(attachment);
 
             SmtpServer.Port = 587;
+            SmtpServer.UseDefaultCredentials = false;
             SmtpServer.Credentials = new System.Net.NetworkCredential("rubik.software1@gmail.com", "Amir13910815ho");
             SmtpServer.EnableSsl = true;
             SmtpServer.Send(mail);

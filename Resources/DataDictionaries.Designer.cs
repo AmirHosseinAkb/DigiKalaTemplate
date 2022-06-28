@@ -97,6 +97,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new user.
+        /// </summary>
+        public static string AddNewUser {
+            get {
+                return ResourceManager.GetString("AddNewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Rights Reserved.
         /// </summary>
         public static string AllRightsReserved {
@@ -579,6 +588,15 @@ namespace Resources {
         public static string To {
             get {
                 return ResourceManager.GetString("To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User avatar.
+        /// </summary>
+        public static string UserAvatar {
+            get {
+                return ResourceManager.GetString("UserAvatar", resourceCulture);
             }
         }
         

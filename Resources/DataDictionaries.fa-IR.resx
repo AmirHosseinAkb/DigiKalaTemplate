@@ -129,6 +129,9 @@
   <data name="ActiveRegisterText" xml:space="preserve">
     <value>برای فعال سازی حساب کاربری خود وارد ایمیل خود شده و روی لینک فعالسازی کلیک نمایید سپس میتوانید وارد حساب کاربری خود شده و با تکمیل اطلاعات حساب کاربری خود به کلیه امکانات و سرویس‌ها و سرویس‌های وابسته به آن دسترسی داشته باشید</value>
   </data>
+  <data name="AddNewUser" xml:space="preserve">
+    <value>افزودن کاربر جدید</value>
+  </data>
   <data name="AllRightsReserved" xml:space="preserve">
     <value>کلیه حقوق این سایت متعلق به مای استور می باشد</value>
   </data>
@@ -293,6 +296,9 @@
   </data>
   <data name="To" xml:space="preserve">
     <value>تا</value>
+  </data>
+  <data name="UserAvatar" xml:space="preserve">
+    <value>تصویر کاربر</value>
   </data>
   <data name="UsersList" xml:space="preserve">
     <value>لیست کاربران سایت</value>

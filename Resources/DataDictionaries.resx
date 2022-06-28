@@ -129,6 +129,9 @@
   <data name="ActiveRegisterText" xml:space="preserve">
     <value>To activate your account, enter your email and click on the activation link, then you can log in to your account and by completing your account information, you can access all the facilities and services and related services.</value>
   </data>
+  <data name="AddNewUser" xml:space="preserve">
+    <value>Add new user</value>
+  </data>
   <data name="AllRightsReserved" xml:space="preserve">
     <value>All Rights Reserved</value>
   </data>
@@ -290,6 +293,9 @@
   </data>
   <data name="To" xml:space="preserve">
     <value>to</value>
+  </data>
+  <data name="UserAvatar" xml:space="preserve">
+    <value>User avatar</value>
   </data>
   <data name="UsersList" xml:space="preserve">
     <value>UsersList</value>

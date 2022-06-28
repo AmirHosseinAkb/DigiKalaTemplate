@@ -4,6 +4,7 @@
     <title>Moltran - Responsive Admin Dashboard Template</title>
     <partial name="PartialViews/_AdminMetaTags"></partial>
     <partial name="PartialViews/_AdminStyles"></partial>
+    @RenderSection("Styles",false)
 </head>
 
 <body class="fixed-left">
@@ -27,6 +28,6 @@
     </div>
 
     <partial name="PartialViews/_AdminScripts"></partial>
-
+    @RenderSection("Scripts",false)
 </body>
 </html>

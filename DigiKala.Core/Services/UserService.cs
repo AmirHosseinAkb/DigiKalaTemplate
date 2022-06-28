@@ -28,6 +28,7 @@ namespace DigiKala.Core.Services
 
         public void AddUser(User user)
         {
+            user.RoleId = _context.Roles.Single(r => r.IsDefaultForNewUsers).RoleId;
             _context.Users.Add(user);
             _context.SaveChanges();
         }

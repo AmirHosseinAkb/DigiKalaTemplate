@@ -9,10 +9,15 @@
             <div class="panel-heading">
                 <h3 class="panel-title">@DataDictionaries.UsersList</h3>
             </div>
+
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                            <div class="m-b-15">
+                                <a id="btnAddUser" class="btn btn-info">@ButtonCaptions.AddNewUser</a>
+                            </div>
+
                             <div class="row">
                                 <form method="get">
                                     <div class="col-md-3">
@@ -37,7 +42,7 @@
                                                 <select name="take" aria-controls="datatable" class="form-control input-sm">
                                                     @for (var i = 1; i <= 5; i++)
                                                     {
-                                                        int x=20;
+                                                        int x = 20;
                                                         if (i * x == (int)ViewData["Take"])
                                                         {
                                                             <option value="@(i * x)" selected>@(i * x)</option>
@@ -102,7 +107,9 @@
                                         int take = Model.UsersInformationsVm.Item4;
                                         int pageId = Model.UsersInformationsVm.Item2;
                                         int totalEntries = Model.UsersInformationsVm.Item1.Count();
-                                        int startEntry = (pageId - 1) * take + 1;
+                                        int startEntry = (pageId - 1) * take;
+                                        if (totalEntries != 0)
+                                            startEntry += 1;
                                         int endEntry = pageId * take;
                                         if (totalEntries < endEntry)
                                             endEntry = totalEntries;
@@ -129,5 +136,70 @@
             </div>
         </div>
     </div>
-
 </div>
+<div id="modalAddUser" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h3>@DataDictionaries.AddNewUser</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <input type="text" placeholder="@DataDictionaries.FirstName" class="form-control m-t-10" />
+                        <input type="text" placeholder="@DataDictionaries.LastName" class="form-control m-t-10" />
+                        <input type="text" placeholder="@DataDictionaries.Email" class="form-control m-t-10" />
+                        <input type="text" placeholder="@DataDictionaries.PhoneNumber" class="form-control m-t-10" />
+                        <div asp-validation-summary="All" class="text-danger">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="m-t-15">
+                            <div style="border:1px solid gray" class="form-control">
+                                <p style="font-size:large">@DataDictionaries.UserAvatar</p>
+                            </div>
+                            <div>
+                                <img id="imgAvatar" class="img img-thumbnail" src="~/UserAvatar/Default.png" alt="UserAvatar" style="width:100%;height:100%;object-fit:cover" asp-append-version=true />
+                            </div>
+                            <div>
+                                <input id="imgInp" type="file" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                    <input type="submit" class="btn btn-success" value="@ButtonCaptions.AddNewUser" />
+                    <a class="btn btn-danger" href="">@ButtonCaptions.Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+<script>
+    $(function(){
+        $("#btnAddUser").click(function(){
+            $("#modalAddUser").modal('show');
+        });
+    });
+</script>
+<script>
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#imgAvatar').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#imgInp").change(function () {
+        readURL(this);
+    });
+</script>
+}

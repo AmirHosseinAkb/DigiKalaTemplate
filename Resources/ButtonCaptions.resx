@@ -120,6 +120,12 @@
   <data name="ActiveAccount" xml:space="preserve">
     <value>Active Account</value>
   </data>
+  <data name="AddNewUser" xml:space="preserve">
+    <value>Add new user</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>

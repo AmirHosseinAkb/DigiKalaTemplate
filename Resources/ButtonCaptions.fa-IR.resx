@@ -120,6 +120,12 @@
   <data name="ActiveAccount" xml:space="preserve">
     <value>فعالسازی حساب کاربری</value>
   </data>
+  <data name="AddNewUser" xml:space="preserve">
+    <value>افزودن کاربر جدید</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>پاک کردن</value>
   </data>
