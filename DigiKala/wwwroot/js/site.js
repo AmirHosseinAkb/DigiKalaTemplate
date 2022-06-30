@@ -167,7 +167,7 @@ $(function () {
 $("#btnCreateUser").click(function (e) {
     $("#frmCreateUser").validate();
     var isValidForm = $("#frmCreateUser").valid();
-    var isValidEmail = true;
+    var isValidEmail = false;
 
     if (isValidForm) {
         e.preventDefault();
@@ -198,9 +198,15 @@ $("#btnCreateUser").click(function (e) {
                     sweetAlert("پیغام", "این شماره تلفن از قبل وجود دارد", "error");
                 }
                 else {
-                    if (isValidEmail) {
+                    if ($("#CreateUserVM_Email").val() != "") {
+                        if (isValidEmail) {
+                            $("#frmCreateUser").submit();
+                        }
+                    }
+                    else {
                         $("#frmCreateUser").submit();
                     }
+
                 }
             });
         }
