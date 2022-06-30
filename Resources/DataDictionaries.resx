@@ -297,6 +297,9 @@
   <data name="UserAvatar" xml:space="preserve">
     <value>User avatar</value>
   </data>
+  <data name="UserRolesList" xml:space="preserve">
+    <value>User roles list</value>
+  </data>
   <data name="UsersList" xml:space="preserve">
     <value>UsersList</value>
   </data>

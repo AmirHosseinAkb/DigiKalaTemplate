@@ -601,6 +601,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User roles list.
+        /// </summary>
+        public static string UserRolesList {
+            get {
+                return ResourceManager.GetString("UserRolesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UsersList.
         /// </summary>
         public static string UsersList {

@@ -132,6 +132,9 @@
   <data name="EnterDateCorrectly" xml:space="preserve">
     <value>تاریخ را بصورت صحیح وارد کنید</value>
   </data>
+  <data name="EnterEmailOrPhoneNumber" xml:space="preserve">
+    <value>حداقل یکی از موارد ایمیل یا شماره همراه را وارد کنید</value>
+  </data>
   <data name="EnterOtherEmail" xml:space="preserve">
     <value>ایمیلی غیر از ایمیل خودتان را وارد کنید</value>
   </data>

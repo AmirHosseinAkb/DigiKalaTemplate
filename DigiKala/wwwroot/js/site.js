@@ -1,7 +1,7 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-function Success(inputName, modalName, res,toastMessage) {
+function Success(inputName, modalName, res, toastMessage) {
     $(inputName).text(res);
     $(modalName).removeClass("remodal-is-opened");
     $(modalName).addClass("remodal-is-closed");
@@ -12,7 +12,7 @@ function Success(inputName, modalName, res,toastMessage) {
         message: toastMessage,
         rtl: true,
         position: 'bottomCenter',
-        timeout:3000
+        timeout: 3000
     });
 }
 function WarningMessage(message) {
@@ -36,7 +36,7 @@ $(function () {
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#nameInp", "#nameModal", res,"نام و نام خانوادگی شما با موفقیت ویرایش شد");
+                    Success("#nameInp", "#nameModal", res, "نام و نام خانوادگی شما با موفقیت ویرایش شد");
                 }
             });
         }
@@ -55,7 +55,7 @@ $(function () {
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#nationalNumberInp", "#nationalnumberModal", res,"کد ملی شما با موفقیت ویرایش شد");
+                    Success("#nationalNumberInp", "#nationalnumberModal", res, "کد ملی شما با موفقیت ویرایش شد");
                 }
             });
         }
@@ -73,7 +73,7 @@ $(function () {
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#emailInp", "#emailModal", res,"ایمیل شما با موفقیت ویرایش شد");
+                    Success("#emailInp", "#emailModal", res, "ایمیل شما با موفقیت ویرایش شد");
                 },
                 error: function (error) {
                     WarningMessage(error.responseText);
@@ -94,7 +94,7 @@ $(function () {
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#phoneNumberInp", "#phoneNumberModal", res,"شماره همراه شما با موفقیت ویرایش شد");
+                    Success("#phoneNumberInp", "#phoneNumberModal", res, "شماره همراه شما با موفقیت ویرایش شد");
                 },
                 error: function (error) {
                     WarningMessage(error.responseText);
@@ -117,7 +117,7 @@ $(function () {
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                 success: function (res) {
-                    Success("#birthDateInp", "#birthDateModal", res,"تاریخ تولد شما با موفقیت ویرایش شد");
+                    Success("#birthDateInp", "#birthDateModal", res, "تاریخ تولد شما با موفقیت ویرایش شد");
                 },
                 error: function (error) {
                     WarningMessage(error.responseText);
@@ -160,3 +160,8 @@ $(function () {
         }
     });
 });
+
+
+/*********************Email And Phone Number Existance *****************************/
+
+

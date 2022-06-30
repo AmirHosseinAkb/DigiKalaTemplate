@@ -37,7 +37,8 @@ namespace DigiKala.Core.Services.Interfaces
 
         Tuple<List<UsersInformationsForShowInAdminViewModel>,int,int,int> GetUsersInformationsForShowInAdmin(
             int pageId=1,string fullName = "", string email = "", string phoneNumber = "", int take = 10);
-        
+
+        void AddUser(CreateUserViewModel createUserVM,int roleId); //Add User From Admin
         #endregion
     }
 }

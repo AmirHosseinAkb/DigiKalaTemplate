@@ -182,5 +182,41 @@ namespace DigiKala.Core.Services
                 }).ToList();
             return Tuple.Create(informations, pageId, pageCount,take);
         }
+
+        public void AddUser(CreateUserViewModel createUserVM, int roleId)
+        {
+            DigiKala.Data.Entities.User.User user = new Data.Entities.User.User()
+            {
+                ActivationCode = NameGenerator.GenerateUniqName(),
+                IsActive = true,
+                MessageCode = RandomNumberGenerator.GenerateRendomInteger(10000, 99999),
+                RegisterDate = DateTime.Now,
+                RoleId = roleId,
+                FirstName = createUserVM.FirstName,
+                LastName = createUserVM.LastName,
+                AvatarName="Default.png",
+                Email = createUserVM.Email,
+                PhoneNumber = createUserVM.PhoneNumber,
+                IsDeleted=false
+            };
+
+            if(createUserVM.Password!=null)
+                user.Password=PasswordHasher.HashPasswordMD5(createUserVM.Password);
+
+            if (createUserVM.UserAvatar != null)
+            {
+                if (createUserVM.UserAvatar.FileName != "Default.png")
+                {
+                    user.AvatarName = NameGenerator.GenerateUniqName()+Path.GetExtension(createUserVM.UserAvatar.FileName);
+                    string imagePath = Path.Combine(Directory.GetCurrentDirectory(),
+                        "wwwroot",
+                        "UserAvatar",
+                        user.AvatarName);
+                    using(var stream=new FileStream(imagePath, FileMode.Create))
+                        createUserVM.UserAvatar.CopyTo(stream);
+                }
+            }
+            AddUser(user);
+        }
     }
 }

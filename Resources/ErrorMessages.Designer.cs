@@ -106,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter at least one of email or phone number.
+        /// </summary>
+        public static string EnterEmailOrPhoneNumber {
+            get {
+                return ResourceManager.GetString("EnterEmailOrPhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter other email instead of your current email.
         /// </summary>
         public static string EnterOtherEmail {

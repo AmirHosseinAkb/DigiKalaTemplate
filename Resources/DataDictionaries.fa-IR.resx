@@ -300,6 +300,9 @@
   <data name="UserAvatar" xml:space="preserve">
     <value>تصویر کاربر</value>
   </data>
+  <data name="UserRolesList" xml:space="preserve">
+    <value>لیست نقش های کاربر</value>
+  </data>
   <data name="UsersList" xml:space="preserve">
     <value>لیست کاربران سایت</value>
   </data>

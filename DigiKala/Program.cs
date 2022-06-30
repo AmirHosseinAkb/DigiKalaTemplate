@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using DigiKala.Core.Extensions;
 using DigiKala.Infrastructure.ExtensionMethods;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using FoolProof.Core;
 
 var webApplcationOptions =
     new WebApplicationOptions()
@@ -27,6 +28,7 @@ builder.Services.AddDbContext<DigiKalaContext>(context =>
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IViewRenderService, RenderViewToString>();
+builder.Services.AddScoped<IPermissionService, PermissionService>();
 
 #endregion
 
@@ -41,9 +43,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 #endregion
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddRazorPages();
-
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options=>
@@ -52,6 +52,8 @@ builder.Services.AddSession(options=>
 
 );
 builder.Services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
+
+builder.Services.AddFoolProof();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

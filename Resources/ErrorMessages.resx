@@ -132,6 +132,9 @@
   <data name="EnterDateCorrectly" xml:space="preserve">
     <value>Enter Date Correctly</value>
   </data>
+  <data name="EnterEmailOrPhoneNumber" xml:space="preserve">
+    <value>Enter at least one of email or phone number</value>
+  </data>
   <data name="EnterOtherEmail" xml:space="preserve">
     <value>Enter other email instead of your current email</value>
   </data>

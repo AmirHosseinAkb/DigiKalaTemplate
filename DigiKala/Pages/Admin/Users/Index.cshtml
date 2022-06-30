@@ -1,4 +1,5 @@
-﻿@page
+﻿@page "{handler?}"
+@using DigiKala.Data.Entities.User
 @model DigiKala.Pages.Admin.Users.IndexModel
 @{
 }
@@ -144,34 +145,64 @@
                 <div class="modal-header">
                     <h3>@DataDictionaries.AddNewUser</h3>
                 </div>
-                <div class="row">
-                    <div class="col-md-8">
-                        <input type="text" placeholder="@DataDictionaries.FirstName" class="form-control m-t-10" />
-                        <input type="text" placeholder="@DataDictionaries.LastName" class="form-control m-t-10" />
-                        <input type="text" placeholder="@DataDictionaries.Email" class="form-control m-t-10" />
-                        <input type="text" placeholder="@DataDictionaries.PhoneNumber" class="form-control m-t-10" />
-                        <div asp-validation-summary="All" class="text-danger">
+                <form id="frmCreateUser" method="post" asp-page-handler="CreateUser" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input asp-for="CreateUserVM.FirstName" type="text" placeholder="@DataDictionaries.FirstName" class="form-control m-t-10" />
+                            <span asp-validation-for="CreateUserVM.FirstName" class="text-danger"></span>
+
+                            <input asp-for="CreateUserVM.LastName" type="text" placeholder="@DataDictionaries.LastName" class="form-control m-t-10" />
+                            <span asp-validation-for="CreateUserVM.LastName" class="text-danger"></span>
+
+                            <input asp-for="CreateUserVM.Email" type="text" placeholder="@DataDictionaries.Email" class="form-control m-t-10" />
+                            <span id="emailValidation" asp-validation-for="CreateUserVM.Email" class="text-danger"></span>
+
+                            <input asp-for="CreateUserVM.PhoneNumber" type="text" placeholder="@DataDictionaries.PhoneNumber" class="form-control m-t-10" />
+                            <span asp-validation-for="CreateUserVM.PhoneNumber" class="text-danger"></span>
+
+                            <input asp-for="CreateUserVM.Password" type="password" placeholder="@DataDictionaries.Password" class="form-control m-t-10" />
+                            <span asp-validation-for="CreateUserVM.Password" class="text-danger"></span>
+
+                            @{
+                                List<Role> roles = ViewData["Roles"] as List<Role>;
+                            }
+                            <hr />
+                            <div class="m-t-10 m-r-10">
+                                <label>@DataDictionaries.UserRolesList</label>
+                                @if (roles != null)
+                                {
+                                    foreach (var role in roles)
+                                    {
+                                        <div class="radio radio-success" style="direction:ltr;text-align:right">
+                                            <input type="radio"  name="roleId" id="@role.RoleId" value="@role.RoleId">
+                                            <label for="@role.RoleId">
+                                                @role.RoleTiltle
+                                            </label>
+                                        </div>
+                                    }
+                                }
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="m-t-15">
-                            <div style="border:1px solid gray" class="form-control">
-                                <p style="font-size:large">@DataDictionaries.UserAvatar</p>
-                            </div>
-                            <div>
-                                <img id="imgAvatar" class="img img-thumbnail" src="~/UserAvatar/Default.png" alt="UserAvatar" style="width:100%;height:100%;object-fit:cover" asp-append-version=true />
-                            </div>
-                            <div>
-                                <input id="imgInp" type="file" class="form-control" />
+                        <div class="col-md-4">
+                            <div class="m-t-15">
+                                <div style="border:1px solid gray" class="form-control">
+                                    <p style="font-size:large">@DataDictionaries.UserAvatar</p>
+                                </div>
+                                <div>
+                                    <img id="imgAvatar" class="img img-thumbnail" src="~/UserAvatar/Default.png" alt="UserAvatar" style="width:100%;height:100%;object-fit:cover" asp-append-version=true />
+                                </div>
+                                <div>
+                                    <input asp-for="CreateUserVM.UserAvatar" id="imgInp" type="file" class="form-control" />
+                                </div>
                             </div>
                         </div>
                     </div>
                     <hr />
                     <div>
-                    <input type="submit" class="btn btn-success" value="@ButtonCaptions.AddNewUser" />
-                    <a class="btn btn-danger" href="">@ButtonCaptions.Cancel</a>
+                        <input type="submit" class="btn btn-success" value="@ButtonCaptions.AddNewUser" />
+                        <a class="btn btn-danger">@ButtonCaptions.Cancel</a>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
