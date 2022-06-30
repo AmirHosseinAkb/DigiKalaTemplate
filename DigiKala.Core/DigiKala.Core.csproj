@@ -7,14 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="C:\Users\User\.nuget\packages\foolproof.core\1.1.10\contentFiles\any\net5.0\Scripts\mvcfoolproof.core.js" />
-    <Content Remove="C:\Users\User\.nuget\packages\foolproof.core\1.1.10\contentFiles\any\net5.0\Scripts\mvcfoolproof.jquery.validation.js" />
-    <Content Remove="C:\Users\User\.nuget\packages\foolproof.core\1.1.10\contentFiles\any\net5.0\Scripts\mvcfoolproof.msajax.validation.js" />
-    <Content Remove="C:\Users\User\.nuget\packages\foolproof.core\1.1.10\contentFiles\any\net5.0\Scripts\mvcfoolproof.unobtrusive.js" />
-  </ItemGroup>
-
-
-  <ItemGroup>
     <PackageReference Include="FoolProof.Core" Version="1.1.10" />
     <PackageReference Include="Kavenegar" Version="1.2.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />

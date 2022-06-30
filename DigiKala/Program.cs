@@ -16,6 +16,8 @@ var webApplcationOptions =
 
 var builder = WebApplication.CreateBuilder(webApplcationOptions);
 
+builder.Services.AddFoolProof();
+
 #region DbContext
 
 builder.Services.AddDbContext<DigiKalaContext>(context =>
@@ -52,8 +54,6 @@ builder.Services.AddSession(options=>
 
 );
 builder.Services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
-
-builder.Services.AddFoolProof();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

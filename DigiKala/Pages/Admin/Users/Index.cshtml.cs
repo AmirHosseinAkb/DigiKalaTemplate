@@ -40,6 +40,7 @@ namespace DigiKala.Pages.Admin.Users
                 return RedirectToPage();
 
             _userService.AddUser(CreateUserVM, roleId);
+            
             return RedirectToPage();
         }
 

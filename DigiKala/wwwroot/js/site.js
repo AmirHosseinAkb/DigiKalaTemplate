@@ -164,4 +164,46 @@ $(function () {
 
 /*********************Email And Phone Number Existance *****************************/
 
+$("#btnCreateUser").click(function (e) {
+    $("#frmCreateUser").validate();
+    var isValidForm = $("#frmCreateUser").valid();
+    var isValidEmail = true;
 
+    if (isValidForm) {
+        e.preventDefault();
+        if ($("#CreateUserVM_Email").val() != "") {
+            $.ajax({
+                type: "Get",
+                url: "/Admin/Users/IsExistEmailOrPhoneNumber?email=" + $("#CreateUserVM_Email").val()
+            }).done(function (result) {
+                if (result == "true") {
+                    sweetAlert("پیغام", "این ایمیل از قبل وجود دارد", "error");
+                }
+                else {
+                    if ($("#CreateUserVM_PhoneNumber").val() == "") {
+                        $("#frmCreateUser").submit();
+                    }
+                    else {
+                        isValidEmail = true;
+                    }
+                }
+            });
+        }
+        if ($("#CreateUserVM_PhoneNumber").val() != "") {
+            $.ajax({
+                type: "Get",
+                url: "/Admin/Users/IsExistEmailOrPhoneNumber?phoneNumber=" + $("#CreateUserVM_PhoneNumber").val()
+            }).done(function (result) {
+                if (result == "true") {
+                    sweetAlert("پیغام", "این شماره تلفن از قبل وجود دارد", "error");
+                }
+                else {
+                    if (isValidEmail) {
+                        $("#frmCreateUser").submit();
+                    }
+                }
+            });
+        }
+
+    }
+});

@@ -155,7 +155,7 @@
                             <span asp-validation-for="CreateUserVM.LastName" class="text-danger"></span>
 
                             <input asp-for="CreateUserVM.Email" type="text" placeholder="@DataDictionaries.Email" class="form-control m-t-10" />
-                            <span id="emailValidation" asp-validation-for="CreateUserVM.Email" class="text-danger"></span>
+                            <span  asp-validation-for="CreateUserVM.Email" class="text-danger"></span>
 
                             <input asp-for="CreateUserVM.PhoneNumber" type="text" placeholder="@DataDictionaries.PhoneNumber" class="form-control m-t-10" />
                             <span asp-validation-for="CreateUserVM.PhoneNumber" class="text-danger"></span>
@@ -174,7 +174,7 @@
                                     foreach (var role in roles)
                                     {
                                         <div class="radio radio-success" style="direction:ltr;text-align:right">
-                                            <input type="radio"  name="roleId" id="@role.RoleId" value="@role.RoleId">
+                                            <input class="roleRadio" type="radio"  name="roleId" id="@role.RoleId" value="@role.RoleId">
                                             <label for="@role.RoleId">
                                                 @role.RoleTiltle
                                             </label>
@@ -199,7 +199,7 @@
                     </div>
                     <hr />
                     <div>
-                        <input type="submit" class="btn btn-success" value="@ButtonCaptions.AddNewUser" />
+                        <input id="btnCreateUser" type="submit" class="btn btn-success" value="@ButtonCaptions.AddNewUser" />
                         <a class="btn btn-danger">@ButtonCaptions.Cancel</a>
                     </div>
                 </form>
@@ -231,6 +231,10 @@
     }
     $("#imgInp").change(function () {
         readURL(this);
+    });
+
+    $(function(){
+        $(".roleRadio").last().attr('checked','true');
     });
 </script>
 }
