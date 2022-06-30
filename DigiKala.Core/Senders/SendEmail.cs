@@ -25,7 +25,6 @@ namespace DigiKala.Core.Senders
             // mail.Attachments.Add(attachment);
 
             SmtpServer.Port = 587;
-            SmtpServer.UseDefaultCredentials = false;
             SmtpServer.Credentials = new System.Net.NetworkCredential("rubik.software1@gmail.com", "Amir13910815ho");
             SmtpServer.EnableSsl = true;
             SmtpServer.Send(mail);
