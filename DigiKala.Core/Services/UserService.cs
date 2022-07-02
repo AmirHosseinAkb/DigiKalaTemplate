@@ -10,6 +10,7 @@ using DigiKala.Core.Services.Interfaces;
 using DigiKala.Core.ViewModels.User;
 using DigiKala.Data.Context;
 using DigiKala.Data.Entities.User;
+using Microsoft.EntityFrameworkCore;
 
 namespace DigiKala.Core.Services
 {
@@ -151,7 +152,7 @@ namespace DigiKala.Core.Services
             if (take < 10)
                 take = 10;
             
-            IQueryable<User> users = _context.Users;
+            IQueryable<User> users = _context.Users.Include(u=>u.Role);
             if (!string.IsNullOrEmpty(fullName))
             {
                 users = users.Where(u => (u.FirstName != null && u.FirstName.Contains(fullName)) 
@@ -178,7 +179,8 @@ namespace DigiKala.Core.Services
                     PhoneNumber = u.PhoneNumber,
                     RegisterDate = u.RegisterDate,
                     NationalNumber = u.NationalNumber,
-                    //RoleName
+                    AvatarName = u.AvatarName,
+                    Role=u.Role
                 }).ToList();
             return Tuple.Create(informations, pageId, pageCount,take);
         }

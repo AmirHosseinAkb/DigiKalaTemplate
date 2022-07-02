@@ -205,11 +205,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If you write a password, the user current password will change.
+        /// </summary>
+        public static string EditPasswordMessage {
+            get {
+                return ResourceManager.GetString("EditPasswordMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EditPhoneNumber.
         /// </summary>
         public static string EditPhoneNumber {
             get {
                 return ResourceManager.GetString("EditPhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EditUser.
+        /// </summary>
+        public static string EditUser {
+            get {
+                return ResourceManager.GetString("EditUser", resourceCulture);
             }
         }
         

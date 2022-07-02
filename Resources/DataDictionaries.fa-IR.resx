@@ -165,8 +165,14 @@
   <data name="EditPassword" xml:space="preserve">
     <value>ویرایش رمز عبور</value>
   </data>
+  <data name="EditPasswordMessage" xml:space="preserve">
+    <value>در صورت وارد کردن رمز عبور، رمز عبور فعلی کاربر تغییر خواهد کرد</value>
+  </data>
   <data name="EditPhoneNumber" xml:space="preserve">
     <value>ویرایش شماره موبایل</value>
+  </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>ویرایش کاربر</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>ایمیل</value>

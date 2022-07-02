@@ -210,6 +210,100 @@ $("#btnCreateUser").click(function (e) {
                 }
             });
         }
+    }
+});
+/***********************************Edit User Informations From Admin************************************/
+function GetUserInformationsForEdit(firstName, lastName, email, phoneNumber, avatarName, userId, roleId) {
 
+    localStorage.setItem("UserEmail", email);
+    localStorage.setItem("PhoneNumber", phoneNumber);
+    $("#userIdInp").val(userId);
+
+    var inputs = $(".editRoleRadio");
+    for (var i = 0; i < inputs.length; i++) {
+        if ($(inputs[i]).val() == roleId) {
+            $(inputs[i]).attr("checked", "true");
+        }
+    }
+
+    $("#EditUserVM_FirstName").val(firstName);
+    $("#EditUserVM_LastName").val(lastName);
+    $("#EditUserVM_Email").val(email);
+    $("#EditUserVM_PhoneNumber").val(phoneNumber);
+    $("#editImgAvatar").attr("src", "/UserAvatar/" + avatarName);
+    $("#modalEditUser").modal('show');
+}
+/*****************************Edit User PhoneNumber and Email Existence******************************/
+
+$("#btnEditUser").click(function (e) {
+    $("#frmEditUser").validate();
+    var isValidForm = $("#frmEditUser").valid();
+    var isValidEmail = false;
+
+    if (isValidForm) {
+        e.preventDefault();
+        if ($("#EditUserVM_Email").val() != "") {
+            if ($("#EditUserVM_Email").val() != localStorage.getItem("UserEmail")) {
+                $.ajax({
+                    type: "Get",
+                    url: "/Admin/Users/IsExistEmailOrPhoneNumber?email=" + $("#EditUserVM_Email").val()
+                }).done(function (result) {
+                    if (result == "true") {
+                        sweetAlert("پیغام", "این ایمیل از قبل وجود دارد", "error");
+                    }
+                    else {
+                        if ($("#EditUserVM_PhoneNumber").val() == "") {
+                            $("#frmEditUser").submit();
+                        }
+                        else {
+                            isValidEmail = true;
+                        }
+                    }
+                });
+            }
+            else {
+                if ($("#EditUserVM_PhoneNumber").val() == "") {
+                    $("#frmEditUser").submit();
+                }
+                else {
+                    isValidEmail = true;
+                }
+            }
+
+        }
+        if ($("#EditUserVM_PhoneNumber").val() != "") {
+            if ($("#EditUserVM_PhoneNumber").val() != localStorage.getItem("PhoneNumber")) {
+                $.ajax({
+                    type: "Get",
+                    url: "/Admin/Users/IsExistEmailOrPhoneNumber?phoneNumber=" + $("#EditUserVM_PhoneNumber").val()
+                }).done(function (result) {
+                    if (result == "true") {
+                        sweetAlert("پیغام", "این شماره تلفن از قبل وجود دارد", "error");
+                    }
+                    else {
+                        if ($("#EditUserVM_Email").val() != "") {
+                            if (isValidEmail) {
+                                $("#frmEditUser").submit();
+                            }
+                        }
+                        else {
+                            $("#frmEditUser").submit();
+                        }
+
+                    }
+                });
+            }
+            else {
+                if ($("#EditUserVM_Email").val() != "") {
+                    if (isValidEmail) {
+                        $("#frmEditUser").submit();
+                    }
+                }
+                else {
+                    $("#frmEditUser").submit();
+                }
+            }
+
+        }
     }
 });

@@ -2,6 +2,7 @@
 @using DigiKala.Data.Entities.User
 @model DigiKala.Pages.Admin.Users.IndexModel
 @{
+    List<Role> roles = ViewData["Roles"] as List<Role>;
 }
 
 <div class="row">
@@ -91,9 +92,12 @@
                                                     <td>@user.NationalNumber</td>
                                                     <td>@user.PhoneNumber</td>
                                                     <td>@user.RegisterDate.ToShamsi()</td>
-                                                    <td></td>
+                                                    <td>@user.Role.RoleTiltle</td>
+                                                    @{
+                                                        var splitFullName = user.FullName.Split(' ');
+                                                    }
                                                     <td>
-                                                        <a class="btn btn-primary btn-xs" href="">@ButtonCaptions.Edit</a>
+                                                        <a onclick="GetUserInformationsForEdit('@splitFullName[0]','@splitFullName[1]','@user.Email','@user.PhoneNumber','@user.AvatarName',@user.UserId,@user.Role.RoleId)" class="btn btn-primary btn-xs btnEditUser">@ButtonCaptions.Edit</a>
                                                         <a class="btn btn-danger btn-xs" href="">@ButtonCaptions.Delete</a>
                                                     </td>
                                                 </tr>
@@ -155,17 +159,13 @@
                             <span asp-validation-for="CreateUserVM.LastName" class="text-danger"></span>
 
                             <input asp-for="CreateUserVM.Email" type="text" placeholder="@DataDictionaries.Email" class="form-control m-t-10" />
-                            <span  asp-validation-for="CreateUserVM.Email" class="text-danger"></span>
+                            <span asp-validation-for="CreateUserVM.Email" class="text-danger"></span>
 
                             <input asp-for="CreateUserVM.PhoneNumber" type="text" placeholder="@DataDictionaries.PhoneNumber" class="form-control m-t-10" />
                             <span asp-validation-for="CreateUserVM.PhoneNumber" class="text-danger"></span>
 
                             <input asp-for="CreateUserVM.Password" type="password" placeholder="@DataDictionaries.Password" class="form-control m-t-10" />
                             <span asp-validation-for="CreateUserVM.Password" class="text-danger"></span>
-
-                            @{
-                                List<Role> roles = ViewData["Roles"] as List<Role>;
-                            }
                             <hr />
                             <div class="m-t-10 m-r-10">
                                 <label>@DataDictionaries.UserRolesList</label>
@@ -174,7 +174,7 @@
                                     foreach (var role in roles)
                                     {
                                         <div class="radio radio-success" style="direction:ltr;text-align:right">
-                                            <input class="roleRadio" type="radio"  name="roleId" id="@role.RoleId" value="@role.RoleId">
+                                            <input class="roleRadio" type="radio" name="roleId" id="@role.RoleId" value="@role.RoleId">
                                             <label for="@role.RoleId">
                                                 @role.RoleTiltle
                                             </label>
@@ -200,6 +200,74 @@
                     <hr />
                     <div>
                         <input id="btnCreateUser" type="submit" class="btn btn-success" value="@ButtonCaptions.AddNewUser" />
+                        <a class="btn btn-danger">@ButtonCaptions.Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalEditUser" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h3>@DataDictionaries.EditUser</h3>
+                </div>
+                <form id="frmEditUser" method="post" asp-page-handler="EditUser" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input asp-for="EditUserVM.UserId" id="userIdInp" type="hidden"/>
+                            <input asp-for="EditUserVM.FirstName" type="text" placeholder="@DataDictionaries.FirstName" class="form-control m-t-10" />
+                            <span asp-validation-for="EditUserVM.FirstName" class="text-danger"></span>
+
+                            <input asp-for="EditUserVM.LastName" type="text" placeholder="@DataDictionaries.LastName" class="form-control m-t-10" />
+                            <span asp-validation-for="EditUserVM.LastName" class="text-danger"></span>
+
+                            <input asp-for="EditUserVM.Email" type="text" placeholder="@DataDictionaries.Email" class="form-control m-t-10" />
+                            <span asp-validation-for="EditUserVM.Email" class="text-danger"></span>
+
+                            <input asp-for="EditUserVM.PhoneNumber" type="text" placeholder="@DataDictionaries.PhoneNumber" class="form-control m-t-10" />
+                            <span asp-validation-for="EditUserVM.PhoneNumber" class="text-danger"></span>
+
+                            <input asp-for="EditUserVM.Password" type="password" placeholder="@DataDictionaries.Password" class="form-control m-t-10" />
+                            <p class="help-block"><span class="text-danger">*</span> @DataDictionaries.EditPasswordMessage</p>
+                            <span asp-validation-for="EditUserVM.Password" class="text-danger"></span>
+
+                            <hr />
+                            <div class="m-t-10 m-r-10">
+                                <label>@DataDictionaries.UserRolesList</label>
+                                @if (roles != null)
+                                {
+                                    foreach (var role in roles)
+                                    {
+                                        <div class="radio radio-success" style="direction:ltr;text-align:right">
+                                            <input class="editRoleRadio" type="radio" name="roleId" id="r@(role.RoleId)" value="@role.RoleId">
+                                            <label for="r@(role.RoleId)">
+                                                @role.RoleTiltle
+                                            </label>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="m-t-15">
+                                <div style="border:1px solid gray" class="form-control">
+                                    <p style="font-size:large">@DataDictionaries.UserAvatar</p>
+                                </div>
+                                <div>
+                                    <img id="editImgAvatar" class="img img-thumbnail" alt="UserAvatar" style="width:100%;height:100%;object-fit:cover" asp-append-version=true />
+                                </div>
+                                <div>
+                                    <input asp-for="EditUserVM.UserAvatar" id="editImgInp" type="file" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                        <input id="btnEditUser" type="submit" class="btn btn-success" value="@ButtonCaptions.EditUser" />
                         <a class="btn btn-danger">@ButtonCaptions.Cancel</a>
                     </div>
                 </form>
@@ -235,6 +303,23 @@
 
     $(function(){
         $(".roleRadio").last().attr('checked','true');
+    });
+</script>
+<script>
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#editImgAvatar').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#editImgInp").change(function () {
+        readURL(this);
     });
 </script>
 }

@@ -165,8 +165,14 @@
   <data name="EditPassword" xml:space="preserve">
     <value>Edit Password</value>
   </data>
+  <data name="EditPasswordMessage" xml:space="preserve">
+    <value>If you write a password, the user current password will change</value>
+  </data>
   <data name="EditPhoneNumber" xml:space="preserve">
     <value>EditPhoneNumber</value>
+  </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>EditUser</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>

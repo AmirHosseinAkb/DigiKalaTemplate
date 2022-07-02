@@ -20,6 +20,9 @@ namespace DigiKala.Pages.Admin.Users
         [BindProperty]
         public CreateUserViewModel CreateUserVM { get; set; }
 
+        [BindProperty]
+        public EditUserViewModel EditUserVM { get; set; }
+
         public Tuple<List<UsersInformationsForShowInAdminViewModel>,int,int,int> UsersInformationsVm { get; set; }
         
         public void OnGet(int pageId = 1, string fullName = "", string email = "", string phoneNumber = "", int take = 20)
@@ -41,6 +44,17 @@ namespace DigiKala.Pages.Admin.Users
 
             _userService.AddUser(CreateUserVM, roleId);
             
+            return RedirectToPage();
+        }
+
+        public IActionResult OnPostEditUser(int roleId)
+        {
+            if (!ModelState.IsValid || roleId == 0)
+                return RedirectToPage();
+
+            if (!_permissionService.IsExistRoleById(roleId))
+                return RedirectToPage();
+
             return RedirectToPage();
         }
 

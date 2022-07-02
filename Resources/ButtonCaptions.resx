@@ -141,6 +141,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>Edit User</value>
+  </data>
   <data name="JoinUs" xml:space="preserve">
     <value>JoinUs</value>
   </data>
