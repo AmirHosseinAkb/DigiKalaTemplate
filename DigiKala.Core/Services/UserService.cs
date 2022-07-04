@@ -310,7 +310,7 @@ namespace DigiKala.Core.Services
             return Tuple.Create(informations, pageId, pageCount, take);
         }
 
-        public void ReturnUser(int userId)
+        public void ReturnDeletedUser(int userId)
         {
             var user = _context.Users.IgnoreQueryFilters().SingleOrDefault(u => u.IsDeleted && u.UserId == userId);
             user.IsDeleted = false;

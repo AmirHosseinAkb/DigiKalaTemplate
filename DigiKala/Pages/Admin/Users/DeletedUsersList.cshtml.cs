@@ -22,9 +22,9 @@ namespace DigiKala.Pages.Admin.Users
             ViewData["Take"] = take;
             UsersInformationsVm = _userService.GetDeletedUsersInformationsForShowInAdmin(pageId, fullName, email, phoneNumber, take);
         }
-        public IActionResult OnPostReturnUser(int userId)
+        public IActionResult OnPostReturnDeletedUser(int userId)
         {
-            _userService.ReturnUser(userId);
+            _userService.ReturnDeletedUser(userId);
             return RedirectToPage("Index");
         }
     }

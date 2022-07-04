@@ -288,11 +288,11 @@
   <data name="ResetUserPasswordText" xml:space="preserve">
     <value>Your password has been successfully recovered and you can now log in using this password</value>
   </data>
+  <data name="ReturnDeletedUser" xml:space="preserve">
+    <value>Return Deleted User</value>
+  </data>
   <data name="ReturnDeletedUsersHelp" xml:space="preserve">
     <value>After delete you can return deleted users from "Deleted Users" section.</value>
-  </data>
-  <data name="ReturnUser" xml:space="preserve">
-    <value>Return User</value>
   </data>
   <data name="Role" xml:space="preserve">
     <value>Role</value>
