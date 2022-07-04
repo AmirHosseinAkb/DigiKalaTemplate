@@ -220,5 +220,49 @@ namespace DigiKala.Core.Services
             }
             AddUser(user);
         }
+
+        public User GetUserById(int userId)
+        {
+            return _context.Users.Find(userId);
+        }
+
+        public void EditUserFromAdmin(EditUserViewModel editUserVM, int roleId)
+        {
+            var user = GetUserById(editUserVM.UserId);
+
+            if(editUserVM.Email!=user.Email)
+                user.Email=EmailConvertor.FixEmail(editUserVM.Email);
+
+            if (editUserVM.PhoneNumber != user.PhoneNumber)
+                user.PhoneNumber = editUserVM.PhoneNumber;
+
+            if(!string.IsNullOrEmpty(editUserVM.Password))
+                user.Password=PasswordHasher.HashPasswordMD5(editUserVM.Password);
+
+            user.FirstName = editUserVM.FirstName;
+            user.LastName=editUserVM.LastName;
+            user.RoleId = roleId;
+            if (editUserVM.UserAvatar != null)
+            {
+                string imagePath = "";
+                if (user.AvatarName != "Default.png")
+                {
+                    imagePath = Path.Combine(Directory.GetCurrentDirectory(),
+                        "wwwroot",
+                        "UserAvatar",
+                        user.AvatarName);
+                    if (File.Exists(imagePath))
+                        File.Delete(imagePath);
+                }
+                user.AvatarName = NameGenerator.GenerateUniqName() + Path.GetExtension(editUserVM.UserAvatar.FileName);
+                imagePath = Path.Combine(Directory.GetCurrentDirectory(),
+                    "wwwroot",
+                    "UserAvatar",
+                    user.AvatarName);
+                using(var stream=new FileStream(imagePath, FileMode.Create))
+                    editUserVM.UserAvatar.CopyTo(stream);   
+            }
+            _context.SaveChanges();
+        }
     }
 }

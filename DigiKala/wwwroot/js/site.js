@@ -238,72 +238,46 @@ function GetUserInformationsForEdit(firstName, lastName, email, phoneNumber, ava
 $("#btnEditUser").click(function (e) {
     $("#frmEditUser").validate();
     var isValidForm = $("#frmEditUser").valid();
-    var isValidEmail = false;
+    var isValidEmailInEdit = false;
 
     if (isValidForm) {
         e.preventDefault();
-        if ($("#EditUserVM_Email").val() != "") {
-            if ($("#EditUserVM_Email").val() != localStorage.getItem("UserEmail")) {
-                $.ajax({
-                    type: "Get",
-                    url: "/Admin/Users/IsExistEmailOrPhoneNumber?email=" + $("#EditUserVM_Email").val()
-                }).done(function (result) {
-                    if (result == "true") {
-                        sweetAlert("پیغام", "این ایمیل از قبل وجود دارد", "error");
-                    }
-                    else {
-                        if ($("#EditUserVM_PhoneNumber").val() == "") {
-                            $("#frmEditUser").submit();
-                        }
-                        else {
-                            isValidEmail = true;
-                        }
-                    }
-                });
-            }
-            else {
-                if ($("#EditUserVM_PhoneNumber").val() == "") {
+        if ($("#EditUserVM_Email").val() != "" && $("#EditUserVM_Email").val() != localStorage.getItem("UserEmail")) {
+            $.ajax({
+                type: "Get",
+                url: "/Admin/Users/IsExistEmailOrPhoneNumber?email=" + $("#EditUserVM_Email").val()
+            }).done(function (result) {
+                if (result == "true") {
+                    sweetAlert("پیغام", "این ایمیل از قبل وجود دارد", "error");
+                }
+                else if ($("#EditUserVM_PhoneNumber").val() == "") {
+                    $("#frmEditUser").submit();
+                }
+                else if (!($("#EditUserVM_PhoneNumber").val() != "" && $("#EditUserVM_PhoneNumber").val() != localStorage.getItem("PhoneNumber"))) {
                     $("#frmEditUser").submit();
                 }
                 else {
-                    isValidEmail = true;
+                    isValidEmailInEdit = true;
                 }
-            }
-
+            });
         }
-        if ($("#EditUserVM_PhoneNumber").val() != "") {
-            if ($("#EditUserVM_PhoneNumber").val() != localStorage.getItem("PhoneNumber")) {
-                $.ajax({
-                    type: "Get",
-                    url: "/Admin/Users/IsExistEmailOrPhoneNumber?phoneNumber=" + $("#EditUserVM_PhoneNumber").val()
-                }).done(function (result) {
-                    if (result == "true") {
-                        sweetAlert("پیغام", "این شماره تلفن از قبل وجود دارد", "error");
-                    }
-                    else {
-                        if ($("#EditUserVM_Email").val() != "") {
-                            if (isValidEmail) {
-                                $("#frmEditUser").submit();
-                            }
-                        }
-                        else {
-                            $("#frmEditUser").submit();
-                        }
 
-                    }
-                });
-            }
-            else {
-                if ($("#EditUserVM_Email").val() != "") {
-                    if (isValidEmail) {
-                        $("#frmEditUser").submit();
-                    }
+        if ($("#EditUserVM_PhoneNumber").val() != "" && $("#EditUserVM_PhoneNumber").val() != localStorage.getItem("PhoneNumber")) {
+            $.ajax({
+                type: "Get",
+                url: "/Admin/Users/IsExistEmailOrPhoneNumber?phoneNumber=" + $("#EditUserVM_PhoneNumber").val()
+            }).done(function (result) {
+                if (result == "true") {
+                    sweetAlert("پیغام", "این شماره تلفن از قبل وجود دارد", "error");
                 }
-                else {
+                else if ($("#EditUserVM_Email").val() == "" || $("#EditUserVM_Email").val() == localStorage.getItem("UserEmail")) {
                     $("#frmEditUser").submit();
                 }
-            }
-
+                else if (isValidEmailInEdit) {
+                    $("#frmEditUser").submit();
+                }
+            });
         }
     }
 });
+

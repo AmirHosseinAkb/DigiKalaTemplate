@@ -17,6 +17,7 @@ namespace DigiKala.Core.Services.Interfaces
         bool IsExistUserByPhoneNumber(string phoneNumber);
         User GetUserByEmail(string email);
         User GetUserByPhoneNumber(string phoneNumber);
+        User GetUserById(int userId);
         bool IsExistUserByActivationCode(string activationCode);
         bool ResetUserPassword(string activationCode, string password);
         User IsExistUserForLogin(string email, string password);
@@ -39,6 +40,7 @@ namespace DigiKala.Core.Services.Interfaces
             int pageId=1,string fullName = "", string email = "", string phoneNumber = "", int take = 10);
 
         void AddUser(CreateUserViewModel createUserVM,int roleId); //Add User From Admin
+        void EditUserFromAdmin(EditUserViewModel editUserVM, int roleId);
         #endregion
     }
 }
