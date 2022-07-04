@@ -138,4 +138,10 @@
   <data name="ResetPasswordEmailSent" xml:space="preserve">
     <value>Reset Password Email Sent Successfully</value>
   </data>
+  <data name="ReturnUserConfirmationS1" xml:space="preserve">
+    <value>Are you sure you want to return user?</value>
+  </data>
+  <data name="ReturnUserConfirmationS2" xml:space="preserve">
+    <value />
+  </data>
 </root>

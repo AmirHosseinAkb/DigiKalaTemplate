@@ -159,6 +159,9 @@
   <data name="ReturnHome" xml:space="preserve">
     <value>Return Home</value>
   </data>
+  <data name="ReturnUser" xml:space="preserve">
+    <value>Return User</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>

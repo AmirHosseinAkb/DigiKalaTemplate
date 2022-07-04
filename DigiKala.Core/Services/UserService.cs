@@ -149,8 +149,8 @@ namespace DigiKala.Core.Services
         public Tuple<List<UsersInformationsForShowInAdminViewModel>, int, int,int> GetUsersInformationsForShowInAdmin(int pageId = 1, string fullName = ""
             , string email = "", string phoneNumber = "", int take = 10)
         {
-            if (take < 10)
-                take = 10;
+            if (take < 20)
+                take = 20;
             
             IQueryable<User> users = _context.Users.Include(u=>u.Role);
             if (!string.IsNullOrEmpty(fullName))
@@ -269,6 +269,51 @@ namespace DigiKala.Core.Services
         {
             var user = GetUserById(userId);
             user.IsDeleted = true;
+            _context.SaveChanges();
+        }
+
+        public Tuple<List<UsersInformationsForShowInAdminViewModel>, int, int, int> GetDeletedUsersInformationsForShowInAdmin(int pageId = 1, string fullName = "", string email = "", string phoneNumber = "", int take = 20)
+        {
+            if (take < 20)
+                take = 20;
+
+            IQueryable<User> users = _context.Users.Include(u => u.Role).IgnoreQueryFilters().Where(u=>u.IsDeleted);
+            if (!string.IsNullOrEmpty(fullName))
+            {
+                users = users.Where(u => (u.FirstName != null && u.FirstName.Contains(fullName))
+                || (u.LastName != null && u.LastName.Contains(fullName)));
+            }
+            if (!string.IsNullOrEmpty(email))
+            {
+                users = users.Where(u => u.Email != null && u.Email.Contains(EmailConvertor.FixEmail(email)));
+            }
+            if (!string.IsNullOrEmpty(phoneNumber))
+            {
+                users = users.Where(u => u.PhoneNumber != null && u.PhoneNumber.Contains(phoneNumber));
+            }
+            var skip = (pageId - 1) * take;
+            var pageCount = users.Count() / take;
+            if (users.Count() % take != 0)
+                pageCount++;
+            var informations = users.Skip(skip).Take(take)
+                .Select(u => new UsersInformationsForShowInAdminViewModel()
+                {
+                    UserId = u.UserId,
+                    Email = u.Email,
+                    FullName = u.FirstName + " " + u.LastName,
+                    PhoneNumber = u.PhoneNumber,
+                    RegisterDate = u.RegisterDate,
+                    NationalNumber = u.NationalNumber,
+                    AvatarName = u.AvatarName,
+                    Role = u.Role
+                }).ToList();
+            return Tuple.Create(informations, pageId, pageCount, take);
+        }
+
+        public void ReturnUser(int userId)
+        {
+            var user = _context.Users.IgnoreQueryFilters().SingleOrDefault(u => u.IsDeleted && u.UserId == userId);
+            user.IsDeleted = false;
             _context.SaveChanges();
         }
     }

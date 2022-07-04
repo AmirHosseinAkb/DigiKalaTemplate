@@ -162,6 +162,9 @@
   <data name="December" xml:space="preserve">
     <value>December</value>
   </data>
+  <data name="DeletedUsersList" xml:space="preserve">
+    <value>Deleted Users List</value>
+  </data>
   <data name="DeleteUser" xml:space="preserve">
     <value>Delete User</value>
   </data>
@@ -287,6 +290,9 @@
   </data>
   <data name="ReturnDeletedUsersHelp" xml:space="preserve">
     <value>After delete you can return deleted users from "Deleted Users" section.</value>
+  </data>
+  <data name="ReturnUser" xml:space="preserve">
+    <value>Return User</value>
   </data>
   <data name="Role" xml:space="preserve">
     <value>Role</value>

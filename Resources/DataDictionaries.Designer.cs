@@ -196,6 +196,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deleted Users List.
+        /// </summary>
+        public static string DeletedUsersList {
+            get {
+                return ResourceManager.GetString("DeletedUsersList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete User.
         /// </summary>
         public static string DeleteUser {
@@ -570,6 +579,15 @@ namespace Resources {
         public static string ReturnDeletedUsersHelp {
             get {
                 return ResourceManager.GetString("ReturnDeletedUsersHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Return User.
+        /// </summary>
+        public static string ReturnUser {
+            get {
+                return ResourceManager.GetString("ReturnUser", resourceCulture);
             }
         }
         

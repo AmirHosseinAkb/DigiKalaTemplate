@@ -138,4 +138,10 @@
   <data name="ResetPasswordEmailSent" xml:space="preserve">
     <value>ایمیل تغییر رمز عبور با موفقیت ارسال شد</value>
   </data>
+  <data name="ReturnUserConfirmationS1" xml:space="preserve">
+    <value>ایا مطمئنید که میخواهید کاربر </value>
+  </data>
+  <data name="ReturnUserConfirmationS2" xml:space="preserve">
+    <value> را به لیست کاربران برگردانید؟</value>
+  </data>
 </root>

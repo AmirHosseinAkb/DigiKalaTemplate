@@ -122,5 +122,23 @@ namespace Resources {
                 return ResourceManager.GetString("ResetPasswordEmailSent", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to return user?.
+        /// </summary>
+        public static string ReturnUserConfirmationS1 {
+            get {
+                return ResourceManager.GetString("ReturnUserConfirmationS1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string ReturnUserConfirmationS2 {
+            get {
+                return ResourceManager.GetString("ReturnUserConfirmationS2", resourceCulture);
+            }
+        }
     }
 }
