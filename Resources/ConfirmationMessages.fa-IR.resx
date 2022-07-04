@@ -126,6 +126,12 @@
   <data name="ConfirmResetPassword" xml:space="preserve">
     <value>رمز عبور با موفقیت بازیابی شد</value>
   </data>
+  <data name="DeleteUserConfirmationS1" xml:space="preserve">
+    <value>آیا مطمئنید که می خواهید کاربر </value>
+  </data>
+  <data name="DeleteUserConfirmationS2" xml:space="preserve">
+    <value> را حذف کنید؟</value>
+  </data>
   <data name="PasswordChangedSuccessfully" xml:space="preserve">
     <value>رمز عبور شما با موفقیت تغییر یافت از این پس می توانید با استفاده از این رمز عبور وارد سایت شوید</value>
   </data>

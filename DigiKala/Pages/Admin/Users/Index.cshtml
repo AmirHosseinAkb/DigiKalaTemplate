@@ -98,7 +98,7 @@
                                                     }
                                                     <td>
                                                         <a onclick="GetUserInformationsForEdit('@splitFullName[0]','@splitFullName[1]','@user.Email','@user.PhoneNumber','@user.AvatarName',@user.UserId,@user.Role.RoleId)" class="btn btn-primary btn-xs btnEditUser">@ButtonCaptions.Edit</a>
-                                                        <a class="btn btn-danger btn-xs" href="">@ButtonCaptions.Delete</a>
+                                                        <a onclick="GetUserInformationsForDelete(@user.UserId,'@user.FullName','@user.AvatarName')" class="btn btn-danger btn-xs">@ButtonCaptions.Delete</a>
                                                     </td>
                                                 </tr>
                                             }
@@ -200,7 +200,7 @@
                     <hr />
                     <div>
                         <input id="btnCreateUser" type="submit" class="btn btn-success" value="@ButtonCaptions.AddNewUser" />
-                        <a class="btn btn-danger">@ButtonCaptions.Cancel</a>
+                        <a class="btn btn-danger" data-dismiss="modal">@ButtonCaptions.Cancel</a>
                     </div>
                 </form>
             </div>
@@ -217,7 +217,7 @@
                 <form id="frmEditUser" method="post" asp-page-handler="EditUser" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-8">
-                            <input asp-for="EditUserVM.UserId" id="userIdInp" type="hidden"/>
+                            <input asp-for="EditUserVM.UserId" id="userIdInp" type="hidden" />
                             <input asp-for="EditUserVM.FirstName" type="text" placeholder="@DataDictionaries.FirstName" class="form-control m-t-10" />
                             <span asp-validation-for="EditUserVM.FirstName" class="text-danger"></span>
 
@@ -268,13 +268,41 @@
                     <hr />
                     <div>
                         <input id="btnEditUser" type="submit" class="btn btn-success" value="@ButtonCaptions.EditUser" />
-                        <a class="btn btn-danger">@ButtonCaptions.Cancel</a>
+                        <a class="btn btn-danger" data-dismiss="modal">@ButtonCaptions.Cancel</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<div id="modalDeleteUser" class="modal fade">
+    <div class="modal-dialog" style="width:45%">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h3>@DataDictionaries.DeleteUser</h3>
+                </div>
+                <form id="frmDeleteUser" method="post" asp-page-handler="DeleteUser">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img id="deleteImgAvatar" class="img img-thumbnail" alt="UserAvatar" style="width:100%;height:100%;object-fit:cover" asp-append-version=true />
+                        </div>
+                        <div class="col-md-8">
+                            <h4>@ConfirmationMessages.DeleteUserConfirmationS1 (<span id="userNameInp" class="text-danger"></span>) @ConfirmationMessages.DeleteUserConfirmationS2</h4>
+                            <input id="userIdForDelete" type="hidden"  />
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                        <input id="btnDeleteUser" type="submit" class="btn btn-danger" value="@ButtonCaptions.Delete" />
+                        <a class="btn btn-success" data-dismiss="modal">@ButtonCaptions.Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @section Scripts{
 <script>
@@ -304,6 +332,13 @@
     $(function(){
         $(".roleRadio").last().attr('checked','true');
     });
+    function GetUserInformationsForDelete(userId,userName,avatarName)
+    {
+        $("#userIdForDelete").val(userId);
+        $("#userNameInp").text(userName);
+        $("#deleteImgAvatar").attr("src","/UserAvatar/"+avatarName);
+        $("#modalDeleteUser").modal('show');
+    }
 </script>
 <script>
     function readURL(input) {

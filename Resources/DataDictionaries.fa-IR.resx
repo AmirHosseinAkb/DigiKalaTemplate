@@ -162,6 +162,9 @@
   <data name="December" xml:space="preserve">
     <value>آذر</value>
   </data>
+  <data name="DeleteUser" xml:space="preserve">
+    <value>حذف کاربر</value>
+  </data>
   <data name="EditPassword" xml:space="preserve">
     <value>ویرایش رمز عبور</value>
   </data>

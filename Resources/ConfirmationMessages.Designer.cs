@@ -88,6 +88,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want delete user?.
+        /// </summary>
+        public static string DeleteUserConfirmationS1 {
+            get {
+                return ResourceManager.GetString("DeleteUserConfirmationS1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DeleteUserConfirmationS2 {
+            get {
+                return ResourceManager.GetString("DeleteUserConfirmationS2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PasswordChangedSuccessfully.
         /// </summary>
         public static string PasswordChangedSuccessfully {
