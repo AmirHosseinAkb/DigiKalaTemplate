@@ -285,6 +285,9 @@
   <data name="ResetUserPasswordText" xml:space="preserve">
     <value>رمز عبور شما با موفقیت بازیابی شد حال میتوانید با استفاده از این رمز عبور وارد سایت شوید</value>
   </data>
+  <data name="ReturnDeletedUsersHelp" xml:space="preserve">
+    <value>پس از حذف کاربر می توانید کاربر را از بخش "Deleted Users" دوباره به قسمت کاربران سایت باز گردانید</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>نقش</value>
   </data>

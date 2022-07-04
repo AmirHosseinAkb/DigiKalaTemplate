@@ -264,5 +264,12 @@ namespace DigiKala.Core.Services
             }
             _context.SaveChanges();
         }
+
+        public void DeleteUser(int userId)
+        {
+            var user = GetUserById(userId);
+            user.IsDeleted = true;
+            _context.SaveChanges();
+        }
     }
 }

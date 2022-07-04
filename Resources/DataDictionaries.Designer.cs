@@ -565,6 +565,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to After delete you can return deleted users from &quot;Deleted Users&quot; section..
+        /// </summary>
+        public static string ReturnDeletedUsersHelp {
+            get {
+                return ResourceManager.GetString("ReturnDeletedUsersHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Role.
         /// </summary>
         public static string Role {

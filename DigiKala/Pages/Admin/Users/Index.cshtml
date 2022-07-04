@@ -289,7 +289,8 @@
                         </div>
                         <div class="col-md-8">
                             <h4>@ConfirmationMessages.DeleteUserConfirmationS1 (<span id="userNameInp" class="text-danger"></span>) @ConfirmationMessages.DeleteUserConfirmationS2</h4>
-                            <input id="userIdForDelete" type="hidden"  />
+                            <input id="userIdForDeleteInp" name="userId" type="hidden"  />
+                            <p class="help-block">@DataDictionaries.ReturnDeletedUsersHelp</p>
                         </div>
                     </div>
                     <hr />
@@ -334,7 +335,7 @@
     });
     function GetUserInformationsForDelete(userId,userName,avatarName)
     {
-        $("#userIdForDelete").val(userId);
+        $("#userIdForDeleteInp").val(userId);
         $("#userNameInp").text(userName);
         $("#deleteImgAvatar").attr("src","/UserAvatar/"+avatarName);
         $("#modalDeleteUser").modal('show');

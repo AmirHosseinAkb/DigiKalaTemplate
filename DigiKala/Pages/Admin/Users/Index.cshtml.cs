@@ -86,5 +86,11 @@ namespace DigiKala.Pages.Admin.Users
                 return Content(_userService.IsExistUserByPhoneNumber(phoneNumber).ToString().ToLower());
             return Content("false");
         }
+
+        public IActionResult OnPostDeleteUser(int userId)
+        {
+            _userService.DeleteUser(userId);
+            return RedirectToPage();
+        }
     }
 }

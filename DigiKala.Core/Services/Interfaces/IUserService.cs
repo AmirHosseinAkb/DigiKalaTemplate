@@ -41,6 +41,7 @@ namespace DigiKala.Core.Services.Interfaces
 
         void AddUser(CreateUserViewModel createUserVM,int roleId); //Add User From Admin
         void EditUserFromAdmin(EditUserViewModel editUserVM, int roleId);
+        void DeleteUser(int userId);
         #endregion
     }
 }
